@@ -57,7 +57,7 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "bin-dir": "vender/bin",
+        "bin-dir": "vendor/bin",
         "sort-packages": true
     },
     "minimum-stability": "dev",
