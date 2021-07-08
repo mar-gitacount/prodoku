@@ -1,2 +1,3 @@
-web: vendor/bin/heroku-php-apache2 public/' > Procfile
+
+web: vender/bin/heroku-php-apache2 public/
 
