@@ -2,7 +2,10 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
@@ -52,6 +55,7 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
+        "bin-dir": "vender/bin",
         "sort-packages": true
     },
     "minimum-stability": "dev",
