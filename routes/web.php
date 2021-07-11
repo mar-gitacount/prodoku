@@ -21,7 +21,7 @@ Route::get('/', function () {
 //タレコミページのルーティング
 Route::get('/tarekomi', [App\Http\Controllers\tarekomiController::class, 'index'])->name('tarekomi')/* rootで利用できるname設定 */;
 
-Auth::routes();
+//Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/biasfaq', [App\Http\Controllers\HomeController::class, 'index'])->name('biasfaq');
