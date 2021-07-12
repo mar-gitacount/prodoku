@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\tarekomi;
+use App\Http\Requests\Tarekomi;
 
 class tarekomiController extends Controller
 {
@@ -14,7 +14,7 @@ class tarekomiController extends Controller
     }
 
 
-    public function store(tarekomi $request)
+    public function store(Tarekomi $request)
     {
         if (null == $request->name) {
             $name = "匿名希望";
