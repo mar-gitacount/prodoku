@@ -10,25 +10,18 @@
             @csrf
             <fieldset class="mb-4">
                 <div class="form-group">
-                    <label for="subject">
+                    <label for="name">
                         あなたの名前(匿名でも構いません)
                     </label>
-                    <input
-                        id="name"
-                        name="name"
-                        class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                        placeholder="匿名希望" 
-                        value="{{ old('name') }}"
-                        type="text"
-                    >
+                    <input id="name" name="name" class = "form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" placeholder="匿名希望"  value="{{ old('name') }}" type="text">
                     @if ($errors->has('name'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
-                    </div>
+                        <div class="invalid-feedback">
+                            {{ $errors->first('name') }}
+                        </div>
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="subject">
+                    <label for="title">
                         タイトル(オンラインサロンや宗教の場合そのリーダーや教祖の名前も一緒に記載して下さいね)
                     </label>
                     <input
@@ -38,9 +31,9 @@
                         value="{{ old('title') }}"
                         type="text"
                     >
-                    @if ($errors->has('subject'))
+                    @if ($errors->has('title'))
                         <div class="invalid-feedback">
-                            {{ $errors->first('subject') }}
+                            {{ $errors->first('title') }}
                         </div>
                     @endif
                 </div>
@@ -49,10 +42,9 @@
                         ジャンル
                     </label>
                     <div class="">
-                        <select>
+                        <select name="gunle">
                             @foreach (config('tarekomigunle') as $key => $tarekomigunle)
                                 <option value="{{$key}}">{{ $tarekomigunle['label'] }}</option>
-                                dump($key);
                             @endforeach
                         </select>
                     </div>
@@ -64,6 +56,16 @@
                     <textarea name="message" id="message"  class="form-control {{ $errors->has('message') ? 'is-invalid' : '' }}" cols="30" rows="10">
                         {{ old('message') }}
                     </textarea>
+                    @if ($errors->has('message'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('message') }}
+                    </div>
+                @endif
+                </div>
+                <div class="mt-5">
+                    <button type="submit" class="btn btn-primary">
+                        投稿する
+                    </button>
                 </div>
             </fieldset>
         </form>

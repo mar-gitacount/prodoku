@@ -13,7 +13,7 @@ class tarekomi extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,8 +26,8 @@ class tarekomi extends FormRequest
     {
         return [
             //
-            'name' => 'required|max:40',
-            'subject' => 'required|max:80',
+            'name' => 'max:40',
+            'title' => 'required|max:80',
             'message' => 'required|max:10000',
         ];
     }
@@ -35,10 +35,10 @@ class tarekomi extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => '名前を入力してください',
+            // 'name.required' => '名前を入力してください',
             'name.max' => '名前は40文字以内で入力してください',
-            'subject.required' => '件名を入力してください',
-            'subject.max' => '件名は80文字以内で入力してください',
+            'title.required' => 'タイトルを入力してください',
+            'title.max' => 'タイトルは80文字以内で入力してください',
             'message.required' => 'タレコミを入力してください',
             'message.max' => 'タレコミは10000文字以内で入力してください',
         ];
