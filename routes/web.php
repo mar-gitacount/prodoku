@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\Tarekomi;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 //topのページのルーティング
 Route::get('/', function () {
-    return view('top');
+    $tarekomi = Tarekomi::findOrFail(1);
+    $tarekomi = $tarekomi->message;
+    $tarekomis = DB::table('tarekomis')->orderBy('created_at', 'desc')->paginate(10);
+    dd($tarekomis);
+    return view('top', compact('tarekomis'));
+    return view('top', ['tarekomis' => $tarekomis]);
 });
 
 

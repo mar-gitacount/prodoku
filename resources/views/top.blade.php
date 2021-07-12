@@ -17,6 +17,10 @@
                 </div>
             </div>
         </div>
+        {{$tarekomis}}
+        {{-- @foreach ($tarekomis as $item)
+            {{$item}}
+        @endforeach --}}
     </div>
 </div>
 @endsection
