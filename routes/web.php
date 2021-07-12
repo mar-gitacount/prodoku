@@ -18,7 +18,8 @@ Route::get('/', function () {
     $tarekomi = Tarekomi::findOrFail(1);
     $tarekomi = $tarekomi->message;
     $tarekomis = DB::table('tarekomis')->orderBy('created_at', 'desc')->paginate(10);
-    dd($tarekomis);
+    //dd($tarekomis);
+    return view('top');
     return view('top', compact('tarekomis'));
     return view('top', ['tarekomis' => $tarekomis]);
 });
