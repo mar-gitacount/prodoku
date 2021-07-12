@@ -14,7 +14,7 @@ class tarekomiController extends Controller
     }
 
 
-    public function store(Tarekomi $request)
+    public function store(tarekomi $request)
     {
         if (null == $request->name) {
             $name = "匿名希望";
