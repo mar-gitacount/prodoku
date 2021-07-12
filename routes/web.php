@@ -15,9 +15,9 @@ use App\Models\Tarekomi;
 */
 //topのページのルーティング
 Route::get('/', function () {
-    $tarekomi = Tarekomi::findOrFail(1);
-    $tarekomi = $tarekomi->message;
-    $tarekomis = DB::table('tarekomis')->orderBy('created_at', 'desc')->paginate(10);
+    // $tarekomi = Tarekomi::findOrFail(1);
+    // $tarekomi = $tarekomi->message;
+    // $tarekomis = DB::table('tarekomis')->orderBy('created_at', 'desc')->paginate(10);
     //dd($tarekomis);
     return view('top');
     return view('top', compact('tarekomis'));
