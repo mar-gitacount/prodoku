@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\Tarekomi;
+use App\Http\Requests\tarekomi;
 
 class tarekomiController extends Controller
 {
