@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 
 //タレコミページのルーティング
-Route::get('/tarekomi', [App\Http\Controllers\tarekomiController::class, 'index'])->name('tarekomi')/* rootで利用できるname設定 */;
-
+Route::get('/tarekomi', [App\Http\Controllers\tarekomiController::class, 'index'])->name('tarekomi');
+Route::post('/tarekomi', [App\Http\Controllers\tarekomiController::class, 'store'])->name('store');
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
