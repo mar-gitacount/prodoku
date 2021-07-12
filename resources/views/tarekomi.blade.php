@@ -11,12 +11,13 @@
             <fieldset class="mb-4">
                 <div class="form-group">
                     <label for="subject">
-                        名前
+                        あなたの名前(匿名でも構いません)
                     </label>
                     <input
                         id="name"
                         name="name"
                         class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+                        placeholder="匿名希望" 
                         value="{{ old('name') }}"
                         type="text"
                     >
@@ -28,7 +29,7 @@
                 </div>
                 <div class="form-group">
                     <label for="subject">
-                        タイトル
+                        タイトル(オンラインサロンや宗教の場合そのリーダーや教祖の名前も一緒に記載して下さいね)
                     </label>
                     <input
                         id="title"
@@ -44,12 +45,25 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <select>
-                        @foreach (config('tarekomigunle') as $key => $tarekomigunle)
-                            <option value="{{$key}}">{{ $tarekomigunle['label'] }}</option>
-                            
-                        @endforeach
-                    </select>
+                    <label for="tarekomigunle">
+                        ジャンル
+                    </label>
+                    <div class="">
+                        <select>
+                            @foreach (config('tarekomigunle') as $key => $tarekomigunle)
+                                <option value="{{$key}}">{{ $tarekomigunle['label'] }}</option>
+                                dump($key);
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-grop">
+                    <label for="message">
+                        内容:10000文字で以内でお願いします。細かい日付や時間を記載しても良いですし、ざっくりした内容でも大丈夫です。
+                    </label>
+                    <textarea name="message" id="message"  class="form-control {{ $errors->has('message') ? 'is-invalid' : '' }}" cols="30" rows="10">
+                        {{ old('message') }}
+                    </textarea>
                 </div>
             </fieldset>
         </form>

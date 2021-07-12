@@ -18,7 +18,7 @@ class CreateTarekomiTable extends Migration
             $table->timestamps();
             $table->string("name");
             $table->text("title");
-            $table->text("ジャンル");
+            $table->integer('gunle')->default(0);
             $table->text("message");
         });
     }
