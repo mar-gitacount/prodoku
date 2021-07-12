@@ -30,6 +30,8 @@ class tarekomiController extends Controller
         ];
         $tarekomi = new Tarekomi();
         $tarekomi->fill($savedate);
-        return redirect('/');
+        $tarekomi->save();
+        //dd($tarekomi);
+        return redirect('/tarekomi');
     }
 }
