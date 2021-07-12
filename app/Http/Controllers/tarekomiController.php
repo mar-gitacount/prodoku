@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\Tarekomi;
+use App\Http\Requests\Tarekomipost;
+use App\Models\Tarekomi;
 
 class tarekomiController extends Controller
 {
@@ -14,7 +15,7 @@ class tarekomiController extends Controller
     }
 
 
-    public function store(Tarekomi $request)
+    public function store(Tarekomipost $request)
     {
         if (null == $request->name) {
             $name = "匿名希望";
@@ -27,6 +28,8 @@ class tarekomiController extends Controller
             'gunle' => $request->gunle,
             'message' => $request->message
         ];
-        dd($savedate);
+        $tarekomi = new Tarekomi();
+        $tarekomi->fill($savedate);
+        return redirect('/');
     }
 }
