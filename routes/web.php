@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tarekomi;
+use App\Http\Controllers\TarekomiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,13 +23,18 @@ Route::get('/', function () {
     //dd($tarekomis);
     return view('top');
     return view('top', compact('tarekomis'));
-    return view('top', ['tarekomis' => $tarekomis]);
+    //return view('top', ['tarekomis' => $tarekomis]);
 });
 
 
 //タレコミページのルーティング
-Route::get('/tarekomi', [App\Http\Controllers\tarekomiController::class, 'index'])->name('tarekomi');
-Route::post('/tarekomi', [App\Http\Controllers\tarekomiController::class, 'store'])->name('store');
+Route::get('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'index'])->name('tarekomi');
+Route::post('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'post'])->name('post');
+
+Route::get('/tarekomi/confirm', [App\Http\Controllers\TarekomiController::class, 'confirm'])->name('confirm');
+
+//Route::post('/tarekomi', [App\Http\Controllers\tarekomiController::class, 'store'])->name('store');
+Route::get('/tarekomi/thanks', [App\Http\Controllers\TarekomiController::class, 'thanks'])->name('thanks');
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

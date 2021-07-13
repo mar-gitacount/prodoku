@@ -6,7 +6,7 @@
         <h1 class="h4 mb-4 font-weight-bold">
             インフルエンサーのタレコミをする。
         </h1>
-        <form method="post" action="{{route('store')}}">
+        <form method="post" action="{{route('post')}}">
             @csrf
             <fieldset class="mb-4">
                 <div class="form-group">
