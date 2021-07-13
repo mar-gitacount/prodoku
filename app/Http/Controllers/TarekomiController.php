@@ -35,10 +35,11 @@ class TarekomiController extends Controller
     {
         //セッションを取り出す
         $input = $request->session()->get("save_input");
-        //dd($input);
+        if (!$input) {
+            return redirect()->route("tarekomi");
+        }
         return view("tarekomiconfirm", ["input" => $input]);
     }
-
 
     public function store(Tarekomipost $request)
     {
