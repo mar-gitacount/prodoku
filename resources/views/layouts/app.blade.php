@@ -10,6 +10,7 @@
     <title>{{ config('app.name', '確バイアス防止ツール') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -17,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
