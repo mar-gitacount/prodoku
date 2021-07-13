@@ -57,7 +57,7 @@ class TarekomiController extends Controller
         $tarekomi = new Tarekomi();
         $tarekomi->fill($savedate);
         $tarekomi->save();
-        //dd($tarekomi);
+        // tahnksをrouteで呼び出してredirectする。
         return redirect('/tarekomi');
     }
 }
