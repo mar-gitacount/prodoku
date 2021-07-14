@@ -30,10 +30,12 @@ class HomeController extends Controller
                 $row->column(4, function (Column $column) {
                     $column->append(Dashboard::dependencies());
                 });
-
-                // $row->column(4, function (Column $column) {
-                //     $column->append(DB::select('SELECT * from tarekomis'));
-                // });
             });
+    }
+
+    public function tarekomis()
+    {
+        $tarekomis = DB::select('SELECT * from tarekomis');
+        return view("test", ["tarekomis" => $tarekomis]);
     }
 }
