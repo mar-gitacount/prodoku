@@ -14,7 +14,7 @@
                             <tr>
                                 <td class="table-text">
                                     <div class="table-text">
-                                        <a href = "{{ route('admin.article_tarekomi', ['tarekomi' => $item->title])}}">
+                                        <a href = "{{ route('admin.article_tarekomi', ['tarekomi' => $item->id])}}">
                                             {{$item -> title}}
                                         </a>
                                     </div>
