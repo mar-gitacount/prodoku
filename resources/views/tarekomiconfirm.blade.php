@@ -5,7 +5,6 @@
     <div class="p-4　bg-info ">
         <form method="post" action="{{route('store')}}">
         @csrf
-
         　　 <div class="border-bottom row">
             　　　<label class="col-sm-2 control-label" for="name">名前</label>
             　　　<div class="col-sm-10">  {{$input["name"]}}</div>

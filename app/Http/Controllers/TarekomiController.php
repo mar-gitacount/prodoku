@@ -48,13 +48,6 @@ class TarekomiController extends Controller
         if (!$input) {
             return redirect()->route("tarekomi");
         }
-        //dd($input);
-        // $savedate = [
-        //     'name' => $input->name,
-        //     'title' => $input->title,
-        //     'gunle' => $input->gunle,
-        //     'message' => $input->message
-        // ];
         $tarekomi = new Tarekomi();
         $tarekomi->fill($input);
         $tarekomi->save();
