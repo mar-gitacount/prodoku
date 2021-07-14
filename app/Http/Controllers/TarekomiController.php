@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\Tarekomipost;
 use App\Models\Tarekomi;
+use Illuminate\Support\Facades\DB;
 
 class TarekomiController extends Controller
 {
@@ -60,5 +61,12 @@ class TarekomiController extends Controller
     public function thanks()
     {
         return view("thanks");
+    }
+
+    public function test()
+    {
+        $tarekomis = DB::select('SELECT * from tarekomis');
+        //dd($tarekomis);
+        return view("test", ["tarekomis" => $tarekomis]);
     }
 }
