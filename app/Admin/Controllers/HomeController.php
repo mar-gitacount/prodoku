@@ -36,6 +36,6 @@ class HomeController extends Controller
     public function checktarekomis()
     {
         $tarekomis = DB::select('SELECT * from tarekomis');
-        return view("checktarekomi", ["tarekomis" => $tarekomis]);
+        return view("checktarekomis", ["tarekomis" => $tarekomis]);
     }
 }
