@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -28,6 +29,10 @@ class HomeController extends Controller
 
                 $row->column(4, function (Column $column) {
                     $column->append(Dashboard::dependencies());
+                });
+
+                $row->column(4, function (Column $column) {
+                    $column->append(DB::select('SELECT * from tarekomis'));
                 });
             });
     }
