@@ -36,7 +36,7 @@ class HomeController extends Controller
     // タレコミ一覧
     public function checktarekomis()
     {
-        $tarekomis = DB::select('SELECT id , title from tarekomis');
+        $tarekomis = DB::select('SELECT title from tarekomis');
         return view("checktarekomis", ["tarekomis" => $tarekomis]);
     }
 
