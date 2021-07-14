@@ -64,7 +64,7 @@
                 </div>
                 <div class="mt-5">
                     <button type="submit" class="btn btn-primary">
-                        投稿する
+                        確認する。
                     </button>
                 </div>
             </fieldset>

@@ -41,23 +41,31 @@ class TarekomiController extends Controller
         return view("tarekomiconfirm", ["input" => $input]);
     }
 
-    public function store(Tarekomipost $request)
+    public function store(Request $request)
     {
-        if (null == $request->name) {
-            $name = "匿名希望";
-        } else {
-            $name = $request->name;
+        //セッションを取り出す
+        $input = $request->session()->get("save_input");
+        if (!$input) {
+            return redirect()->route("tarekomi");
         }
-        $savedate = [
-            'name' => $name,
-            'title' => $request->title,
-            'gunle' => $request->gunle,
-            'message' => $request->message
-        ];
+        //dd($input);
+        // $savedate = [
+        //     'name' => $input->name,
+        //     'title' => $input->title,
+        //     'gunle' => $input->gunle,
+        //     'message' => $input->message
+        // ];
         $tarekomi = new Tarekomi();
-        $tarekomi->fill($savedate);
+        $tarekomi->fill($input);
         $tarekomi->save();
+        //セッションを空にする。
+        $request->session()->forget("save_input");
         // tahnksをrouteで呼び出してredirectする。
-        return redirect('/tarekomi');
+        return redirect()->route("thanks");
+    }
+
+    public function thanks()
+    {
+        return view("thanks");
     }
 }
