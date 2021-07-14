@@ -32,7 +32,7 @@ Route::get('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'index'
 Route::post('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'post'])->name('post');
 Route::get('/tarekomi/confirm', [App\Http\Controllers\TarekomiController::class, 'confirm'])->name('confirm');
 
-Route::post('/tarekomi/confirm', [App\Http\Controllers\tarekomiController::class, 'store'])->name('store');
+Route::post('/tarekomi/confirm', [App\Http\Controllers\TarekomiController::class, 'store'])->name('store');
 
 Route::get('/tarekomi/thanks', [App\Http\Controllers\TarekomiController::class, 'thanks'])->name('thanks');
 //Auth::routes();
