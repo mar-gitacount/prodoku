@@ -68,8 +68,10 @@ class TarekomiController extends Controller
         $tarekomis = DB::select('SELECT id , title from tarekomis');
         return view("test", ["tarekomis" => $tarekomis]);
     }
+
     public function testarticle($id)
     {
-        dd($id);
+        $tarekomis_all = DB::select("SELECT * from tarekomis where id = '" . $id . "' ");
+        //dd($tarekomis_all);
     }
 }

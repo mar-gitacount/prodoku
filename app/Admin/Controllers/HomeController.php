@@ -43,7 +43,8 @@ class HomeController extends Controller
     //タレコミ本文
     public function article_tarekomi($id)
     {
-        dd($id);
+        $tarekomis_all = DB::select("SELECT * from tarekomis where id = '" . $id . "' ");
+        dd($tarekomis_all);
         //$title = $request->$title;
     }
 }
