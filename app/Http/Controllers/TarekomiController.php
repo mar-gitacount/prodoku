@@ -54,7 +54,7 @@ class TarekomiController extends Controller
         $tarekomi->save();
         //セッションを空にする。
         $request->session()->forget("save_input");
-        // tahnksをrouteで呼び出してredirectする。
+        // thanksをrouteで呼び出してredirectする。
         return redirect()->route("thanks");
     }
 
@@ -67,5 +67,9 @@ class TarekomiController extends Controller
     {
         $tarekomis = DB::select('SELECT id , title from tarekomis');
         return view("test", ["tarekomis" => $tarekomis]);
+    }
+    public function testarticle($id)
+    {
+        dd($id);
     }
 }

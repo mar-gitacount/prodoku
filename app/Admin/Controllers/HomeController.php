@@ -41,8 +41,9 @@ class HomeController extends Controller
     }
 
     //タレコミ本文
-    public function article_tarekomi()
+    public function article_tarekomi($id)
     {
+        dd($id);
         //$title = $request->$title;
     }
 }
