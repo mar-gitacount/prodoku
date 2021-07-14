@@ -65,7 +65,7 @@ class TarekomiController extends Controller
 
     public function test()
     {
-        $tarekomis = DB::select('SELECT * from tarekomis');
+        $tarekomis = DB::select('SELECT title from tarekomis');
         return view("test", ["tarekomis" => $tarekomis]);
     }
 }
