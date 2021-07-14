@@ -32,10 +32,10 @@ class HomeController extends Controller
                 });
             });
     }
-
-    public function tarekomis()
+    // タレコミ一覧
+    public function checktarekomis()
     {
         $tarekomis = DB::select('SELECT * from tarekomis');
-        return view("test", ["tarekomis" => $tarekomis]);
+        return view("checktarekomi", ["tarekomis" => $tarekomis]);
     }
 }

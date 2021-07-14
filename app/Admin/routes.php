@@ -12,5 +12,5 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-    $router->get('/tarekomis', 'HomeController@tarekomis')->name('tarekomis');
+    $router->get('/checktarekomis', 'HomeController@checktarekomis')->name('checktarekomis');
 });
