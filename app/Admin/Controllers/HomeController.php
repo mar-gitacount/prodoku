@@ -7,6 +7,7 @@ use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -35,13 +36,13 @@ class HomeController extends Controller
     // タレコミ一覧
     public function checktarekomis()
     {
-        //$tarekomis = DB::select('SELECT * from tarekomis');
-        $tarekomis = DB::select('SELECT title from tarekomis');
+        $tarekomis = DB::select('SELECT id , title from tarekomis');
         return view("checktarekomis", ["tarekomis" => $tarekomis]);
     }
 
     //タレコミ本文
-    public function article_tarekomi()
+    public function article_tarekomi(Request $request)
     {
+        //$title = $request->$title;
     }
 }
