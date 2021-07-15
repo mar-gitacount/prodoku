@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Routing\Router;
+//use Illuminate\Routing\Route;
+
 
 Admin::routes();
 
