@@ -22,10 +22,16 @@ class TarekomiController extends Controller
         } else {
             $name = $request->name;
         }
+        // gunleはこの時点で数値型なのでユーザー側が何かわからないので一旦文字列に変換する
+        $config = config("tarekomigunle");
+        $config =  $config[$request->gunle];
+        $config = $config["label"];
+        //dd($config);
         $savedate = [
             'name' => $name,
             'title' => $request->title,
             'gunle' => $request->gunle,
+            'gunle_display' => $config,
             'message' => $request->message
         ];
         $request->session()->put("save_input", $savedate);
