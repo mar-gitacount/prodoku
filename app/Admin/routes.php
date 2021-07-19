@@ -16,4 +16,5 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->get('/checktarekomis', 'HomeController@checktarekomis')->name('checktarekomis');
     $router->get('/checktarekomis/{tarekomi}', 'HomeController@article_tarekomi')->name('article_tarekomi');
+    $router->post('/checktarekomis', 'HomeController@upload')->name('upload');
 });

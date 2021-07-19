@@ -7,8 +7,10 @@ use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
-use GuzzleHttp\Psr7\Request;
+//use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -47,5 +49,22 @@ class HomeController extends Controller
         return view("tarecomi_all", ["tarecomi_all" => $tarekomis_all]);
         dd($tarekomis_all);
         //$title = $request->$title;
+    }
+
+    public function upload(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|image'
+        ], [
+            'file.required' => '画像が選択されていません',
+            'file.image' => '画像ファイルではありません',
+        ]);
+        $file = $request->file('file');
+        //dd($file);
+        $list = Storage::disk('s3')->files('');
+        //dd($list);
+        $path = Storage::disk('s3')->put('/', $file, 'public');
+        //dd($path);
+        return redirect("/");
     }
 }
