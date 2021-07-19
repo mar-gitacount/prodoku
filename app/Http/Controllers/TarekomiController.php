@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Tarekomipost;
 use App\Models\Tarekomi;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class TarekomiController extends Controller
 {
@@ -79,5 +80,22 @@ class TarekomiController extends Controller
     {
         $tarekomis_all = DB::select("SELECT * from tarekomis where id = '" . $id . "' ");
         return view("tarecomi_all", ["tarecomi_all" => $tarekomis_all]);
+    }
+
+    public function upload(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|image'
+        ], [
+            'file.required' => '画像が選択されていません',
+            'file.image' => '画像ファイルではありません',
+        ]);
+        $file = $request->file('file');
+        //dd($file);
+        $list = Storage::disk('s3')->files('');
+        //dd($list);
+        $path = Storage::disk('s3')->put('/', $file, 'public');
+        //dd($path);
+        return redirect("/");
     }
 }
