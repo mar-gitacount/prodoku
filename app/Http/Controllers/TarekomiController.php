@@ -93,7 +93,6 @@ class TarekomiController extends Controller
         $file = $request->file('file');
         //dd($file);
         $list = Storage::disk('s3')->files('');
-        dd($list);
         $path = Storage::disk('s3')->put('/', $file, 'public');
         //dd($path);
         return redirect("/");
