@@ -33,7 +33,7 @@
                         <tr>
                             <td>
                                 <img src="{{ Storage::disk('s3')->url("cFkb9hkHsKOoz4r9UjAX81DNEKuJdS2wklMzsPe2.png") }}"
-                                    class="card-img-top" alt="" />
+                                    　class="card-img-top" alt="" />
                             </td>
                         </tr>
                     </tbody>

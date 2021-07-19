@@ -90,12 +90,18 @@ class TarekomiController extends Controller
             'file.required' => '画像が選択されていません',
             'file.image' => '画像ファイルではありません',
         ]);
+        // ファイル取得
         $file = $request->file('file');
+        // 元々のファイルの名前を取得→ファイル名を取得できないので一意のディレクトリ名を取得する。
+        $file_name = $file->getClientOriginalName();
+        //dd($file_name);
         //dd($file);
+        //$contents = Storage::get('public/' . $file);
+        //dd($contents);
         $list = Storage::disk('s3')->files('');
-        dd($list);
-        $path = Storage::disk('s3')->put('/', $file, 'public');
-        //dd($path);
+        //dd($list);
+        // $pathでファイル名を取得できるので、これを元にファイル名をDBに保存する。putの第一引数で保存したディレクトリ名を取得できるのでそれを利用する。とりあえずtestディレクトリ
+        $path = Storage::disk('s3')->put("test", $file, 'public');
         return redirect("/");
     }
 }
