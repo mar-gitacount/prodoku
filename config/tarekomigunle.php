@@ -1,8 +1,8 @@
 <?php
 return array(
-    '1' => ['label' => 'プログラミングスクール'],
-    '2' => ['label' => 'オンラインサロン'],
-    '3' => ['label' => '芸能事務所'],
-    '4' => ['label' => '宗教'],
+    '1' => ['label' => 'html,css'],
+    '2' => ['label' => 'javascript'],
+    '3' => ['label' => 'php'],
+    '4' => ['label' => 'java'],
     '5' => ['label' => 'その他']
 );

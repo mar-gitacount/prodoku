@@ -47,6 +47,11 @@
                 投稿する
             </button>
         </div>
+        <div class="">
+            <button type="submit" class="btn btn-danger">
+                削除する。
+            </button>
+        </div>
         <div class="mt-10">
             <button class="btn btn-secondary" onclick="history.back(-1)">戻る</button>
         </div>

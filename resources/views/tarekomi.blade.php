@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <div class="border p-4">
         <h1 class="h4 mb-4 font-weight-bold">
-            インフルエンサーのタレコミをする。
+            自分の独学法のタレコミをする。
         </h1>
         <form method="post" action="{{route('post')}}">
             @csrf
@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group">
                     <label for="title">
-                        タイトル(オンラインサロンや宗教の場合そのリーダーや教祖の名前も一緒に記載して下さいね)
+                        フレームワーク名などがあれば一緒に記載してください。
                     </label>
                     <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"
                         value="{{ old('title') }}" type="text">
