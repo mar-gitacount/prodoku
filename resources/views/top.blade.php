@@ -12,7 +12,7 @@
                         {{ session('status') }}
                     </div>
                     @endif
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in') }}
                 </div>
                 <div id="app">
                     <example-component></example-component>
