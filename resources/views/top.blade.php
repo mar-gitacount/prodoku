@@ -3,20 +3,23 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header">{{ __('ダッシュボード') }}</div>
+                <div class="card-header">{{ __('独学プログラマーを応援するためのサイト') }}</div>
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
-                    {{ __('You are logged in') }}
+                    {{ __('Letsprograming!!') }}
                 </div>
-                <div id="app">
+                <div id="navi">
+                    <navigationcomponent></navigationcomponent>
+                </div>
+                <!-- <div id="app">
                     <example-component></example-component>
-                </div>
+                </div> -->
             </div>
         </div>
         {{-- {{$tarekomis}} --}}

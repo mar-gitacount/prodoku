@@ -6,7 +6,7 @@
           <div class="card-header">Example Component</div>
           <div class="card-body">
             <ul>
-              <li>youtube!</li>
+              <li>youtube</li>
             </ul>
           </div>
         </div>
@@ -16,10 +16,9 @@
 </template>
 
 <script>
-// export default {
-//   mounted() {
-//     console.log("Component mounted.");
-//   },
-// };
-//
+export default {
+  mounted() {
+    console.log("Component mounted.");
+  },
+};
 </script>
