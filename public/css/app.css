@@ -10889,3 +10889,21 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+ul {
+  list-style: none;
+  overflow: scroll;
+  display: flex;
+}
+
+li {
+  white-space: nowrap;
+}
+
+.channel-section {
+  margin: 0 4px;
+}

@@ -1,18 +1,18 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header">Example Component</div>
-          <div class="card-body">
-            <ul>
-              <li>youtube</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ul class="channels">
+    <li>
+      <a class="channel-section" href="">qita書籍ランキング</a>
+    </li>
+    <li>
+      <a class="channel-section" href="/news">プログラミングニュース</a>
+    </li>
+    <li>
+      <a class="channel-section" href="/youtube">prodoku管理人youtube</a>
+    </li>
+    <li>
+      <a class="channel-section" href="/onether">その他</a>
+    </li>
+  </ul>
 </template>
 
 <script>
