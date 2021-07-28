@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div class="container">
     <div class="col-sm-10">
         <div class="panel panel-default">
@@ -32,8 +35,14 @@
                         </td>
                         <tr>
                             <td>
-                                <img src="{{ Storage::disk('s3')->url("cFkb9hkHsKOoz4r9UjAX81DNEKuJdS2wklMzsPe2.png") }}"
-                                    　class="card-img-top" alt="" />
+                                <img src="{{ Storage::disk('s3')->url("cFkb9hkHsKOoz4r9UjAX81DNEKuJdS2wklMzsPe2.png")}}" class="card-img-top" alt="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div id="tarekomiapi">
+                                    <tarekomiapicomponent></tarekomiapicomponent>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -42,3 +51,4 @@
         </div>
     </div>
 </div>
+@endsection

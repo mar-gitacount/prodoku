@@ -21,6 +21,7 @@ import { createApp } from 'vue'
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 import NavigationComponet from './components/NavigationComponent.vue'
 //import ExampleComponent from './components/ExampleComponent.vue'
+import TarekomiapiComponent from './components/TarekomiapiComponent.vue'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,9 +31,15 @@ import NavigationComponet from './components/NavigationComponent.vue'
 
 createApp({
     components: {
-        'navigationcomponent': NavigationComponet
-    }
+        'navigationcomponent': NavigationComponet,
+    },
 }).mount('#navi')
+
+createApp({
+    components: {
+        'tarekomiapicomponent':TarekomiapiComponent,
+    },
+}).mount('#tarekomiapi')
 
 // createApp({
 //     components: {

@@ -18,9 +18,15 @@ ul {
     overflow: scroll;
     display: flex;
 }
-li{
-    white-space: nowrap;
+
+.channels{
+    .channel-section{
+        white-space: nowrap;
+        cursor: pointer;
+        margin: 0 4px;
+    }
+    .channel_section_achtive{
+        border-bottom: 0.2rem solid #000000;
+    }
 }
-.channel-section{
-    margin: 0 4px;
-}
+

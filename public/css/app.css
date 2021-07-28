@@ -10900,10 +10900,11 @@ ul {
   display: flex;
 }
 
-li {
+.channels .channel-section {
   white-space: nowrap;
-}
-
-.channel-section {
+  cursor: pointer;
   margin: 0 4px;
+}
+.channels .channel_section_achtive {
+  border-bottom: 0.2rem solid #000000;
 }
