@@ -1,6 +1,6 @@
 <template>
   <ul class="channels" id="channels">
-    <li class="channel-section"  v-on:click='shoseki=channel_action(shoseki)' v-bind:class="{ channel_section_achtive:shoseki }">
+    <li class="channel-section"  v-on:click='shoseki=channel_action(shoseki,"/")' v-bind:class="{ channel_section_achtive:shoseki }">
       <!-- デフォルトでアンダーライン -->
       <div class="">おすすめ書籍</div>
     </li>
@@ -14,6 +14,9 @@
       <div class="">その他</div>
     </li>
   </ul>
+  <ul>
+
+  </ul>
 </template>
 
 <script>
@@ -25,6 +28,7 @@ export default{
             // おすすめ書籍にアンダーラインを引くためにクラスの付与-first_contactclass-他のボタンを押下したらremove
             items:[],
             tarekomis :[],
+            qiitas :[],
             shoseki:true,
             news:false,
             youtube:false,
@@ -45,7 +49,8 @@ export default{
             return et;
         },
 
-        channel_action(value){
+        channel_action(value,test){
+            console.log(test);
             this.shoseki=false;
             this.news=false;
             this.youtube=false;
@@ -57,15 +62,22 @@ export default{
             return value;
         },
 
-        itemadd(){
-            this.items = [{"message":"Foo"},{"message":"Bar"}];
+        getQiitaapi(){
+          axios.get("api/qiitaapi")
+                .then((res) => {
+                  console.log(res.data);
+                  this.qiitas = res.data;
+                })
+                .catch(function (error) {
+                console.log("エラー");
+            })
         },
         gettarekomis(){
             axios.get('api/tarekomiapi')
                 .then((res) => {
                     // テーブルに格納されている値をtarekomisに入れる
                     this.tarekomis = res.data;
-                    console.log(this.tarekomis);
+                    // console.log(this.tarekomis);
                 })
             .catch(function (error) {
                 console.log("test");
@@ -75,7 +87,7 @@ export default{
     mounted(){
             // DOM作成後に呼び出される。
             this.gettarekomis();
-            this.itemadd();
+            this.getQiitaapi();
     }
 }
 </script>

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TarekomiapiController;
+use App\Http\Controllers\QitaapiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::resource('tarekomiapi', TarekomiapiController::class);
 
+// Qiitaのapi取得のためのルーティング
+Route::resource('qiitaapi', QitaapiController::class);
 // Route::get('tarekomiapi',[App\Http\Controllers\TarekomiapiController::class, 'index']);
 
 // Route::group(['middleware' => ['api']], function(){

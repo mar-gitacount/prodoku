@@ -21068,6 +21068,7 @@ __webpack_require__.r(__webpack_exports__);
       // おすすめ書籍にアンダーラインを引くためにクラスの付与-first_contactclass-他のボタンを押下したらremove
       items: [],
       tarekomis: [],
+      qiitas: [],
       shoseki: true,
       news: false,
       youtube: false,
@@ -21087,7 +21088,8 @@ __webpack_require__.r(__webpack_exports__);
       console.log(et);
       return et;
     },
-    channel_action: function channel_action(value) {
+    channel_action: function channel_action(value, test) {
+      console.log(test);
       this.shoseki = false;
       this.news = false;
       this.youtube = false;
@@ -21098,20 +21100,22 @@ __webpack_require__.r(__webpack_exports__);
       console.log(value);
       return value;
     },
-    itemadd: function itemadd() {
-      this.items = [{
-        "message": "Foo"
-      }, {
-        "message": "Bar"
-      }];
+    getQiitaapi: function getQiitaapi() {
+      var _this = this;
+
+      axios.get("api/qiitaapi").then(function (res) {
+        console.log(res.data);
+        _this.qiitas = res.data;
+      })["catch"](function (error) {
+        console.log("エラー");
+      });
     },
     gettarekomis: function gettarekomis() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('api/tarekomiapi').then(function (res) {
         // テーブルに格納されている値をtarekomisに入れる
-        _this.tarekomis = res.data;
-        console.log(_this.tarekomis);
+        _this2.tarekomis = res.data; // console.log(this.tarekomis);
       })["catch"](function (error) {
         console.log("test");
       });
@@ -21120,7 +21124,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     // DOM作成後に呼び出される。
     this.gettarekomis();
-    this.itemadd();
+    this.getQiitaapi();
   }
 });
 
@@ -21215,13 +21219,17 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, null, -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
     "class": ["channel-section", {
       channel_section_achtive: _ctx.shoseki
     }],
     onClick: _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.shoseki = $options.channel_action(_ctx.shoseki);
+      return _ctx.shoseki = $options.channel_action(_ctx.shoseki, "/");
     })
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" デフォルトでアンダーライン "), _hoisted_2], 2
   /* CLASS */
@@ -21252,7 +21260,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, [_hoisted_5], 2
   /* CLASS */
-  )]);
+  )]), _hoisted_6], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),
