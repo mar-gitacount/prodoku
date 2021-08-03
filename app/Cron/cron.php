@@ -20,8 +20,13 @@ foreach ($decode_res as $res_data) {
     //echo $url;
     // $res_data->url; url取得
     // $res_data->title;　タイトル取得
-    // $res_data->body; 本文取得
+    // $res_data->body; 本文取得。
+    // bodyをfor文で回して書籍を調査して、あれば抽出する。
     $object = $res_data->body;
-    file_put_contents($filename,$object);
-    echo $object;
+    foreach (str_split($object) as $item){
+        //echo "test";
+        echo $item;
+    }
+    //ile_put_contents($filename,$object);
+    //echo $object;
 }
