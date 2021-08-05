@@ -1,16 +1,16 @@
 <template>
   <ul class="channels" id="channels">
-    <li class="channel-section"  v-on:click='shoseki=channel_action(shoseki,"/")' v-bind:class="{ channel_section_achtive:shoseki }">
+    <li class="channel-section"  v-on:click='japan=false' v-bind:class="{ channel_section_achtive:japan }">
       <!-- デフォルトでアンダーライン -->
-      <div class="">おすすめ書籍</div>
+      <div class="">日本</div>
     </li>
-    <li class="channel-section news" v-on:click='news=channel_action(news)' v-bind:class="{ channel_section_achtive:news}" >
+    <li class="channel-section" v-on:click='news=channel_action(news)' v-bind:class="{ channel_section_achtive:news}" >
       <div>プログラミングニュース</div>
     </li>
-    <li class="channel-section youtube"  v-on:click='youtube=channel_action(youtube)' v-bind:class="{ channel_section_achtive: youtube }">
+    <li class="channel-section"  v-on:click='youtube=channel_action(youtube)' v-bind:class="{ channel_section_achtive: youtube }">
       <div class=""> prodoku管理人youtube</div>
     </li>
-    <li class="channel-section another" v-on:click='another=channel_action(another)' v-bind:class="{ channel_section_achtive: another }">
+    <li class="channel-section" v-on:click='another=channel_action(another)' v-bind:class="{ channel_section_achtive: another }">
       <div class="">その他</div>
     </li>
   </ul>
@@ -21,6 +21,7 @@
 
 <script>
 // ここでdbの値を呼び出す。デフォルトではqitaapiでおすすめ書籍の呼び出しをする。
+
 export default{
     data: function(){
         return {
@@ -29,7 +30,7 @@ export default{
             items:[],
             tarekomis :[],
             qiitas :[],
-            shoseki:true,
+            japan:true,
             news:false,
             youtube:false,
             another:false,
@@ -49,8 +50,7 @@ export default{
             return et;
         },
 
-        channel_action(value,test){
-            console.log(test);
+        channel_action(value){
             this.shoseki=false;
             this.news=false;
             this.youtube=false;
@@ -58,6 +58,7 @@ export default{
             this.search=false;
             value = true;
             // このメソッドでapi呼び出し関数呼び出しする。引数にurl指定をする。calltoapiとか？
+            console.log("test");
             console.log(value);
             return value;
         },
@@ -77,7 +78,7 @@ export default{
                 .then((res) => {
                     // テーブルに格納されている値をtarekomisに入れる
                     this.tarekomis = res.data;
-                    // console.log(this.tarekomis);
+                    //console.log(this.tarekomis);
                 })
             .catch(function (error) {
                 console.log("test");
@@ -90,4 +91,5 @@ export default{
             this.getQiitaapi();
     }
 }
+
 </script>

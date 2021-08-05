@@ -21069,7 +21069,7 @@ __webpack_require__.r(__webpack_exports__);
       items: [],
       tarekomis: [],
       qiitas: [],
-      shoseki: true,
+      japan: true,
       news: false,
       youtube: false,
       another: false,
@@ -21088,8 +21088,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(et);
       return et;
     },
-    channel_action: function channel_action(value, test) {
-      console.log(test);
+    channel_action: function channel_action(value) {
       this.shoseki = false;
       this.news = false;
       this.youtube = false;
@@ -21097,6 +21096,7 @@ __webpack_require__.r(__webpack_exports__);
       this.search = false;
       value = true; // このメソッドでapi呼び出し関数呼び出しする。引数にurl指定をする。calltoapiとか？
 
+      console.log("test");
       console.log(value);
       return value;
     },
@@ -21115,7 +21115,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('api/tarekomiapi').then(function (res) {
         // テーブルに格納されている値をtarekomisに入れる
-        _this2.tarekomis = res.data; // console.log(this.tarekomis);
+        _this2.tarekomis = res.data; //console.log(this.tarekomis);
       })["catch"](function (error) {
         console.log("test");
       });
@@ -21243,7 +21243,7 @@ var _hoisted_1 = {
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": ""
-}, "おすすめ書籍", -1
+}, "日本", -1
 /* HOISTED */
 );
 
@@ -21270,15 +21270,15 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
     "class": ["channel-section", {
-      channel_section_achtive: _ctx.shoseki
+      channel_section_achtive: _ctx.japan
     }],
     onClick: _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.shoseki = $options.channel_action(_ctx.shoseki, "/");
+      return _ctx.japan = false;
     })
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" デフォルトでアンダーライン "), _hoisted_2], 2
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
-    "class": ["channel-section news", {
+    "class": ["channel-section", {
       channel_section_achtive: _ctx.news
     }],
     onClick: _cache[2] || (_cache[2] = function ($event) {
@@ -21287,7 +21287,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [_hoisted_3], 2
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
-    "class": ["channel-section youtube", {
+    "class": ["channel-section", {
       channel_section_achtive: _ctx.youtube
     }],
     onClick: _cache[3] || (_cache[3] = function ($event) {
@@ -21296,7 +21296,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [_hoisted_4], 2
   /* CLASS */
   ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
-    "class": ["channel-section another", {
+    "class": ["channel-section", {
       channel_section_achtive: _ctx.another
     }],
     onClick: _cache[4] || (_cache[4] = function ($event) {
