@@ -21179,6 +21179,50 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/YoutubebaseviewComponent.vue?vue&type=script&lang=js":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/YoutubebaseviewComponent.vue?vue&type=script&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      //コントローラから渡された値を格納する。
+      items: []
+    };
+  },
+  methods: {
+    itemadd: function itemadd() {
+      //this.items = [{"message":"Foo"},{"message":"Bar"}];
+      console.log(this.items);
+    },
+    gettarekomis: function gettarekomis() {
+      var _this = this;
+
+      axios.get('api/tarekomiapi').then(function (res) {
+        // テーブルに格納されている値をtarekomisに入れる
+        _this.tarekomis = res.data;
+        console.log(_this.tarekomis);
+      })["catch"](function (error) {
+        console.log("test");
+      });
+    }
+  },
+  mounted: function mounted() {
+    // DOM作成後に呼び出される。
+    //this.gettarekomis();
+    this.itemadd();
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/NavigationComponent.vue?vue&type=template&id=34a84aa4":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/NavigationComponent.vue?vue&type=template&id=34a84aa4 ***!
@@ -21333,6 +21377,31 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/YoutubebaseviewComponent.vue?vue&type=template&id=70e31d4f":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/YoutubebaseviewComponent.vue?vue&type=template&id=70e31d4f ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "container"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"row justify-content-center\"><div class=\"col-md-8\"><div class=\"card\"><div class=\"card-header\">Youtubebiew Component</div><div class=\"card-body\"><ul><li>youtube!</li></ul></div></div></div></div>", 1);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [_hoisted_2]);
+}
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -21344,6 +21413,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _components_NavigationComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/NavigationComponent.vue */ "./resources/js/components/NavigationComponent.vue");
 /* harmony import */ var _components_TarekomiapiComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/TarekomiapiComponent.vue */ "./resources/js/components/TarekomiapiComponent.vue");
+/* harmony import */ var _components_YoutubebaseviewComponent__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/YoutubebaseviewComponent */ "./resources/js/components/YoutubebaseviewComponent.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -21367,6 +21437,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bun
  //import ExampleComponent from './components/ExampleComponent.vue'
 
 
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -21382,7 +21453,12 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bun
   components: {
     'tarekomiapicomponent': _components_TarekomiapiComponent_vue__WEBPACK_IMPORTED_MODULE_2__.default
   }
-}).mount('#tarekomiapi'); // createApp({
+}).mount('#tarekomiapi');
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
+  components: {
+    'youtubebaseviewcomponent': _components_YoutubebaseviewComponent__WEBPACK_IMPORTED_MODULE_3__.default
+  }
+}).mount('#app'); // createApp({
 //     components: {
 //         ExampleComponent
 //     }
@@ -57423,6 +57499,32 @@ _TarekomiapiComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.d
 
 /***/ }),
 
+/***/ "./resources/js/components/YoutubebaseviewComponent.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/YoutubebaseviewComponent.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _YoutubebaseviewComponent_vue_vue_type_template_id_70e31d4f__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./YoutubebaseviewComponent.vue?vue&type=template&id=70e31d4f */ "./resources/js/components/YoutubebaseviewComponent.vue?vue&type=template&id=70e31d4f");
+/* harmony import */ var _YoutubebaseviewComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./YoutubebaseviewComponent.vue?vue&type=script&lang=js */ "./resources/js/components/YoutubebaseviewComponent.vue?vue&type=script&lang=js");
+
+
+
+_YoutubebaseviewComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.render = _YoutubebaseviewComponent_vue_vue_type_template_id_70e31d4f__WEBPACK_IMPORTED_MODULE_0__.render
+/* hot reload */
+if (false) {}
+
+_YoutubebaseviewComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default.__file = "resources/js/components/YoutubebaseviewComponent.vue"
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_YoutubebaseviewComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__.default);
+
+/***/ }),
+
 /***/ "./resources/js/components/NavigationComponent.vue?vue&type=script&lang=js":
 /*!*********************************************************************************!*\
   !*** ./resources/js/components/NavigationComponent.vue?vue&type=script&lang=js ***!
@@ -57455,6 +57557,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/YoutubebaseviewComponent.vue?vue&type=script&lang=js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/components/YoutubebaseviewComponent.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_YoutubebaseviewComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_YoutubebaseviewComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./YoutubebaseviewComponent.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/YoutubebaseviewComponent.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/components/NavigationComponent.vue?vue&type=template&id=34a84aa4":
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/NavigationComponent.vue?vue&type=template&id=34a84aa4 ***!
@@ -57483,6 +57601,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_TarekomiapiComponent_vue_vue_type_template_id_6cef4ece__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_TarekomiapiComponent_vue_vue_type_template_id_6cef4ece__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./TarekomiapiComponent.vue?vue&type=template&id=6cef4ece */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/TarekomiapiComponent.vue?vue&type=template&id=6cef4ece");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/YoutubebaseviewComponent.vue?vue&type=template&id=70e31d4f":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/YoutubebaseviewComponent.vue?vue&type=template&id=70e31d4f ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_YoutubebaseviewComponent_vue_vue_type_template_id_70e31d4f__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_YoutubebaseviewComponent_vue_vue_type_template_id_70e31d4f__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./YoutubebaseviewComponent.vue?vue&type=template&id=70e31d4f */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/YoutubebaseviewComponent.vue?vue&type=template&id=70e31d4f");
 
 
 /***/ }),

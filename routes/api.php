@@ -22,6 +22,15 @@ Route::resource('tarekomiapi', TarekomiapiController::class);
 
 // Qiitaのapi取得のためのルーティング
 Route::resource('qiitaapi', QitaapiController::class);
+// YoutubeviewControllerを作成。urlやタイトルを出力するためのコントローラ。このコントローラ内で全て処理する。
+// SELECT カラム名 FROM テーブル名;
+// likecountでソートする。10件取得する。↑は非同期にして別処理にする。select * likecount where = sort 10 && title
+//select title count(10) from youtbeapisave order by likecount desc;←10件取得したい。
+//SELECT * FROM menus WHERE category = '洋食' ORDER BY name LIMIT 1;
+// 例↓↓
+//SELECT * FROM youtubeapisave WHERE title ORDER BY likecount desc && LIMIT 10;
+
+
 // Route::get('tarekomiapi',[App\Http\Controllers\TarekomiapiController::class, 'index']);
 
 // Route::group(['middleware' => ['api']], function(){

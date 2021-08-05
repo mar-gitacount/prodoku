@@ -10,12 +10,12 @@ use Google_Service_YouTube;
 //APPKeyの取得。
 define("API_KEY","AIzaSyAC_FprdBoHSKAiTVkTDMEbiVDES4SjA84");
 // 取得数
- // Googleへの接続情報のインスタンスを作成と設定
+// Googleへの接続情報のインスタンスを作成と設定
 $client = new Google_Client();
 $client->setDeveloperKey(API_KEY);
 $youtube = new Google_Service_YouTube($client);
 
-$keyword = "スカイツリー";
+$keyword = "東京風景ライブ";
 if( isset($_POST['keyword'])) {
     $keyword = $_POST['keyword'];
 }
@@ -51,7 +51,11 @@ try {
 }
 
 foreach($videos as $video){
-    echo $video['snippet']['title']."¥n";
-    echo '<img src="' . $video['snippet']['thumbnails']['default']['url']. '" />';
+    // echo $video['snippet']['title'];
+    // echo "<br />";
+    // echo '<img src="' . $video['snippet']['thumbnails']['default']['url']. '" />';
+    // discriptionカラムに格納。
+    //echo $video['snippet']['description'];
+    echo $video['id']['videoId'];
 }
 

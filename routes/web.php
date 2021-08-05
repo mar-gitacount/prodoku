@@ -39,4 +39,7 @@ Route::get('/test/{tarekomi}', [App\Http\Controllers\TarekomiController::class, 
 Route::post('/test', [App\Http\Controllers\TarekomiController::class, 'upload'])->name('upload');
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/youtubebase',function(){
+    return view('youtubeviews.japan.HpdO5Kq3o',["items" => "testyoutube"]);
+});
 Route::get('/biasfaq', [App\Http\Controllers\HomeController::class, 'index'])->name('biasfaq');

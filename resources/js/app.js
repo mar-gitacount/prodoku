@@ -22,6 +22,7 @@ import { createApp } from 'vue'
 import NavigationComponet from './components/NavigationComponent.vue'
 //import ExampleComponent from './components/ExampleComponent.vue'
 import TarekomiapiComponent from './components/TarekomiapiComponent.vue'
+import YoutubebaseviewComponent from './components/YoutubebaseviewComponent'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -41,6 +42,11 @@ createApp({
     },
 }).mount('#tarekomiapi')
 
+createApp({
+    components: {
+        'youtubebaseviewcomponent':YoutubebaseviewComponent,
+    }
+}).mount('#app')
 // createApp({
 //     components: {
 //         ExampleComponent
