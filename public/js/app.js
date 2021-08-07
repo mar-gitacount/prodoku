@@ -21060,7 +21060,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-// ここでdbの値を呼び出す。デフォルトではqitaapiでおすすめ書籍の呼び出しをする。
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -21068,38 +21067,10 @@ __webpack_require__.r(__webpack_exports__);
       // おすすめ書籍にアンダーラインを引くためにクラスの付与-first_contactclass-他のボタンを押下したらremove
       items: [],
       tarekomis: [],
-      qiitas: [],
-      japan: true,
-      news: false,
-      youtube: false,
-      another: false,
-      search: true
+      qiitas: []
     };
   },
   methods: {
-    test: function test(e) {
-      //let e = e.currentTarget.getAttribute('data-id');
-      //e = true;
-      // news = false;
-      //console.log(e.currentTarget.getAttribute('data-id'));
-      var et = e.currentTarget.getAttribute('data-id');
-      et = false;
-      console.log(this.news);
-      console.log(et);
-      return et;
-    },
-    channel_action: function channel_action(value) {
-      this.shoseki = false;
-      this.news = false;
-      this.youtube = false;
-      this.another = false;
-      this.search = false;
-      value = true; // このメソッドでapi呼び出し関数呼び出しする。引数にurl指定をする。calltoapiとか？
-
-      console.log("test");
-      console.log(value);
-      return value;
-    },
     getQiitaapi: function getQiitaapi() {
       var _this = this;
 
@@ -21123,8 +21094,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     // DOM作成後に呼び出される。
-    this.gettarekomis();
-    this.getQiitaapi();
+    //this.gettarekomis();
+    jQuery(function ($) {
+      $("li").on('click', function () {
+        $("li").attr("class", "channel_section　channel_section_passive");
+        $(this).attr("class", "channel_section_achtive");
+      });
+    });
   }
 });
 
@@ -21241,72 +21217,10 @@ var _hoisted_1 = {
   id: "channels"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": ""
-}, "日本", -1
-/* HOISTED */
-);
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, "プログラミングニュース", -1
-/* HOISTED */
-);
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": ""
-}, " prodoku管理人youtube", -1
-/* HOISTED */
-);
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": ""
-}, "その他", -1
-/* HOISTED */
-);
-
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", null, null, -1
-/* HOISTED */
-);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"channel_section channel_section_achtive\"><!-- デフォルトでアンダーライン --><div class=\"\">日本</div></li><li class=\"channel_section\"><div>プログラミングニュース</div></li><li class=\"channel_section\"><div class=\"\"> prodoku管理人youtube</div></li><li class=\"channel_section\"><div class=\"\">その他</div></li>", 4);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
-    "class": ["channel-section", {
-      channel_section_achtive: _ctx.japan
-    }],
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.japan = false;
-    })
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" デフォルトでアンダーライン "), _hoisted_2], 2
-  /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
-    "class": ["channel-section", {
-      channel_section_achtive: _ctx.news
-    }],
-    onClick: _cache[2] || (_cache[2] = function ($event) {
-      return _ctx.news = $options.channel_action(_ctx.news);
-    })
-  }, [_hoisted_3], 2
-  /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
-    "class": ["channel-section", {
-      channel_section_achtive: _ctx.youtube
-    }],
-    onClick: _cache[3] || (_cache[3] = function ($event) {
-      return _ctx.youtube = $options.channel_action(_ctx.youtube);
-    })
-  }, [_hoisted_4], 2
-  /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
-    "class": ["channel-section", {
-      channel_section_achtive: _ctx.another
-    }],
-    onClick: _cache[4] || (_cache[4] = function ($event) {
-      return _ctx.another = $options.channel_action(_ctx.another);
-    })
-  }, [_hoisted_5], 2
-  /* CLASS */
-  )]), _hoisted_6], 64
-  /* STABLE_FRAGMENT */
-  );
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_1, [_hoisted_2]);
 }
 
 /***/ }),

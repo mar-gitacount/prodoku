@@ -1,26 +1,23 @@
 <template>
   <ul class="channels" id="channels">
-    <li class="channel-section"  v-on:click='japan=false' v-bind:class="{ channel_section_achtive:japan }">
+    <li class="channel_section channel_section_achtive">
       <!-- デフォルトでアンダーライン -->
       <div class="">日本</div>
     </li>
-    <li class="channel-section" v-on:click='news=channel_action(news)' v-bind:class="{ channel_section_achtive:news}" >
+    <li class="channel_section">
       <div>プログラミングニュース</div>
     </li>
-    <li class="channel-section"  v-on:click='youtube=channel_action(youtube)' v-bind:class="{ channel_section_achtive: youtube }">
+    <li class="channel_section">
       <div class=""> prodoku管理人youtube</div>
     </li>
-    <li class="channel-section" v-on:click='another=channel_action(another)' v-bind:class="{ channel_section_achtive: another }">
+    <li class="channel_section">
       <div class="">その他</div>
     </li>
-  </ul>
-  <ul>
-
   </ul>
 </template>
 
 <script>
-// ここでdbの値を呼び出す。デフォルトではqitaapiでおすすめ書籍の呼び出しをする。
+
 
 export default{
     data: function(){
@@ -30,39 +27,9 @@ export default{
             items:[],
             tarekomis :[],
             qiitas :[],
-            japan:true,
-            news:false,
-            youtube:false,
-            another:false,
-            search:true
         }
     },
     methods: {
-        test(e){
-            //let e = e.currentTarget.getAttribute('data-id');
-            //e = true;
-            // news = false;
-            //console.log(e.currentTarget.getAttribute('data-id'));
-            var et = e.currentTarget.getAttribute('data-id');
-            et = false;
-            console.log(this.news);
-            console.log(et);
-            return et;
-        },
-
-        channel_action(value){
-            this.shoseki=false;
-            this.news=false;
-            this.youtube=false;
-            this.another=false;
-            this.search=false;
-            value = true;
-            // このメソッドでapi呼び出し関数呼び出しする。引数にurl指定をする。calltoapiとか？
-            console.log("test");
-            console.log(value);
-            return value;
-        },
-
         getQiitaapi(){
           axios.get("api/qiitaapi")
                 .then((res) => {
@@ -85,10 +52,15 @@ export default{
             })
         },
     },
-    mounted(){
+    mounted:function(){
             // DOM作成後に呼び出される。
-            this.gettarekomis();
-            this.getQiitaapi();
+            //this.gettarekomis();
+            jQuery(function($){
+                $("li").on('click',function(){
+                  $("li").attr("class","channel_section　channel_section_passive");
+                  $(this).attr("class","channel_section_achtive");
+                });
+            });
     }
 }
 
