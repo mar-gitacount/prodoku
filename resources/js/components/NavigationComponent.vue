@@ -2,10 +2,14 @@
   <ul class="channels" id="channels">
     <li class="channel_section channel_section_achtive">
       <!-- デフォルトでアンダーライン -->
-      <div class="">日本</div>
+      <div class="">ピックアップ</div>
+
     </li>
     <li class="channel_section">
-      <div>プログラミングニュース</div>
+      <div>日本</div>
+    </li>
+    <li class="channel_section">
+      <div>海外</div>
     </li>
     <li class="channel_section">
       <div class=""> prodoku管理人youtube</div>
@@ -56,9 +60,9 @@ export default{
             // DOM作成後に呼び出される。
             //this.gettarekomis();
             jQuery(function($){
-                $("li").on('click',function(){
-                  $("li").attr("class","channel_section　channel_section_passive");
-                  $(this).attr("class","channel_section_achtive");
+                $(".channel_section").on('click',function(){
+                  $(".channel_section").attr("class","channel_section channel_section_passive");
+                  $(this).attr("class","channel_section channel_section_achtive");
                 });
             });
     }
