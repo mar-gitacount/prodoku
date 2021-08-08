@@ -3,7 +3,7 @@
     <li class="channel_section channel_section_achtive pickup" data-id='pickup'>
       <!-- デフォルトでアンダーライン -->
       <div class="">ピックアップ</div>
-
+      <!-- <img src="https://i.ytimg.com/vi/fv9Iz0CWpPk/default.jpg" alt=""> -->
     </li>
     <li class="channel_section" data-id='japan'>
       <div>日本</div>
@@ -17,6 +17,10 @@
     <li class="channel_section" data-id='another'>
       <div class="">その他</div>
     </li>
+  </ul>
+  <!-- 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 -->
+  <ul class="top_items">
+    
   </ul>
 </template>
 
@@ -70,6 +74,8 @@ export default{
                 });
                 //axiosで出しわけする。
                 function page_choice(page_name_resurt){
+                  // li要素を一旦空にする。
+                  $('.top_items').empty();
                   // ページ切り替えの値をこの関数に引数として渡してページ切り替えをする。
                   axios.get("api/topdata", {
                     params: {
@@ -78,8 +84,27 @@ export default{
 　　　　　　　　　　　})
                   .then((res) => {
                     // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
-                      console.log("値は"+res.data);
-                  //this.qiitas = res.data;
+                    // 帰ってきた値を配列に格納
+                      //console.log("値は"+res.data);
+                      const items = [
+                        {id:'fv9Iz0CWpPk'},
+                        {id:'HpdO5Kq3o7Y'},
+                        {id:'QOjmvL3e7Lc'}
+                      ];
+                      // この中で配列を回してliを配列の数だけtop_itemsに追加、appendする。
+                      $.each(items,function(index,item){
+                          // itemは各連想配列item.idで中身を出力する。
+                          const id = item.id;
+                          console.log(id);
+                          $('.top_items').append(`<li><img src="https://i.ytimg.com/vi/${id}/default.jpg" alt=""></li>`);
+                          // $.each(item, function(key,id){
+                          //   //console.log("id="+id);
+                          //   //console.log("iditem="+id);
+                          //   $('.top_items').append('<li><img src=`https://i.ytimg.com/vi/${id}/default.jpg` alt=""></li>')
+                          // });
+                          // 各itemが入っている。
+                          //console.log(item);
+                      })
                   })
                   .catch(function (error) {
                   console.log("エラー");

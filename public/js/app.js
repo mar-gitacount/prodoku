@@ -21106,14 +21106,37 @@ __webpack_require__.r(__webpack_exports__);
       }); //axiosで出しわけする。
 
       function page_choice(page_name_resurt) {
-        // ページ切り替えの値をこの関数に引数として渡してページ切り替えをする。
+        // li要素を一旦空にする。
+        $('.top_items').empty(); // ページ切り替えの値をこの関数に引数として渡してページ切り替えをする。
+
         axios.get("api/topdata", {
           params: {
             page: page_name_resurt
           }
         }).then(function (res) {
           // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
-          console.log("値は" + res.data); //this.qiitas = res.data;
+          // 帰ってきた値を配列に格納
+          //console.log("値は"+res.data);
+          var items = [{
+            id: 'fv9Iz0CWpPk'
+          }, {
+            id: 'HpdO5Kq3o7Y'
+          }, {
+            id: 'QOjmvL3e7Lc'
+          }]; // この中で配列を回してliを配列の数だけtop_itemsに追加、appendする。
+
+          $.each(items, function (index, item) {
+            // itemは各連想配列item.idで中身を出力する。
+            var id = item.id;
+            console.log(id);
+            $('.top_items').append("<li><img src=\"https://i.ytimg.com/vi/".concat(id, "/default.jpg\" alt=\"\"></li>")); // $.each(item, function(key,id){
+            //   //console.log("id="+id);
+            //   //console.log("iditem="+id);
+            //   $('.top_items').append('<li><img src=`https://i.ytimg.com/vi/${id}/default.jpg` alt=""></li>')
+            // });
+            // 各itemが入っている。
+            //console.log(item);
+          });
         })["catch"](function (error) {
           console.log("エラー");
         });
@@ -21230,15 +21253,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "class": "channels",
-  id: "channels"
-};
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"channel_section channel_section_achtive pickup\" data-id=\"pickup\"><!-- デフォルトでアンダーライン --><div class=\"\">ピックアップ</div></li><li class=\"channel_section\" data-id=\"japan\"><div>日本</div></li><li class=\"channel_section\" data-id=\"abroad\"><div>海外</div></li><li class=\"channel_section\" data-id=\"admin-youtube\"><div class=\"\"> prodoku管理人youtube</div></li><li class=\"channel_section\" data-id=\"another\"><div class=\"\">その他</div></li>", 5);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul class=\"channels\" id=\"channels\"><li class=\"channel_section channel_section_achtive pickup\" data-id=\"pickup\"><!-- デフォルトでアンダーライン --><div class=\"\">ピックアップ</div><!-- &lt;img src=&quot;https://i.ytimg.com/vi/fv9Iz0CWpPk/default.jpg&quot; alt=&quot;&quot;&gt; --></li><li class=\"channel_section\" data-id=\"japan\"><div>日本</div></li><li class=\"channel_section\" data-id=\"abroad\"><div>海外</div></li><li class=\"channel_section\" data-id=\"admin-youtube\"><div class=\"\"> prodoku管理人youtube</div></li><li class=\"channel_section\" data-id=\"another\"><div class=\"\">その他</div></li></ul>", 1);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", {
+  "class": "top_items"
+}, null, -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_1, [_hoisted_2]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 "), _hoisted_2], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),

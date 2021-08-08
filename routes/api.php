@@ -29,6 +29,8 @@ Route::resource('qiitaapi', QitaapiController::class);
 
 Route::get('topdata',function(Request $request){
     $requestparams = $request -> page;
+    // 呼び出すコントローラ内でyoutubeapiを投げて返す。
+    // コントローラ内で返す値id←これを使ってサムネイルや、タイトルを取得する。
     return $requestparams;
 });
 // YoutubeviewControllerを作成。urlやタイトルを出力するためのコントローラ。このコントローラ内で全て処理する。
