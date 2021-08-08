@@ -21096,10 +21096,28 @@ __webpack_require__.r(__webpack_exports__);
     // DOM作成後に呼び出される。
     //this.gettarekomis();
     jQuery(function ($) {
+      // デフォルトではpickupが入る。
+      page_choice("pickup");
       $(".channel_section").on('click', function () {
         $(".channel_section").attr("class", "channel_section channel_section_passive");
         $(this).attr("class", "channel_section channel_section_achtive");
-      });
+        var page_name = $(this).data('id');
+        page_choice(page_name);
+      }); //axiosで出しわけする。
+
+      function page_choice(page_name_resurt) {
+        // ページ切り替えの値をこの関数に引数として渡してページ切り替えをする。
+        axios.get("api/topdata", {
+          params: {
+            page: page_name_resurt
+          }
+        }).then(function (res) {
+          // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
+          console.log("値は" + res.data); //this.qiitas = res.data;
+        })["catch"](function (error) {
+          console.log("エラー");
+        });
+      }
     });
   }
 });
@@ -21217,7 +21235,7 @@ var _hoisted_1 = {
   id: "channels"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"channel_section channel_section_achtive\"><!-- デフォルトでアンダーライン --><div class=\"\">ピックアップ</div></li><li class=\"channel_section\"><div>日本</div></li><li class=\"channel_section\"><div>海外</div></li><li class=\"channel_section\"><div class=\"\"> prodoku管理人youtube</div></li><li class=\"channel_section\"><div class=\"\">その他</div></li>", 5);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"channel_section channel_section_achtive pickup\" data-id=\"pickup\"><!-- デフォルトでアンダーライン --><div class=\"\">ピックアップ</div></li><li class=\"channel_section\" data-id=\"japan\"><div>日本</div></li><li class=\"channel_section\" data-id=\"abroad\"><div>海外</div></li><li class=\"channel_section\" data-id=\"admin-youtube\"><div class=\"\"> prodoku管理人youtube</div></li><li class=\"channel_section\" data-id=\"another\"><div class=\"\">その他</div></li>", 5);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", _hoisted_1, [_hoisted_2]);

@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TarekomiapiController;
 use App\Http\Controllers\QitaapiController;
+use SebastianBergmann\Environment\Console;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +24,13 @@ Route::resource('tarekomiapi', TarekomiapiController::class);
 
 // Qiitaのapi取得のためのルーティング
 Route::resource('qiitaapi', QitaapiController::class);
+// 引数にpageを渡す。
+//Route::get('topdata', TopController::class)->name('topdata');
+
+Route::get('topdata',function(Request $request){
+    $requestparams = $request -> page;
+    return $requestparams;
+});
 // YoutubeviewControllerを作成。urlやタイトルを出力するためのコントローラ。このコントローラ内で全て処理する。
 // SELECT カラム名 FROM テーブル名;
 // likecountでソートする。10件取得する。↑は非同期にして別処理にする。select * likecount where = sort 10 && title
