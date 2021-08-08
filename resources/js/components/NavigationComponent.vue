@@ -74,8 +74,10 @@ export default{
                 });
                 //axiosで出しわけする。
                 function page_choice(page_name_resurt){
-                  // li要素を一旦空にする。
+                  // top-items要素を一旦空にする。
                   $('.top_items').empty();
+                  // ローディング処理スタート。
+                  $('.top_items').append(`<div class="loading-filter"><div class="loading-circle"></div></div>`);
                   // ページ切り替えの値をこの関数に引数として渡してページ切り替えをする。
                   axios.get("api/topdata", {
                     params: {
@@ -89,23 +91,19 @@ export default{
                       const items = [
                         {id:'fv9Iz0CWpPk'},
                         {id:'HpdO5Kq3o7Y'},
-                        {id:'QOjmvL3e7Lc'}
+                        {id:'QOjmvL3e7Lc'},
+                        {id:'j8JNpKgVkuc'}
                       ];
                       // この中で配列を回してliを配列の数だけtop_itemsに追加、appendする。
                       $.each(items,function(index,item){
                           // itemは各連想配列item.idで中身を出力する。
                           const id = item.id;
-                          console.log(id);
                           $('.top_items').append(`<li><img src="https://i.ytimg.com/vi/${id}/default.jpg" alt=""></li>`);
-                          // $.each(item, function(key,id){
-                          //   //console.log("id="+id);
-                          //   //console.log("iditem="+id);
-                          //   $('.top_items').append('<li><img src=`https://i.ytimg.com/vi/${id}/default.jpg` alt=""></li>')
-                          // });
-                          // 各itemが入っている。
-                          //console.log(item);
                       })
+                      $(".loading-filter").remove();
                   })
+                  // 上記処理完了したらローディング処理終了の処理を書いてローディングを消す。
+                  //.then($(".loading-filter").remove())
                   .catch(function (error) {
                   console.log("エラー");
                   });
