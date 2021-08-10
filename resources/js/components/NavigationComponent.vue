@@ -1,5 +1,8 @@
 <template>
   <ul class="channels" id="channels">
+    <li>
+      <router-link to="/example">example</router-link>
+    </li>
     <li class="channel_section channel_section_achtive pickup" data-id='pickup'>
       <!-- デフォルトでアンダーライン -->
       <div class="">ピックアップ</div>
