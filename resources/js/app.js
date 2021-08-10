@@ -41,7 +41,7 @@ createApp({
         'navigationcomponent': NavigationComponet,
     },
     
-}).mount('#navi')
+}).use(router).mount('#app')
 
 createApp({
     components: {
@@ -49,11 +49,11 @@ createApp({
     },
 }).mount('#tarekomiapi')
 
-createApp({
-    components: {
-        'youtubebaseviewcomponent':YoutubebaseviewComponent,
-    }
-}).use(router).mount('#app')
+// createApp({
+//     components: {
+//         'youtubebaseviewcomponent':YoutubebaseviewComponent,
+//     }
+// }).use(router).mount('#app')
 // createApp({
 //     components: {
 //         ExampleComponent

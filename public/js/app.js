@@ -21676,17 +21676,17 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bun
   components: {
     'navigationcomponent': _components_NavigationComponent_vue__WEBPACK_IMPORTED_MODULE_1__.default
   }
-}).mount('#navi');
+}).use(_router__WEBPACK_IMPORTED_MODULE_4__.default).mount('#app');
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   components: {
     'tarekomiapicomponent': _components_TarekomiapiComponent_vue__WEBPACK_IMPORTED_MODULE_2__.default
   }
-}).mount('#tarekomiapi');
-(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
-  components: {
-    'youtubebaseviewcomponent': _components_YoutubebaseviewComponent__WEBPACK_IMPORTED_MODULE_3__.default
-  }
-}).use(_router__WEBPACK_IMPORTED_MODULE_4__.default).mount('#app'); // createApp({
+}).mount('#tarekomiapi'); // createApp({
+//     components: {
+//         'youtubebaseviewcomponent':YoutubebaseviewComponent,
+//     }
+// }).use(router).mount('#app')
+// createApp({
 //     components: {
 //         ExampleComponent
 //     }
