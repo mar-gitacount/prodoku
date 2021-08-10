@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 //topのページのルーティング
-// Route::get('/{any}', function() {
-//     return view('top');
-// })->where('any', '.*');
+Route::get('/{any}', function() {
+    return view('top');
+})->where('any', '.*');
 
 
 Route::get('/', function () {
