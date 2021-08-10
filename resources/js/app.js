@@ -37,9 +37,9 @@ import router from "./router";
 
 
 createApp({
-    components: {
-        'navigationcomponent': NavigationComponet,
-    },
+    // components: {
+    //     'navigationcomponent': NavigationComponet,
+    // },
     
 }).use(router).mount('#app')
 

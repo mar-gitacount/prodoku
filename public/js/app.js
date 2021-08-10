@@ -21672,10 +21672,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bun
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
-  components: {
-    'navigationcomponent': _components_NavigationComponent_vue__WEBPACK_IMPORTED_MODULE_1__.default
-  }
+(0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({// components: {
+  //     'navigationcomponent': NavigationComponet,
+  // },
 }).use(_router__WEBPACK_IMPORTED_MODULE_4__.default).mount('#app');
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({
   components: {
@@ -21798,14 +21797,11 @@ var routes = [// {
 // },
 {
   path: "/",
-  component: _components_NavigationComponent__WEBPACK_IMPORTED_MODULE_0__.default,
-  name: 'home'
+  name: 'home',
+  component: _components_NavigationComponent__WEBPACK_IMPORTED_MODULE_0__.default
 }, {
   path: '/example',
   name: 'example',
-  // route level code-splitting
-  // this generates a separate chunk (about.[hash].js) for this route
-  // which is lazy-loaded when the route is visited.
   component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_1__.default
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.createRouter)({
