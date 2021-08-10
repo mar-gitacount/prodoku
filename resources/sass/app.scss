@@ -9,6 +9,27 @@
 
 // @import '../../vendor/phpunit/php-code-coverage/src/Report/Html/Renderer/Template/css/bootstrap.min.css';
 // html { font-size: 62.5%; }
+
+$pc: 1024px; // PC
+$tab: 680px; // タブレット
+$sp: 480px;  // スマホ
+
+@mixin pc {
+    @media (max-width: ($pc)) {
+        @content;
+    }
+}
+@mixin tab {
+    @media (max-width: ($tab)) {
+        @content;
+    }
+}
+@mixin sp {
+    @media (max-width: ($sp)) {
+        @content;
+    }
+}
+
 a {
     text-decoration: none;
     color: #000000;
@@ -20,11 +41,17 @@ ul {
     display: flex;
 }
 
+
+.top_wrap{
+    //height: 1000px;
+    overflow: scroll;
+}
+
 .channels{
     li {
         white-space: nowrap;
         cursor: pointer;
-        margin: 0 4px;
+        margin: 0 10px;
     }
     .channel_section_achtive{
         border-bottom: 0.2rem solid #000000;
@@ -35,24 +62,55 @@ ul {
 }
 
 .top_items{
-    height: 90px;
+    height: 100%;
+    min-height: 100px;
     justify-content: space-between;
     position: relative;
+    flex-wrap: wrap;
+    //overflow: hidden;
+    .top_item{
+        width: 100%;
+        @include pc {
+            // height: 400px;        
+        }
+        margin-bottom: 20px;
+
+        a {
+            display: block;
+            border-bottom: 0.2rem solid #000000;
+        }
+        img {
+            display: block;
+        }
+        
+    }
+    
+    @include sp {
+        //height: 90px;
+        .top_item{
+            img{
+                height: 90px;
+            };
+        };
+    };
+}
+
+.channelarea{
+    position: absolute;
 }
 
 .loading-filter {
-    position: absolute;
     height:100%;
     width:100%;
-    background-color:#ffff;
+    //background-color:#ffff;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .loading-circle {
-    position: absolute;
-    content: "";
+    // position: absolute;
+    // content: "";
     margin: auto;
     width:50px;
     height: 50px;

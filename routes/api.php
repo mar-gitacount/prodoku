@@ -27,8 +27,8 @@ Route::resource('qiitaapi', QitaapiController::class);
 // 引数にpageを渡す。
 //Route::get('topdata', TopController::class)->name('topdata');
 
-Route::get('topdata',function(Request $request){
-    $requestparams = $request -> page;
+Route::get('topdata/{page_name_resurt}',function(Request $request){
+    $requestparams = $request -> recode;
     // 呼び出すコントローラ内でyoutubeapiを投げて返す。
     // コントローラ内で返す値id←これを使ってサムネイルや、タイトルを取得する。
     return $requestparams;

@@ -20,11 +20,12 @@
   </ul>
   <!-- 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 -->
   <ul class="top_items">
-    
+  
   </ul>
 </template>
 
 <script>
+
 
 
 export default{
@@ -64,7 +65,10 @@ export default{
             // DOM作成後に呼び出される。
             //this.gettarekomis();
             jQuery(function($){
+                // サーバーへの負荷を軽くするために一度訪問したページはストックしておく。
               　// デフォルトではpickupが入る。
+              let Changeanimation = require("../class/index");
+              // ジャンルをクリックしたらその部分に黒い下線を追加する処理。
                 page_choice("pickup");
                 $(".channel_section").on('click',function(){
                   $(".channel_section").attr("class","channel_section channel_section_passive");
@@ -75,14 +79,16 @@ export default{
                 //axiosで出しわけする。
                 function page_choice(page_name_resurt){
                   // top-items要素を一旦空にする。
+                  // parentemptychildappendメソッド
                   $('.top_items').empty();
                   // ローディング処理スタート。
-                  $('.top_items').append(`<div class="loading-filter"><div class="loading-circle"></div></div>`);
+                  $('#channels').append(`<div class="channelarea loading-filter"><div class="loading-circle"></div></div>`);
                   // ページ切り替えの値をこの関数に引数として渡してページ切り替えをする。
-                  axios.get("api/topdata", {
+                  // レコード数をサーバー側に渡して
+                  axios.get(`api/topdata/${page_name_resurt}`, {
                     params: {
-                      page: page_name_resurt
-                      }
+                      page: page_name_resurt,
+                    }
 　　　　　　　　　　　})
                   .then((res) => {
                     // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
@@ -92,15 +98,22 @@ export default{
                         {id:'fv9Iz0CWpPk'},
                         {id:'HpdO5Kq3o7Y'},
                         {id:'QOjmvL3e7Lc'},
-                        {id:'j8JNpKgVkuc'}
+                        {id:'j8JNpKgVkuc'},
+                        {id:'uhp-LKQIbno'}
+                      
                       ];
+                      //item_stock.push(page_name_resurt);
+                      console.log(res);
                       // この中で配列を回してliを配列の数だけtop_itemsに追加、appendする。
+                      server_responce_append_object(items);
+                      //Changeanimation.server_responce_append_object(items,`<li class="top_item"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></li>`);
                       $.each(items,function(index,item){
                           // itemは各連想配列item.idで中身を出力する。
                           const id = item.id;
-                          $('.top_items').append(`<li><img src="https://i.ytimg.com/vi/${id}/default.jpg" alt=""></li>`);
+                          const viewname = 'tarekomi';
+                          $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></a></li>`);
                       })
-                      $(".loading-filter").remove();
+                      $(".channelarea").remove();
                   })
                   // 上記処理完了したらローディング処理終了の処理を書いてローディングを消す。
                   //.then($(".loading-filter").remove())
@@ -108,6 +121,14 @@ export default{
                   console.log("エラー");
                   });
                 }
+                //スクロール関数
+                $('.top_wrap').scroll(function(){
+                  console.log("スクロール")
+                });
+                //帰ってきたオブジェクトをhtmlに追加する関数。
+                function server_responce_append_object(object,tag,childtag){
+                }
+                // itemをストックするための自作関数、item_stockがfalseの時に実行する。
             });
     }
 }

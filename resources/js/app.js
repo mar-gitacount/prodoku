@@ -6,6 +6,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+
 import { createApp } from 'vue'
 /**
  * The following block of code may be used to automatically register your
@@ -23,6 +24,8 @@ import NavigationComponet from './components/NavigationComponent.vue'
 //import ExampleComponent from './components/ExampleComponent.vue'
 import TarekomiapiComponent from './components/TarekomiapiComponent.vue'
 import YoutubebaseviewComponent from './components/YoutubebaseviewComponent'
+import router from "./router";
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,10 +33,14 @@ import YoutubebaseviewComponent from './components/YoutubebaseviewComponent'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+
+
 createApp({
     components: {
         'navigationcomponent': NavigationComponet,
     },
+    
 }).mount('#navi')
 
 createApp({
@@ -46,7 +53,7 @@ createApp({
     components: {
         'youtubebaseviewcomponent':YoutubebaseviewComponent,
     }
-}).mount('#app')
+}).use(router).mount('#app')
 // createApp({
 //     components: {
 //         ExampleComponent

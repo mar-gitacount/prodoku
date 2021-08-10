@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 //topのページのルーティング
+// Route::get('/{any}', function() {
+//     return view('top');
+// })->where('any', '.*');
+
+
 Route::get('/', function () {
     // $tarekomi = Tarekomi::findOrFail(1);
     // $tarekomi = $tarekomi->message;
