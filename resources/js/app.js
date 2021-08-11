@@ -40,7 +40,6 @@ createApp({
     // components: {
     //     'navigationcomponent': NavigationComponet,
     // },
-    
 }).use(router).mount('#app')
 
 createApp({
