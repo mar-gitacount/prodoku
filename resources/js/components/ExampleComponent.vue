@@ -7,6 +7,9 @@
           <div class="card-body">
             <ul>
               <li>youtube!</li>
+              <li>
+                <router-link to="/">home</router-link>
+              </li>
             </ul>
           </div>
         </div>

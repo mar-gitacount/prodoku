@@ -1,8 +1,6 @@
 <template>
   <ul class="channels" id="channels">
-    <li>
-      <router-link to="/example">example</router-link>
-    </li>
+  
     <li class="channel_section channel_section_achtive pickup" data-id='pickup'>
       <!-- デフォルトでアンダーライン -->
       <div class="">ピックアップ</div>
@@ -23,7 +21,11 @@
   </ul>
   <!-- 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 -->
   <ul class="top_items">
-  
+  </ul>
+  <ul class="test">
+    <li>
+      <router-link to="/example">example</router-link>
+    </li>
   </ul>
 </template>
 
