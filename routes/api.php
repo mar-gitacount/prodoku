@@ -27,12 +27,14 @@ Route::resource('qiitaapi', QitaapiController::class);
 // 引数にpageを渡す。
 //Route::get('topdata', TopController::class)->name('topdata');
 
-Route::get('/example',function(){
-    $test = "test!";
-    return $test;
+
+
+Route::group(['prefix' => 'inquiry', 'as' => 'inquiry', 'middleware' => 'forceSsl'], function(){ // https
+    Route::get('/example',function(){
+        $test = "test!";
+        return $test;
+    });
 });
-
-
 
 
 Route::get('topdata/{page_name_resurt}',function(Request $request){

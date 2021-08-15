@@ -25,7 +25,7 @@
   </ul>
   <div class="" v-if="bunki">
     <ul class="choice_items"  v-for="item in items" :key="item.id">
-        <li>{{item.id}}</li>
+        <li><img src='https://i.ytimg.com/vi/+`item.id`+/hqdefault.jpg' alt="">{{item.id}}</li>
     </ul>
   </div>
   
@@ -90,7 +90,11 @@ export default{
                         {id:'QOjmvL3e7Lc'},
                         {id:'j8JNpKgVkuc'},
                         {id:'uhp-LKQIbno'},
-                      ];
+          ];
+          if(20 < this.page){
+            const value = { id: '999'};
+            this.items.push(value);
+          }
         },
         getpageitems(page){
           axios.get(`api/topdata/${page}`, {
