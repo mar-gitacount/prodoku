@@ -9,6 +9,8 @@
               <li>youtube!</li>
               <li>
                 <router-link to="/">home</router-link>
+                <div class="">{{data}}</div>  
+                  
               </li>
             </ul>
           </div>
@@ -19,10 +21,28 @@
 </template>
 
 <script>
-// export default {
-//   mounted() {
-//     console.log("Component mounted.");
-//   },
-// };
-//
+export default {
+  data: function(){
+        return {
+            data :[]     
+        }
+  },
+  methods:{
+    getitem(){
+      axios.get("/api/example/")
+      .then((res)=> {
+        console.log(res.data);
+        this.data = res.data;
+      })
+      .catch(function (error) {
+                console.log("エラー");
+      })
+    }
+  },
+  mounted() {
+    this.getitem();
+    console.log("Component mounted.");
+  },
+};
+
 </script>

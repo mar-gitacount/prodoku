@@ -21242,14 +21242,36 @@ module.exports = {
 /*!**********************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js ***!
   \**********************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-// export default {
-//   mounted() {
-//     console.log("Component mounted.");
-//   },
-// };
-//
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      data: []
+    };
+  },
+  methods: {
+    getitem: function getitem() {
+      var _this = this;
+
+      axios.get("/api/example/").then(function (res) {
+        console.log(res.data);
+        _this.data = res.data;
+      })["catch"](function (error) {
+        console.log("エラー");
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getitem();
+    console.log("Component mounted.");
+  }
+});
 
 /***/ }),
 
@@ -21264,15 +21286,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _class_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../class/index */ "./resources/js/class/index.js");
+/* harmony import */ var _class_index__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_class_index__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       // axiosでテーブルに保存されている値を格納する。初期は何も入れない
       // おすすめ書籍にアンダーラインを引くためにクラスの付与-first_contactclass-他のボタンを押下したらremove
       items: [],
+      bunki: false,
       tarekomis: [],
-      qiitas: []
+      qiitas: [],
+      fullheight: window.innerHeight,
+      choice_items_observer: null,
+      page: 0
     };
+  },
+  created: function created() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed: function destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     getQiitaapi: function getQiitaapi() {
@@ -21284,6 +21319,61 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log("エラー");
       });
+    },
+    getitems: function getitems() {
+      // 実行するとitemsに一覧を入れる。vueではv-forで回す。
+      this.bunki = true;
+      this.page += 10; // ここでパラメータを渡してバックエンドと応答する。
+
+      console.log(this.page);
+      this.items = [{
+        id: 'fv9Iz0CWpPk'
+      }, {
+        id: 'HpdO5Kq3o7Y'
+      }, {
+        id: 'QOjmvL3e7Lc'
+      }, {
+        id: 'j8JNpKgVkuc'
+      }, {
+        id: 'uhp-LKQIbno'
+      }];
+    },
+    getpageitems: function getpageitems(page) {
+      axios.get("api/topdata/".concat(page), {
+        params: {
+          page: page
+        }
+      }).then(function (res) {
+        console.log(res);
+      });
+    },
+    handleScroll: function handleScroll() {//channelsを基準にする。
+      // const top_items = document.querySelector('.top_items');
+      // // 最後の子供を取得することでスクロールし続けても更新し続ける。
+      // const childitem = top_items.lastElementChild;
+      // const rect = childitem.getBoundingClientRect().bottom;
+      // body要素の高さ指定
+      // const bodyHeight = document.body.clientHeight;
+      // // windowの高さ
+      // const windowHeight = window.innerHeight;
+      // // スクロール量
+      // const currentPos = window.pageYOffset;
+      // //body要素とスクロール量を引く
+      // const bottomPoint = bodyHeight - currentPos;
+      // console.log('子要素'+rect);
+      // console.log("スクロール量"+currentPos);
+      // console.log(windowHeight);
+      // console.log(bodyHeight);
+      // if(bottomPoint < currentPos){
+      //   console.log("末端");
+      // }
+    },
+    screenresize: function screenresize() {
+      this.fullheight = window.innerHeight + 'px';
+      console.log(this.fullheight);
+    },
+    destroyed: function destroyed() {
+      window.removeEventListener("scroll", this.handleScroll);
     },
     gettarekomis: function gettarekomis() {
       var _this2 = this;
@@ -21297,8 +21387,25 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    // DOM作成後に呼び出される。
+    var _this3 = this;
+
+    //this.getitems();
+    this.observer = new IntersectionObserver(function (entries) {
+      var entry = entries[0];
+
+      if (entry && entry.isIntersecting) {
+        console.log('入りました');
+
+        _this3.getitems();
+      }
+    }); // 監視対象オブジェクト
+
+    var choice_items_observer = document.querySelector('.choice_items_observer');
+    this.observer.observe(choice_items_observer);
+    window.addEventListener('screenresize', this.screenresize);
+    this.screenresize; // DOM作成後に呼び出される。
     //this.gettarekomis();
+
     jQuery(function ($) {
       // サーバーへの負荷を軽くするために一度訪問したページはストックしておく。
       // デフォルトではpickupが入る。
@@ -21308,8 +21415,8 @@ __webpack_require__.r(__webpack_exports__);
       page_choice("pickup");
       $(".channel_section").on('click', function () {
         $(".channel_section").attr("class", "channel_section channel_section_passive");
-        $(this).attr("class", "channel_section channel_section_achtive");
         var page_name = $(this).data('id');
+        $(this).attr("class", "channel_section channel_section_achtive ".concat(page_name));
         page_choice(page_name);
       }); //axiosで出しわけする。
 
@@ -21340,10 +21447,10 @@ __webpack_require__.r(__webpack_exports__);
           }, {
             id: 'uhp-LKQIbno'
           }]; //item_stock.push(page_name_resurt);
+          //this.gettest();
 
           console.log(res); // この中で配列を回してliを配列の数だけtop_itemsに追加、appendする。
-
-          server_responce_append_object(items); //Changeanimation.server_responce_append_object(items,`<li class="top_item"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></li>`);
+          //Changeanimation.server_responce_append_object(items,`<li class="top_item"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></li>`);
 
           $.each(items, function (index, item) {
             // itemは各連想配列item.idで中身を出力する。
@@ -21355,17 +21462,9 @@ __webpack_require__.r(__webpack_exports__);
         }) // 上記処理完了したらローディング処理終了の処理を書いてローディングを消す。
         //.then($(".loading-filter").remove())
         ["catch"](function (error) {
-          console.log("エラー");
+          console.log("エラー!!");
         });
-      } //スクロール関数
-
-
-      $('.top_wrap').scroll(function () {
-        console.log("スクロール");
-      }); //帰ってきたオブジェクトをhtmlに追加する関数。
-
-      function server_responce_append_object(object, tag, childtag) {} // itemをストックするための自作関数、item_stockがfalseの時に実行する。
-
+      }
     });
   }
 });
@@ -21507,6 +21606,9 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("home");
 
+var _hoisted_9 = {
+  "class": ""
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
@@ -21519,7 +21621,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])])])])])])]);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.data), 1
+  /* TEXT */
+  )])])])])])])]);
 }
 
 /***/ }),
@@ -21537,34 +21641,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+var _hoisted_1 = {
+  "class": "channels",
+  id: "channels"
+};
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<ul class=\"channels\" id=\"channels\"><li class=\"channel_section channel_section_achtive pickup\" data-id=\"pickup\"><!-- デフォルトでアンダーライン --><div class=\"\">ピックアップ</div><!-- &lt;img src=&quot;https://i.ytimg.com/vi/fv9Iz0CWpPk/default.jpg&quot; alt=&quot;&quot;&gt; --></li><li class=\"channel_section\" data-id=\"japan\"><div>日本</div></li><li class=\"channel_section\" data-id=\"abroad\"><div>海外</div></li><li class=\"channel_section\" data-id=\"admin-youtube\"><div class=\"\"> prodoku管理人youtube</div></li><li class=\"channel_section\" data-id=\"another\"><div class=\"\">その他</div></li></ul>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": ""
+}, "ピックアップ", -1
+/* HOISTED */
+);
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", {
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<li class=\"channel_section\" data-id=\"japan\"><div>日本</div></li><li class=\"channel_section\" data-id=\"abroad\"><div>海外</div></li><li class=\"channel_section\" data-id=\"admin-youtube\"><div class=\"\"> prodoku管理人youtube</div></li><li class=\"channel_section\" data-id=\"another\"><div class=\"\">その他</div></li>", 4);
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", {
   "class": "top_items"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_3 = {
+var _hoisted_8 = {
+  key: 0,
+  "class": ""
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "choice_items_observer"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
   "class": "test"
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("example");
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("example");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_router_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("router-link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 "), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", {
+    "class": "channel_section channel_section_achtive pickup",
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $options.getpageitems(_ctx.pickup = 'pickup');
+    }),
+    "data-id": "pickup"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" デフォルトでアンダーライン "), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img src=\"https://i.ytimg.com/vi/fv9Iz0CWpPk/default.jpg\" alt=\"\"> ")]), _hoisted_3]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 "), _hoisted_7, _ctx.bunki ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.items, function (item) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("ul", {
+      "class": "choice_items",
+      key: item.id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.id), 1
+    /* TEXT */
+    )]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 監視する要素↓↓ "), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_router_link, {
     to: "/example"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_4];
+      return [_hoisted_11];
     }),
     _: 1
     /* STABLE */
 
-  })])])], 64
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" tarekomitest ")])])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -21795,9 +21935,25 @@ var Changeanimation = /*#__PURE__*/function () {
     value: function bark() {
       console.log("the cat named ".concat(this.name, " is barking !"));
     }
-  }, {
-    key: "server_responce_append_object",
-    value: function server_responce_append_object(object, tag, childtag) {}
+  }], [{
+    key: "getitems",
+    value: function getitems() {
+      this.bunki = true;
+      this.page += 10; // ここでパラメータを渡してバックエンドと応答する。
+
+      console.log('クラスからこんにちは');
+      this.items = [{
+        id: 'fv9Iz0CWpPk'
+      }, {
+        id: 'HpdO5Kq3o7Y'
+      }, {
+        id: 'QOjmvL3e7Lc'
+      }, {
+        id: 'j8JNpKgVkuc'
+      }, {
+        id: 'uhp-LKQIbno'
+      }];
+    }
   }]);
 
   return Changeanimation;
@@ -57797,9 +57953,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _ExampleComponent_vue_vue_type_template_id_299e239e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=template&id=299e239e */ "./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e");
 /* harmony import */ var _ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ExampleComponent.vue?vue&type=script&lang=js */ "./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js");
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
 
 
 
@@ -57900,13 +58053,9 @@ _YoutubebaseviewComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport default from dynamic */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0___default.a)
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__.default)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./ExampleComponent.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js");
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
-/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ExampleComponent_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
-/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
  
 
 /***/ }),

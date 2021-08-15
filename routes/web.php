@@ -32,6 +32,9 @@ Route::get('/', function () {
     //return view('top', ['tarekomis' => $tarekomis]);
 });
 
+// Route::get('/example', function(){
+
+// });
 
 //タレコミページのルーティング
 Route::get('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'index'])->name('tarekomi');
