@@ -66,10 +66,12 @@ class HomeController extends Controller
         //dd($path);
         return redirect("/");
     }
+
+    // タレコミを削除
     public function delete($id){
         // deleteのsql文を書くよ
         DB::select("DELETE from tarekomis where id = '" . $id . "' ");
-        return redirect("/");
+        return redirect("/admin/checktarekomis");
     }
 
 }
