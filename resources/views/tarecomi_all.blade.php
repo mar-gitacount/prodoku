@@ -24,21 +24,22 @@
 </head>
 <div class="container mt-4">
     <div class="p-4 bg-info ">
+    <form action="{{ route('admin.edit', ['id' => $item->id])}}">
         @foreach ($tarecomi_all as $item)
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="name">名前</label>
-            <div class="col-sm-10"> {{$item -> name}}</div>
+            <!-- <div class="col-sm-10"> {{$item -> name}}</div> -->
             <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" placeholder="{{$item -> name}}" value="{{ old('name') }}" type="text">
         </div>
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="gunle">ジャンル：</label>
-            <div class="col-sm-10"> {{$item -> title}}</div>
-            <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" placeholder="{{$item -> title}}" value="{{ old('title') }}" type="text">
-            
+            <div class="col-sm-10"> {{$item -> gunle}}</div>
+            <!-- <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" placeholder="{{$item -> title}}" value="{{ old('title') }}" type="text"> -->
         </div>
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="title">タイトル：</label>
-            <div class="col-sm-10"> {{$item -> gunle}}</div>
+            <div class="col-sm-10"> {{$item -> title}}</div>
+            <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" placeholder="{{$item -> title}}" value="{{ old('title') }}" type="text">
         </div>
         
         <div class="border-bottom row">
@@ -51,10 +52,10 @@
             <div class="col-sm-10"> {{$item -> id}}</div>
         </div>
         <div class="mt-5">
-            <a href="{{ route('admin.edit', ['id' => $item->id])}}" class="btn btn-primary">
-                編集する。
-            </a>
+                <input type="submit" class="btn btn-primary" value = "編集する">
+            
         </div>
+    </form>
         <div class="">
             <form action="{{ route('admin.delete', ['id' => $item->id])}}" method="post">
                 @method('DELETE')
