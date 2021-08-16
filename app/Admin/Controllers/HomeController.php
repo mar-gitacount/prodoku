@@ -66,9 +66,8 @@ class HomeController extends Controller
         //dd($path);
         return redirect("/");
     }
-    public function delete(Request $request){
+    public function delete($id){
         // deleteのsql文を書くよ
-        $id = $request -> id;
         dd($id);
     }
 

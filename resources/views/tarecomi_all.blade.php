@@ -23,7 +23,7 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 </head>
 <div class="container mt-4">
-    <div class="p-4　bg-info ">
+    <div class="p-4 bg-info ">
         @foreach ($tarecomi_all as $item)
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="name">名前</label>
@@ -52,13 +52,11 @@
             </button>
         </div>
         <div class="">
-            <!-- <form action="{{ route('admin.delete', ['id' => $item->id])}}"  method="post" > -->
-                <!-- @method('DELETE') -->
-                <!-- {{ csrf_field() }} -->
-                <button type="submit" class="btn btn-danger">
-                    削除する。
-                </button>
-            <!-- </form> -->
+            <form action="{{ route('admin.delete', $item->id)}}" method="post">
+                @method('DELETE')
+                {{ csrf_field() }}
+                <input type="submit" class="btn btn-danger" value="削除する" onclick='return confirm("削除しますか?");'>
+            </form> 
         </div>
         @endforeach
         <div class="mt-10">
