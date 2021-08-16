@@ -41,17 +41,21 @@
             <label class="col-sm-2 control-label" for="message">メッセージ：</label>
             <div class="col-sm-10"> {{$item -> message}}</div>
         </div>
-        @endforeach
         <div class="mt-5">
             <button type="submit" class="btn btn-primary">
                 投稿する
             </button>
         </div>
         <div class="">
-            <button type="submit" class="btn btn-danger">
-                削除する。
-            </button>
+            <form action="{{ route('admin.delete', ['id' => $item->id]}}"  method="post" >
+                @method('DELETE')
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-danger">
+                    削除する。
+                </button>
+            </form>
         </div>
+        @endforeach
         <div class="mt-10">
             <button class="btn btn-secondary" onclick="history.back(-1)">戻る</button>
         </div>
