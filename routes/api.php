@@ -27,10 +27,11 @@ Route::resource('qiitaapi', QitaapiController::class);
 // 引数にpageを渡す。
 //Route::get('topdata', TopController::class)->name('topdata');
 
-Route::get('/example',function(){
+Route::get('example',function(){
     $test = "test!";
     return $test;
 });
+Route::get('tarekomiget',[App\Http\Controllers\TarekomiController::class, 'tarekomigetapi']);
 
 Route::group(['prefix' => 'inquiry', 'as' => 'inquiry', 'middleware' => 'forceSsl'], function(){ // https
    

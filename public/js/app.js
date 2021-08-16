@@ -21344,6 +21344,12 @@ __webpack_require__.r(__webpack_exports__);
         };
         this.items.push(value);
       }
+
+      axios.get("api/tarekomiget").then(function (res) {
+        console.log(res.data); //this.data = res.data;
+      })["catch"](function (error) {
+        console.log("エラー");
+      });
     },
     getpageitems: function getpageitems(page) {
       axios.get("api/topdata/".concat(page), {

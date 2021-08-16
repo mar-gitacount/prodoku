@@ -104,4 +104,10 @@ class TarekomiController extends Controller
         $path = Storage::disk('s3')->put("test", $file, 'public');
         return redirect("/");
     }
+
+    public function tarekomigetapi()
+    {
+        $tarekomiapigetall = DB::select('SELECT id , title from tarekomis');
+        return response()->json($tarekomiapigetall);
+    }
 }

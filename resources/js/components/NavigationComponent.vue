@@ -95,6 +95,14 @@ export default{
             const value = { id: '999'};
             this.items.push(value);
           }
+          axios.get("api/tarekomiget") 
+              .then((res)=> {
+                console.log(res.data);
+                //this.data = res.data;
+          })
+              .catch(function (error) {
+                console.log("エラー");
+              })
         },
         getpageitems(page){
           axios.get(`api/topdata/${page}`, {
