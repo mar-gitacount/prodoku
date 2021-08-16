@@ -47,9 +47,9 @@
             <div class="col-sm-10"> {{$item -> id}}</div>
         </div>
         <div class="mt-5">
-            <button type="submit" class="btn btn-primary">
-                投稿する
-            </button>
+            <a href="{{ route('admin.edit', ['id' => $item->id])}}" class="btn btn-primary">
+                編集する。
+            </a>
         </div>
         <div class="">
             <form action="{{ route('admin.delete', ['id' => $item->id])}}" method="post">

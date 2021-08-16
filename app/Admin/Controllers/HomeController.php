@@ -67,7 +67,11 @@ class HomeController extends Controller
         return redirect("/");
     }
 
-    // タレコミを削除
+    // タレコミを編集する。
+    public function edit($id){
+        return view("tarekomiedit");
+    }
+    // タレコミを削除。
     public function delete($id){
         // deleteのsql文を書くよ
         DB::select("DELETE from tarekomis where id = '" . $id . "' ");
