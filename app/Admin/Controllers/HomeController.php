@@ -68,7 +68,8 @@ class HomeController extends Controller
     }
     public function delete($id){
         // deleteのsql文を書くよ
-        dd($id);
+        DB::select("DELETE from tarekomis where id = '" . $id . "' ");
+        return redirect("/");
     }
 
 }
