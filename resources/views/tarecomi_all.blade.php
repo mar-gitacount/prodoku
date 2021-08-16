@@ -52,7 +52,7 @@
             </button>
         </div>
         <div class="">
-            <form action="{{ route('admin.delete', $item->id)}}" method="post">
+            <form action="{{ route('admin.delete', ['id' => $item->id])}}" method="post">
                 @method('DELETE')
                 {{ csrf_field() }}
                 <input type="submit" class="btn btn-danger" value="削除する" onclick='return confirm("削除しますか?");'>

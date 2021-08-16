@@ -17,5 +17,5 @@ Route::group([
     $router->get('/checktarekomis', 'HomeController@checktarekomis')->name('checktarekomis');
     $router->get('/checktarekomis/{tarekomi}', 'HomeController@article_tarekomi')->name('article_tarekomi');
     $router->post('/checktarekomis', 'HomeController@upload')->name('upload');
-    $router->delete('/checktarekomis/delete','HomeController@delete')->name('delete');
+    $router->delete('/checktarekomis/delete/{id}','HomeController@delete')->name('delete');
 });
