@@ -30,7 +30,7 @@
                 <div class="forn-group">
                     <label class="col-sm-2 control-label" for="name">名前</label>
                     <!-- <div class="col-sm-10"> {{$item -> name}}</div> -->
-                    <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"  value="{{ old({{$item -> name}}) }}" type="text">
+                    <!-- <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"  value="{{ old({{$item -> name}}) }}" type="text"> -->
                 </div>
             </div>
             <div class="border-bottom row">
