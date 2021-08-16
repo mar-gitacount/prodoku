@@ -33,6 +33,8 @@
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="gunle">ジャンル：</label>
             <div class="col-sm-10"> {{$item -> title}}</div>
+            <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" placeholder="{{$item -> title}}" value="{{ old('title') }}" type="text">
+            
         </div>
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="title">タイトル：</label>
@@ -42,6 +44,7 @@
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="message">メッセージ：</label>
             <div class="col-sm-10"> {{$item -> message}}</div>
+            <input id="message" name="message" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" placeholder="{{$item -> message}}" value="{{ old('message') }}" type="text">
         </div>
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="message">id：</label>
