@@ -70,8 +70,8 @@ class HomeController extends Controller
     // タレコミを編集する。
     public function edit(Request $request){
         $name = $request -> name;
-        dd($name);
-        return redirect("/admin/checktarekomis");
+        $id = $request -> id;
+        return redirect("/admin/checktarekomis".$id);
     }
     // タレコミを削除。
     public function delete($id){
