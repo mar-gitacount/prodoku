@@ -37,9 +37,14 @@
             <label class="col-sm-2 control-label" for="title">タイトル：</label>
             <div class="col-sm-10"> {{$item -> gunle}}</div>
         </div>
+        
         <div class="border-bottom row">
             <label class="col-sm-2 control-label" for="message">メッセージ：</label>
             <div class="col-sm-10"> {{$item -> message}}</div>
+        </div>
+        <div class="border-bottom row">
+            <label class="col-sm-2 control-label" for="message">id：</label>
+            <div class="col-sm-10"> {{$item -> id}}</div>
         </div>
         <div class="mt-5">
             <button type="submit" class="btn btn-primary">
@@ -47,13 +52,13 @@
             </button>
         </div>
         <div class="">
-            <form action="{{ route('admin.delete', ['id' => $item->id])}}"  method="post" >
-                @method('DELETE')
-                {{ csrf_field() }}
+            <!-- <form action="{{ route('admin.delete', ['id' => $item->id])}}"  method="post" > -->
+                <!-- @method('DELETE') -->
+                <!-- {{ csrf_field() }} -->
                 <button type="submit" class="btn btn-danger">
                     削除する。
                 </button>
-            </form>
+            <!-- </form> -->
         </div>
         @endforeach
         <div class="mt-10">
