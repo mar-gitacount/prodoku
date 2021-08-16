@@ -107,7 +107,7 @@ class TarekomiController extends Controller
 
     public function tarekomigetapi()
     {
-        $tarekomiapigetall = DB::select('SELECT id , title from tarekomis');
+        $tarekomiapigetall = DB::select('SELECT * from tarekomis');
         return response()->json($tarekomiapigetall);
     }
 }

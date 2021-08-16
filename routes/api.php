@@ -34,7 +34,7 @@ Route::get('example',function(){
 Route::get('tarekomiget',[App\Http\Controllers\TarekomiController::class, 'tarekomigetapi']);
 
 Route::group(['prefix' => 'inquiry', 'as' => 'inquiry', 'middleware' => 'forceSsl'], function(){ // https
-   
+    
 });
 
 
