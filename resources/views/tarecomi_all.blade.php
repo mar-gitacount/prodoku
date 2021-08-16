@@ -27,9 +27,11 @@
         @foreach ($tarecomi_all as $item)
         <form action="{{ route('admin.edit', ['id' => $item->id])}}">
             <div class="border-bottom row">
-                <label class="col-sm-2 control-label" for="name">名前</label>
-                <!-- <div class="col-sm-10"> {{$item -> name}}</div> -->
-                <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" placeholder="{{$item -> name}}" value="{{ old('name') }}" type="text">
+                <div class="forn-group">
+                    <label class="col-sm-2 control-label" for="name">名前</label>
+                    <!-- <div class="col-sm-10"> {{$item -> name}}</div> -->
+                    <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"  value="{{ old({{$item -> name}}) }}" type="text">
+                </div>
             </div>
             <div class="border-bottom row">
                 <label class="col-sm-2 control-label" for="gunle">ジャンル：</label>
