@@ -47,7 +47,7 @@
             </button>
         </div>
         <div class="">
-            <form action="{{ route('admin.delete', ['id' => $item->id]}}"  method="post" >
+            <form action="{{ route('admin.delete', ['id' => $item->id])}}"  method="post" >
                 @method('DELETE')
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-danger">
