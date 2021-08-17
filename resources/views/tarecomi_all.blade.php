@@ -25,24 +25,25 @@
 <div class="container mt-4">
     <div class="p-4 bg-info ">
         @foreach ($tarecomi_all as $item)
-        <form action="{{ route('admin.edit', ['id' => $item->id])}}" method="post">
-            <div class="border-bottom row">
-                <div class="forn-group">
-                    <label class="col-sm-2 control-label" for="name">名前</label>
-                    <!-- <div class="col-sm-10"> {{$item -> name}}</div> -->
-                    <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"  value="{{$item -> name}}" type="text">
+        <form method="post" action="{{ route('admin.edit')}}id?={{$item->id}}" >
+            <div class="forn-group">
+                <div class="border-bottom row">
+                        <label class="col-sm-2 control-label" for="name">名前</label>
+                        <!-- <div class="col-sm-10"> {{$item -> name}}</div> -->
+                        <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"  value="{{$item -> name}}" type="text">
                 </div>
             </div>
-            <div class="border-bottom row">
-                <label class="col-sm-2 control-label" for="gunle">ジャンル：</label>
-                    <div class="col-sm-10"> {{$item -> gunle}}</div>
-                    <select name="gunle">
-                            @foreach (config('tarekomigunle') as $key => $tarekomigunle)
-                            <option value="{{$item -> gunle}}">{{ $tarekomigunle['label'] }}</option>
-                            @endforeach
+            <div class="form-group">
+                <div class="border-bottom row">
+                        <label class="col-sm-2 control-label" for="gunle">ジャンル：</label>
+                        <select name="gunle">
+                                @foreach (config('tarekomigunle') as $key => $tarekomigunle)
+                                <option value="{{$item -> gunle}}">{{ $tarekomigunle['label'] }}</option>
+                                @endforeach
                         </select>
-            <!-- <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" placeholder="{{$item -> title}}" value="{{ old('title') }}" type="text"> -->
+                </div>
             </div>
+            <div class="forn-group">
             <div class="border-bottom row">
                 <label class="col-sm-2 control-label" for="title">タイトル：</label>
                 <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"  value="{{$item -> title}}" type="text">
@@ -50,7 +51,7 @@
             <div class="border-bottom row">
                 <label class="col-sm-2 control-label" for="message">メッセージ：</label>
                 <textarea class="form-control" rows="200" cols="100" name="message" name="contents" id="message" style="resize:none">
-                {{$item -> message}}
+                    {{$item -> message}}
                 </textarea>
             </div>
             <div class="border-bottom row">

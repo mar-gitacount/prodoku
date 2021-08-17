@@ -37,6 +37,7 @@
                         <tr>
                             <td class="table-text">
                                 <div class="table-text">
+                                    <!-- ['tarekomi' => $item->id]で値をコントローラに値を渡している。 -->
                                     <a href="{{ route('admin.article_tarekomi', ['tarekomi' => $item->id])}}">
                                         {{$item -> title}}
                                     </a>
