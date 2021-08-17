@@ -26,6 +26,7 @@
     <div class="p-4 bg-info ">
         @foreach ($tarecomi_all as $item)
         <form method="post" action="{{ route('admin.edit', ['id' => $item->id])}}" >
+        {{ csrf_field() }}
             <div class="form-group">
                 <div class="border-bottom row">
                         <label class="col-sm-2 control-label" for="name">名前</label>
