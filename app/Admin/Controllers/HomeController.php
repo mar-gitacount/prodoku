@@ -69,16 +69,18 @@ class HomeController extends Controller
 
     // タレコミを編集する。
     public function edit(Request $request){
-        $tarekomis = Tarekomi::find($request->id);
-        dd($tarekomis);
         $id = $request -> id;
-        $editdata = [
-            'name' => $request->names,
-            'title' => $request->title,
-            'message' => $request->message,
-            'gunle' => (int)$request->gunle
-        ];
-        // DB::select("UPDATE tarekomis SET title")
+        $tarekomis = Tarekomi::find($request->id);
+        $tarekomis -> name = $request -> name;
+        $tarekomis -> title = $request -> title;
+        (int)$gunle = $request->gunle;
+        $tarekomis -> gunle = $gunle;
+        $tarekomis -> message = $request -> message;
+        // "name" => "匿名希望"
+        // "title"
+        // "gunle" => 1
+        // "message" => "tatat" 
+        $tarekomis->save();
         return redirect("/admin/checktarekomis".$id);
     }
     // タレコミを削除。
