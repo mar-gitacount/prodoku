@@ -71,6 +71,7 @@ class HomeController extends Controller
     public function edit(Request $request){
         $name = $request -> name;
         $id = $request -> id;
+        dd($id);
         return redirect("/admin/checktarekomis".$id);
     }
     // タレコミを削除。

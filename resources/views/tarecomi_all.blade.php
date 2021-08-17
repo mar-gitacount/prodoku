@@ -40,7 +40,7 @@
             </div>
             <div class="border-bottom row">
                 <label class="col-sm-2 control-label" for="title">タイトル：</label>
-                <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"  value="{{ old($item -> title) }}" type="text">
+                <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"  value="{{$item -> title}}" type="text">
             </div>
             <div class="border-bottom row">
                 <label class="col-sm-2 control-label" for="message">メッセージ：</label>
