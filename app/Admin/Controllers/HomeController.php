@@ -40,8 +40,9 @@ class HomeController extends Controller
     {
         return view("store_page_admin");
     }
-    public function store(Request $request){
-        
+    // store保存する。
+    public function store(){
+        return redirect("/");
     }
     // タレコミ一覧
     public function checktarekomis()

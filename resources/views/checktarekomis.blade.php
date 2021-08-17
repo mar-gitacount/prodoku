@@ -28,8 +28,10 @@
             <div class="panel-heading">
                 <ul>
                     <li>投稿一覧</li>
+                </ul>
+                <ul>
                     <li><a href="{{ route('admin.storepageadmin')}}">youtube投稿作成</a></li>
-                </ul>        
+                </ul>
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
