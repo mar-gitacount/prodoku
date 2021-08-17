@@ -30,7 +30,7 @@
                     <li>投稿一覧</li>
                 </ul>
                 <ul>
-                    <li><a href="{{ route('admin.storepageadmin')}}">youtube投稿作成</a></li>
+                    <li><a href="{{ route('admin.storepageadmin') }}" class = "btn btn-primary">youtube投稿作成</a></li>
                 </ul>
             </div>
             <div class="panel-body">
