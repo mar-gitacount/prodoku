@@ -25,8 +25,8 @@
 <div class="container mt-4">
     <div class="p-4 bg-info ">
         @foreach ($tarecomi_all as $item)
-        <form method="post" action="{{ route('admin.edit')}}id?={{$item->id}}" >
-            <div class="forn-group">
+        <form method="post" action="{{ route('admin.edit', ['id' => $item->id])}}" >
+            <div class="form-group">
                 <div class="border-bottom row">
                         <label class="col-sm-2 control-label" for="name">名前</label>
                         <!-- <div class="col-sm-10"> {{$item -> name}}</div> -->
@@ -43,23 +43,26 @@
                         </select>
                 </div>
             </div>
-            <div class="forn-group">
-            <div class="border-bottom row">
-                <label class="col-sm-2 control-label" for="title">タイトル：</label>
-                <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"  value="{{$item -> title}}" type="text">
+            <div class="form-group">
+                <div class="border-bottom row">
+                    <label class="col-sm-2 control-label" for="title">タイトル：</label>
+                    <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"  value="{{$item -> title}}" type="text">
+                </div>
             </div>
-            <div class="border-bottom row">
-                <label class="col-sm-2 control-label" for="message">メッセージ：</label>
-                <textarea class="form-control" rows="200" cols="100" name="message" name="contents" id="message" style="resize:none">
-                    {{$item -> message}}
-                </textarea>
+            <div class="form-group">
+                <div class="border-bottom row">
+                    <label class="col-sm-2 control-label" for="message">メッセージ：</label>
+                    <textarea class="form-control" rows="200" cols="100" name="message" name="contents" id="message" style="resize:none">
+                        {{$item -> message}}
+                    </textarea>
+                </div>
             </div>
             <div class="border-bottom row">
                 <label class="col-sm-2 control-label" for="message">id：</label>
                 <div class="col-sm-10"> {{$item -> id}}</div>
             </div>
             <div class="mt-5">
-                <input type="submit" class="btn btn-primary" value = "編集する">
+                <input type="submit" class="btn btn-primary" value = "編集する" onclick='return confirm("編集しますか?");'>
             </div>
         </form>
         <div class="">
