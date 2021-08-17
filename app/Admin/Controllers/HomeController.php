@@ -81,7 +81,7 @@ class HomeController extends Controller
         // "gunle" => 1
         // "message" => "tatat" 
         $tarekomis->save();
-        return redirect("/admin/checktarekomis".$id);
+        return redirect("/admin/checktarekomis/".$id);
     }
     // タレコミを削除。
     public function delete($id){
