@@ -11,7 +11,7 @@ use Encore\Admin\Layout\Row;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Tarekomi;
 class HomeController extends Controller
 {
     public function index(Content $content)
@@ -69,9 +69,18 @@ class HomeController extends Controller
 
     // タレコミを編集する。
     public function edit(Request $request){
-        $name = $request -> name;
         $id = $request -> id;
-        dd($id);
+        $editdata = [
+            'name' => $request->names,
+            'title' => $request->title,
+            'message' => $request->message,
+            'gunle' => (int)$request->gunle
+        ];
+        foreach($editdata as $key => $value){
+            DB::select("UPDATE tarekomis SET $key = $value WHERE id = '" . $id . "' ");
+        }
+        
+        // DB::select("UPDATE tarekomis SET title")
         return redirect("/admin/checktarekomis".$id);
     }
     // タレコミを削除。

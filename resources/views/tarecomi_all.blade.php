@@ -32,6 +32,11 @@
                         <label class="col-sm-2 control-label" for="name">名前</label>
                         <!-- <div class="col-sm-10"> {{$item -> name}}</div> -->
                         <input id="name" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"  value="{{$item -> name}}" type="text">
+                        @if ($errors->has('name'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('name') }}
+                            </div>
+                        @endif
                 </div>
             </div>
             <div class="form-group">
@@ -48,6 +53,11 @@
                 <div class="border-bottom row">
                     <label class="col-sm-2 control-label" for="title">タイトル：</label>
                     <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}"  value="{{$item -> title}}" type="text">
+                    @if ($errors->has('title'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('title') }}
+                            </div>
+                    @endif
                 </div>
             </div>
             <div class="form-group">
@@ -56,6 +66,11 @@
                     <textarea class="form-control" rows="200" cols="100" name="message" name="contents" id="message" style="resize:none">
                         {{$item -> message}}
                     </textarea>
+                    @if ($errors->has('message'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('message') }}
+                            </div>
+                    @endif
                 </div>
             </div>
             <div class="border-bottom row">
