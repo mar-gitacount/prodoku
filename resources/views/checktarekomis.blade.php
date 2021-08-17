@@ -26,7 +26,10 @@
     <div class="col-sm-10">
         <div class="panel panel-default">
             <div class="panel-heading">
-                タレコミ一覧
+                <ul>
+                    <li>投稿一覧</li>
+                    <li><a href="{{ route('storepageadmin')}}">youtube投稿作成</a></li>
+                </ul>        
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">

@@ -35,6 +35,11 @@ class HomeController extends Controller
                 });
             });
     }
+    // youtube記事作成
+    public function storepage()
+    {
+        return view("store_page_admin");
+    }
     // タレコミ一覧
     public function checktarekomis()
     {
@@ -81,7 +86,7 @@ class HomeController extends Controller
         // "gunle" => 1
         // "message" => "tatat" 
         $tarekomis->save();
-        return redirect("/admin/checktarekomis/".$id);
+        return redirect("/admin/checktarekomis");
     }
     // タレコミを削除。
     public function delete($id){
