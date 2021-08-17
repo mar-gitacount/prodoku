@@ -69,6 +69,8 @@ class HomeController extends Controller
 
     // タレコミを編集する。
     public function edit(Request $request){
+        $tarekomis = Tarekomi::find($request->id);
+        dd($tarekomis);
         $id = $request -> id;
         $editdata = [
             'name' => $request->names,
@@ -76,10 +78,6 @@ class HomeController extends Controller
             'message' => $request->message,
             'gunle' => (int)$request->gunle
         ];
-        foreach($editdata as $key => $value){
-            DB::select("UPDATE tarekomis SET $key = $value WHERE id = '" . $id . "' ");
-        }
-        
         // DB::select("UPDATE tarekomis SET title")
         return redirect("/admin/checktarekomis".$id);
     }
