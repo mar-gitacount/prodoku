@@ -35,10 +35,13 @@ class HomeController extends Controller
                 });
             });
     }
-    // youtube記事作成
-    public function storepage()
+    // youtube記事作成ページ
+    public function storepageadmin()
     {
         return view("store_page_admin");
+    }
+    public function store(Request $request){
+        
     }
     // タレコミ一覧
     public function checktarekomis()

@@ -14,7 +14,7 @@
             <h1 class="h4 mb-4 font-weight-bold">
                 youtube投稿
             </h1>
-            <form method="post" action="{{route('post')}}">
+            <form method="post" action="{{route('admin.store')}}">
                 @csrf
                 <fieldset class="mb-4">
                     <div class="form-group">

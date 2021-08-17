@@ -28,7 +28,7 @@
             <div class="panel-heading">
                 <ul>
                     <li>投稿一覧</li>
-                    <li><a href="{{ route('storepageadmin')}}">youtube投稿作成</a></li>
+                    <li><a href="{{ route('admin.storepageadmin')}}">youtube投稿作成</a></li>
                 </ul>        
             </div>
             <div class="panel-body">
