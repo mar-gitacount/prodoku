@@ -1,1 +1,1 @@
-<div class="">hello</div>
+<div class="">{{$test_1}}</div>
