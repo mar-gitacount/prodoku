@@ -35,7 +35,7 @@
                     @if (count($tarekomis)>0)
                             <ul>
                                 <li>
-                                    <form action="{{ route('admin.alldelete') }}"　method="post">
+                                    <form action="{{ route('admin.alldelete') }}"　method="get">
                                         <input type="submit" class="btn btn-danger" value="削除する" onclick='return confirm("本当に全て削除しますか?");'>
                                     </form>
                                 </li>
