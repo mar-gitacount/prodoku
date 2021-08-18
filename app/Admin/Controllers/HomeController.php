@@ -42,23 +42,20 @@ class HomeController extends Controller
     }
     // store保存する。
     public function store(Request $request){
-        if (null == $request->name) {
-            $name = "匿名希望";
-        } else {
-            $name = $request->name;
-        }
         // gunleはこの時点で数値型なのでユーザー側が何かわからないので一旦文字列に変換する
         $config = config("tarekomigunle");
         $config =  $config[$request->gunle];
         $config = $config["label"];
-        //dd($config);
         $savedate = [
-            'name' => $name,
+            'name' => $request->name,
             'title' => $request->title,
             'gunle' => $request->gunle,
             'gunle_display' => $config,
             'message' => $request->message
         ];
+        $tarekomi = new Tarekomi();
+        $tarekomi->fill($savedate)->save();
+        return redirect("/admin/checktarekomis");
     }
     // タレコミ一覧
     public function checktarekomis()
