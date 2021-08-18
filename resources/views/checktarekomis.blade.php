@@ -38,18 +38,20 @@
                     <thead>
                     </thead>
                     <tbody>
-                        @foreach ($tarekomis as $item)
-                        <tr>
-                            <td class="table-text">
-                                <div class="table-text">
+                        @if (count($tarekomis)>0)
+                            @foreach ($tarekomis as $item)
+                            <tr>
+                                <td class="table-text">
+                                    <div class="table-text">
                                     <!-- ['tarekomi' => $item->id]で値をコントローラに値を渡している。 -->
-                                    <a href="{{ route('admin.article_tarekomi', ['tarekomi' => $item->id])}}">
-                                        {{$item -> title}}
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
+                                        <a href="{{ route('admin.article_tarekomi', ['tarekomi' => $item->id])}}">
+                                            {{$item -> title}}
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        @endif
                         <td class="table-text">
                             <div class="table-text">
                                 <form action="{{route('admin.upload')}}" method="post" enctype="multipart/form-data">

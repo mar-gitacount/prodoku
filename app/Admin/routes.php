@@ -18,8 +18,10 @@ Route::group([
     $router->get('/checktarekomis/{tarekomi}', 'HomeController@article_tarekomi')->name('article_tarekomi');
     $router->get('/storepageadmin', 'HomeController@storepageadmin')->name('storepageadmin');
     $router->post('/storepageadmin', 'HomeController@store')->name('store');
-    // 画像
-    $router->post('/checktarekomis', 'HomeController@upload')->name('upload');
     $router->post('/checktarekomis/{id}','HomeController@edit')->name('edit');
     $router->delete('/checktarekomis/delete/{id}','HomeController@delete')->name('delete');
+    // 全て削除する。
+    // $router->delete('/checktarekomis')
+     // 画像
+    $router->post('/checktarekomis', 'HomeController@upload')->name('upload');
 });
