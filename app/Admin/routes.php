@@ -21,7 +21,7 @@ Route::group([
     $router->post('/checktarekomis/{id}','HomeController@edit')->name('edit');
     $router->delete('/checktarekomis/delete/{id}','HomeController@delete')->name('delete');
     // 全て削除する。
-    $router->post('/checktarekomis/alldelete','HomeController@alldelete')->name('alldelete');
+    $router->post('/alldelete','HomeController@alldelete')->name('alldelete');
      // 画像
     $router->post('/checktarekomis', 'HomeController@upload')->name('upload');
 });
