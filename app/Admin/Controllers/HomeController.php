@@ -114,7 +114,7 @@ class HomeController extends Controller
 
     public function alldelete(){
         $deleteitem = Tarekomi::get();
-        dd($deleteitem);
+        // dd($deleteitem);
         $deleteitem -> delete();
         return redirect("/admin/checktarekomis");
     }
