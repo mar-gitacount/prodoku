@@ -22,65 +22,47 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
 </head>
-<div class="container">
-    <div class="col-sm-10">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <ul>
-                    <li>投稿一覧</li>
-                </ul>
-                <ul>
-                    <li><a href="{{ route('admin.storepageadmin') }}" class = "btn btn-primary">youtube投稿作成</a></li>
-                </ul>
-                <ul>
-                    <li>
-                        <form action="{{route('admin.alldelete')}}"　method="post">
-                        　　　@method('DELETE')
-                　　　　　　　　{{ csrf_field() }}
-                　　　　　　　　<input type="submit" class="btn btn-danger" value="削除する" onclick='return confirm("本当に全て削除しますか?");'>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-            <div class="panel-body">
-                <table class="table table-striped task-table">
-                    <thead>
-                    </thead>
-                    <tbody>
-                        @if (count($tarekomis)>0)
-                            @foreach ($tarekomis as $item)
-                            <tr>
-                                <td class="table-text">
-                                    <div class="table-text">
-                                    <!-- ['tarekomi' => $item->id]で値をコントローラに値を渡している。 -->
-                                        <a href="{{ route('admin.article_tarekomi', ['tarekomi' => $item->id])}}">
-                                            {{$item -> title}}
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            @endforeach
-                        @endif
-                        <td class="table-text">
-                            <div class="table-text">
-                                <form action="{{route('admin.upload')}}" method="post" enctype="multipart/form-data">
-                                    {{ csrf_field() }}
-                                    <input type="file" name="file">
-                                    <button type="submit">保存</button>
-                                </form>
-                            </div>
-                        </td>
-                        <tr>
-                            <td>
-                                <img src="{{ Storage::disk('s3')->url("cFkb9hkHsKOoz4r9UjAX81DNEKuJdS2wklMzsPe2.png") }}"
-                                    class="card-img-top" alt="" />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <div class="container">
+        <div class="col-sm-10">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <ul>
+                        <li>投稿一覧</li>
+                    </ul>
+                    <ul>
+                        <li><a href="{{ route('admin.storepageadmin') }}" class = "btn btn-primary">youtube投稿作成</a></li>
+                    </ul>
+                    @if (count($tarekomis)>0)
+                            <ul>
+                                <li>
+                                    <form action="{{ route('admin.alldelete') }}"　method="post">
+                                        <input type="submit" class="btn btn-danger" value="削除する" onclick='return confirm("本当に全て削除しますか?");'>
+                                    </form>
+                                </li>
+                            </ul>
+                    @endif
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped task-table">
+                            <tbody>
+                                @if (count($tarekomis)>0)
+                                        @foreach ($tarekomis as $item)
+                                            <tr>
+                                                <td class="table-text">
+                                                    <div class="table-text">
+                                                    <!-- ['tarekomi' => $item->id]で値をコントローラに値を渡している。 -->
+                                                        <a href="{{ route('admin.article_tarekomi', ['tarekomi' => $item->id])}}">
+                                                            {{$item -> title}}
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
     </div>
-</div>
-
 </html>
