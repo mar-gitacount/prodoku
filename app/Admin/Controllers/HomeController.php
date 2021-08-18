@@ -38,8 +38,8 @@ class HomeController extends Controller
     // youtube記事作成ページ
     public function storepageadmin()
     {
-        $test1 = "test1";
-        return view("store_page_admin",compact('test_1','test_2'));
+        $test_1 = "test1";
+        return view("store_page_admin",compact('test_1'));
     }
     // store保存する。
     public function store(){
