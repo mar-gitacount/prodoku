@@ -60,7 +60,7 @@ class HomeController extends Controller
     // タレコミ一覧
     public function checktarekomis()
     {
-        $tarekomis = DB::select('SELECT id, title from tarekomis');
+        $tarekomis = DB::select('SELECT id, title from tarekomis ORDER BY created_at desc');
         return view("checktarekomis", ["tarekomis" => $tarekomis]);
     }
 

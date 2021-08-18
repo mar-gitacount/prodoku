@@ -27,7 +27,7 @@
     <div class="container mt-4">
         <div class="border p-4">
             <h1 class="h4 mb-4 font-weight-bold">
-                youtube投稿
+                youtube投稿(東京)
             </h1>
             <form method="post" action="{{route('admin.store')}}">
                 @csrf
@@ -45,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label for="title">
-                            youtubeタイトル
+                            iframeタグ
                         </label>
                         <input id="title" name="title" class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" value="{{ old('title') }}" type="text">
                         @if ($errors->has('title'))
@@ -68,7 +68,7 @@
                     </div>
                     <div class="form-grop">
                         <label for="message">
-                        iframe
+                            管理者コメント
                         </label>
                         <textarea name="message" id="message" class="form-control {{ $errors->has('message') ? 'is-invalid' : '' }}" cols="30" rows="10">
                         {{ old('message') }}
@@ -81,8 +81,11 @@
                     </div>
                     <div class="mt-5">
                         <button type="submit" class="btn btn-primary">
-                            確認する。
+                            投稿する。
                         </button>
+                    </div>
+                    <div class="mt-5">
+                        <a href="/admin/checktarekomis" class=" btn btn-secondary">投稿一覧へ戻る</a>
                     </div>
                 </fieldset>
             </form>
