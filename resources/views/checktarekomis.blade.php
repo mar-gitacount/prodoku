@@ -32,6 +32,15 @@
                 <ul>
                     <li><a href="{{ route('admin.storepageadmin') }}" class = "btn btn-primary">youtube投稿作成</a></li>
                 </ul>
+                <ul>
+                    <li>
+                        <form action="{{route('admin.alldelete')}}"　method="post">
+                        　　　@method('DELETE')
+                　　　　　　　　{{ csrf_field() }}
+                　　　　　　　　<input type="submit" class="btn btn-danger" value="削除する" onclick='return confirm("本当に全て削除しますか?");'>
+                        </form>
+                    </li>
+                </ul>
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
