@@ -20,6 +20,7 @@ use SebastianBergmann\Environment\Console;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 Route::resource('tarekomiapi', TarekomiapiController::class);
 
 // Qiitaのapi取得のためのルーティング
@@ -44,6 +45,12 @@ Route::get('topdata/{page_name_resurt}',function(Request $request){
     // コントローラ内で返す値id←これを使ってサムネイルや、タイトルを取得する。
     return $requestparams;
 });
+
+Route::get('alldelete',function(){
+    $alldelte = "オールデリート!!";
+    return $alldelte;
+});
+
 // YoutubeviewControllerを作成。urlやタイトルを出力するためのコントローラ。このコントローラ内で全て処理する。
 // SELECT カラム名 FROM テーブル名;
 // likecountでソートする。10件取得する。↑は非同期にして別処理にする。select * likecount where = sort 10 && title

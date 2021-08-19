@@ -88,7 +88,6 @@ class HomeController extends Controller
         //dd($path);
         return redirect("/");
     }
-
     // タレコミを編集する。
     public function edit(Request $request){
         $id = $request -> id;
@@ -105,16 +104,18 @@ class HomeController extends Controller
         $tarekomis->save();
         return redirect("/admin/checktarekomis");
     }
-    // タレコミを削除。
+    // 投稿を削除。
     public function delete($id){
-        // deleteのsql文を書くよ
         DB::select("DELETE from tarekomis where id = '" . $id . "' ");
         return redirect("/admin/checktarekomis");
     }
-
+    
+    // 全ての投稿を削除する。削除した場合次の日のjsonファイルを検索して読み込み、DBに保存する。
     public function alldelete(){
         Tarekomi::query()->delete();
         return redirect("/admin/checktarekomis");
     }
-
+    public function test(){
+        echo "testだよーん";
+    }
 }
