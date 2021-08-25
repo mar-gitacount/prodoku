@@ -13,7 +13,7 @@ $client = new Client;
 $method = 'POST';
 $token = "fdafdasfhewiafds";
 // $url = "http://local_prodoku/api/alldelete?token=${token}";
-$url = "https://prodoku.herokuapp.com/?token=${token}";
+$url = "https://prodoku.herokuapp.com/api/alldelete?token=${token}";
 // 本番環境の場合
 // if (App::environment(['production', 'staging'])) {
 //     $url = "https://prodoku.herokuapp.com/?token=${token}";
