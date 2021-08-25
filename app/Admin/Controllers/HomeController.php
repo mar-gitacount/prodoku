@@ -115,7 +115,4 @@ class HomeController extends Controller
         Tarekomi::query()->delete();
         return redirect("/admin/checktarekomis");
     }
-    public function test(){
-        echo "testだよーん";
-    }
 }

@@ -8,13 +8,34 @@ use Tests\TestCase;
 require '../../vendor/autoload.php';
 // Guzzleのインスタンスを作成
 $client = new Client;
-// 本番かどうかでパラメータを変換する。
-// if (config('app.env')== "production") {
-//     $url = 'https://prodoku.herokuapp.com/api/alldelte';
-// } else {
-//     $url = 'http://local_prodoku/api/alldelete';
-// }
 // api通信
-$response = $client -> request('GET', 'https://prodoku.herokuapp.com/api/alldelte');
-$response_body = (string) $response->getBody();
-echo $response_body;
+// "GET", [アクセスしたいURL])
+$method = 'POST';
+$token = "fdafdasfhewiafds";
+// $url = "http://local_prodoku/api/alldelete?token=${token}";
+$url = "https://prodoku.herokuapp.com/?token=${token}";
+// 本番環境の場合
+// if (App::environment(['production', 'staging'])) {
+//     $url = "https://prodoku.herokuapp.com/?token=${token}";
+// }else{
+//     $url = "http://local_prodoku/api/alldelete?token=${token}";
+// }
+// $url = (App::environment(['production']))?"https://prodoku.herokuapp.com/?token=${token}":"http://local_prodoku/api/alldelete?token=${token}";
+$params = [
+    'form_params' =>
+    [
+        "name" => 'token'
+    ]
+];
+// APIリクエスト
+$response = $client -> request($method,$url,$params);
+
+// APIで帰ってきた値をセットしている。
+// echo $response -> getStatusCode();
+// echo $response -> getHeader('content-type')[0];
+// echo $response -> getBody();
+$posts = $response -> getBody();
+$posts2 = $response;
+$posts2 = json_decode($posts,true);
+// echo $posts;
+var_dump($posts2);

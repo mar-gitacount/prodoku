@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TarekomiapiController;
 use App\Http\Controllers\QitaapiController;
 use SebastianBergmann\Environment\Console;
+use App\Models\Tarekomi;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,9 +47,21 @@ Route::get('topdata/{page_name_resurt}',function(Request $request){
     return $requestparams;
 });
 
-Route::get('alldelete',function(){
-    $alldelte = "オールデリート!!";
-    return $alldelte;
+Route::post('alldelete',function(Request $request){
+    // update.phpから渡されているパラメータを代入している。
+    // $token =  $request -> input('token');
+    $tokenawase = "fdafdasfhewiafds";
+    $params = $request -> input('token');
+    if($params === $tokenawase){
+        Tarekomi::query()->delete();
+        return response() -> json(['deletecoment' => $params]);
+    }
+    else{
+        $params = "NG";
+        return response() -> json(['deltecoment' => $params]);
+    }
+    // var_dump($params);
+    
 });
 
 // YoutubeviewControllerを作成。urlやタイトルを出力するためのコントローラ。このコントローラ内で全て処理する。

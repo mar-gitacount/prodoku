@@ -17,10 +17,8 @@
                 <div id="app">
                     <router-view></router-view>
                 </div>
-
                 <!-- <div id="navi">
                     <navigationcomponent></navigationcomponent>
-                    
                 </div> -->
                 <!-- <div id="app">
                     <example-component></example-component>
