@@ -9,12 +9,10 @@ use App\Cron\EditandDelete;
 require '../../vendor/autoload.php';
 // Guzzleのインスタンスを作成
 $client = new Client;
-// api通信
-// "GET", [アクセスしたいURL])
 $method = 'POST';
 $token = "fdafdasfhewiafds";
-$url = "http://local_prodoku/api/alldelete?token=${token}";
-// $url = "https://hokusaimanga.herokuapp.com/api/alldelete?token=${token}";
+// $url = "http://local_prodoku/api/alldelete?token=${token}";
+$url = "https://hokusaimanga.herokuapp.com/api/alldelete?token=${token}";
 // 本番環境の場合
 // if (App::environment(['production', 'staging'])) {
 //     $url = "https://prodoku.herokuapp.com/?token=${token}";
