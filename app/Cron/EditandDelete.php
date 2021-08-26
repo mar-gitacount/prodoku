@@ -14,6 +14,8 @@ class EditandDelete {
         ];
         // 曜日取得する。
         $today = $week[date('w')];
+        $date = date("w");
+        echo $date;
         // jsonファイルから読み込んでその数だけforeachで回してdb更新する。HokusaiDayOfWeekjsonsフォルダ内のファイルを検索して本日のファイルを探す。
         $pass = "../../resources/json/HokusaiDayOfWeekjsons/${today}.json";
         $json = file_get_contents($pass);
