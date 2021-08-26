@@ -13,8 +13,8 @@ $client = new Client;
 // "GET", [アクセスしたいURL])
 $method = 'POST';
 $token = "fdafdasfhewiafds";
-// $url = "http://local_prodoku/api/alldelete?token=${token}";
-$url = "https://hokusaimanga.herokuapp.com/api/alldelete?token=${token}";
+$url = "http://local_prodoku/api/alldelete?token=${token}";
+// $url = "https://hokusaimanga.herokuapp.com/api/alldelete?token=${token}";
 // 本番環境の場合
 // if (App::environment(['production', 'staging'])) {
 //     $url = "https://prodoku.herokuapp.com/?token=${token}";
@@ -38,3 +38,5 @@ $response = $client -> request($method,$url,$params);
 $posts = $response -> getBody();
 $posts2 = json_decode($posts,true);
 var_dump($posts2);
+ //jsonで画像を呼び出す。
+EditandDelete::jsonserch();

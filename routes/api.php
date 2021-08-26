@@ -56,8 +56,6 @@ Route::post('alldelete',function(Request $request){
     if($params === $tokenawase){
         //全て削除する。
         Tarekomi::query()->delete();
-        //jsonで画像を呼び出す。
-        EditandDelete::jsonserch();
         return response() -> json(['deletecoment' => $params]);
     }
     else{
