@@ -57,13 +57,13 @@ Route::post('alldelete',function(Request $request){
         //全て削除する。
         Tarekomi::query()->delete();
         //jsonで画像を呼び出す。
+        EditandDelete::jsonserch();
         return response() -> json(['deletecoment' => $params]);
     }
     else{
         $params = "NG";
         return response() -> json(['deltecoment' => $params]);
     }
-    EditandDelete::jsonserch();
 });
 
 // YoutubeviewControllerを作成。urlやタイトルを出力するためのコントローラ。このコントローラ内で全て処理する。
