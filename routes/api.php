@@ -6,6 +6,7 @@ use App\Http\Controllers\TarekomiapiController;
 use App\Http\Controllers\QitaapiController;
 use SebastianBergmann\Environment\Console;
 use App\Models\Tarekomi;
+use App\Cron\EditandDelete;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,15 +54,16 @@ Route::post('alldelete',function(Request $request){
     $tokenawase = "fdafdasfhewiafds";
     $params = $request -> input('token');
     if($params === $tokenawase){
+        //全て削除する。
         Tarekomi::query()->delete();
+        //jsonで画像を呼び出す。
         return response() -> json(['deletecoment' => $params]);
     }
     else{
         $params = "NG";
         return response() -> json(['deltecoment' => $params]);
     }
-    // var_dump($params);
-    
+    EditandDelete::jsonserch();
 });
 
 // YoutubeviewControllerを作成。urlやタイトルを出力するためのコントローラ。このコントローラ内で全て処理する。
