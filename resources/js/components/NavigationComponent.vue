@@ -4,7 +4,8 @@
     <li class="channel_section channel_section_achtive pickup"  @click="getpageitems(pickup='pickup')" data-id='pickup'>
       <!-- デフォルトでアンダーライン -->
       <div class="">ピックアップ</div>
-      <!-- <img src="https://i.ytimg.com/vi/fv9Iz0CWpPk/default.jpg" alt=""> -->
+      <!-- <img src=" {{ secure_asset('/storage/hokusaimannga08.gif') }}" alt=""> -->
+      <!-- <img alt="ロゴ" src="{{ asset('/img/logo.png') }}"> -->
     </li>
     <li class="channel_section" data-id='japan'>
       <div>日本</div>
@@ -25,7 +26,7 @@
   </ul>
   <div class="" v-if="bunki">
     <ul class="choice_items"  v-for="item in items" :key="item.id">
-        <li><img src='https://i.ytimg.com/vi/+`item.id`+/hqdefault.jpg' alt="">{{item.id}}</li>
+        <li><img src="storage/hokusaimannga08.gif" alt="">{{item.id}}</li>
     </ul>
   </div>
   
