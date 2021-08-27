@@ -21,18 +21,19 @@
     </li>
   </ul>
   <!-- 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 -->
+    <div class="choice_items_observer">
+    </div>
   <ul class="top_items">
+  <!-- 監視する要素↓↓ -->
 
   </ul>
-  <div class="" v-if="bunki">
+  <div class="choice_items_observer" v-if="bunki">
     <ul class="choice_items"  v-for="item in items" :key="item.id">
-        <li><img src="storage/hokusaimannga08.gif" alt="">{{item.id}}</li>
+      <li>{{item.id}}</li>
     </ul>
   </div>
   
-  <!-- 監視する要素↓↓ -->
-  <div class="choice_items_observer">
-  </div>
+
   <ul class="test">
     <li>
       <router-link to="/example">example</router-link>
@@ -44,8 +45,8 @@
 <script>
 import Changeanimation from '../class/index';
 
-
-
+var AWS = require('aws-sdk');
+var s3 = new AWS.S3();
 export default{
     data: function(){
         return {
@@ -58,6 +59,7 @@ export default{
             fullheight: window.innerHeight,
             choice_items_observer : null,
             page : 0,
+            image:null
         }
     },
 
@@ -85,13 +87,15 @@ export default{
           this.page += 10;
           // ここでパラメータを渡してバックエンドと応答する。
           console.log(this.page);
-          this.items = [
-                        {id:'fv9Iz0CWpPk'},
-                        {id:'HpdO5Kq3o7Y'},
-                        {id:'QOjmvL3e7Lc'},
-                        {id:'j8JNpKgVkuc'},
-                        {id:'uhp-LKQIbno'},
-          ];
+          // this.items = [
+          //               {id:'fv9Iz0CWpPk'},
+          //               {id:'HpdO5Kq3o7Y'},
+          //               {id:'QOjmvL3e7Lc'},
+          //               {id:'j8JNpKgVkuc'},
+          //               {id:'uhp-LKQIbno'},
+          // ];
+          // this.image = "https://s3-ap-northeast-1.amazonaws.com/masarubucket/hokusaimanga/1c441d4608219327e193f9bce72b8e38.jpg";
+          // document.getElementById("hokusaiimage").src = "https://s3-ap-northeast-1.amazonaws.com/masarubucket/hokusaimanga/1c441d4608219327e193f9bce72b8e38.jpg";
           if(20 < this.page){
             const value = { id: '999'};
             this.items.push(value);
@@ -110,31 +114,9 @@ export default{
                     params: {
                       page: page,
                     }
-　　　　　   }).then((res) => {
+          }).then((res) => {
               console.log(res);
             })
-        },
-        handleScroll(){
-          //channelsを基準にする。
-          // const top_items = document.querySelector('.top_items');
-          // // 最後の子供を取得することでスクロールし続けても更新し続ける。
-          // const childitem = top_items.lastElementChild;
-          // const rect = childitem.getBoundingClientRect().bottom;
-          // body要素の高さ指定
-          // const bodyHeight = document.body.clientHeight;
-          // // windowの高さ
-          // const windowHeight = window.innerHeight;
-          // // スクロール量
-          // const currentPos = window.pageYOffset;
-          // //body要素とスクロール量を引く
-          // const bottomPoint = bodyHeight - currentPos;
-          // console.log('子要素'+rect);
-          // console.log("スクロール量"+currentPos);
-          // console.log(windowHeight);
-          // console.log(bodyHeight);
-          // if(bottomPoint < currentPos){
-          //   console.log("末端");
-          // }
         },
         screenresize(){
           this.fullheight = window.innerHeight+'px';
@@ -156,17 +138,17 @@ export default{
         },
     },
     mounted:function(){
+        this.getitems();
         this.observer = new IntersectionObserver(entries =>{
             const entry = entries[0]
             if (entry && entry.isIntersecting) {
               console.log('入りました');
               this.getitems();
             }
-      　})
+        })
         // 監視対象オブジェクト
         const choice_items_observer = document.querySelector('.choice_items_observer');
         this.observer.observe(choice_items_observer);
-
         window.addEventListener('screenresize', this.screenresize);
         this.screenresize;
             // DOM作成後に呼び出される。
@@ -196,28 +178,32 @@ export default{
                     params: {
                       page: page_name_resurt,
                     }
-　　　　　　　　　　　})
+                  })
                   .then((res) => {
                     // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
                     // 帰ってきた値を配列に格納
                       //console.log("値は"+res.data);
+                      // const items = [
+                      //   {id:'fv9Iz0CWpPk'},
+                      //   {id:'HpdO5Kq3o7Y'},
+                      //   {id:'QOjmvL3e7Lc'},
+                      //   {id:'j8JNpKgVkuc'},
+                      //   {id:'uhp-LKQIbno'},
+                      // ];
                       const items = [
-                        {id:'fv9Iz0CWpPk'},
-                        {id:'HpdO5Kq3o7Y'},
-                        {id:'QOjmvL3e7Lc'},
-                        {id:'j8JNpKgVkuc'},
-                        {id:'uhp-LKQIbno'},
-                      ];
+                        {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
+                        {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
+                        {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
+                      ]
                       //item_stock.push(page_name_resurt);
                       //this.gettest();
                       console.log(res);
-                      // この中で配列を回してliを配列の数だけtop_itemsに追加、appendする。
-                      //Changeanimation.server_responce_append_object(items,`<li class="top_item"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></li>`);
                       $.each(items,function(index,item){
                           // itemは各連想配列item.idで中身を出力する。
                           const id = item.id;
                           const viewname = 'tarekomi';
-                          $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></a></li>`);
+                          // $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></a></li>`);
+                          $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://s3-ap-northeast-1.amazonaws.com/masarubucket/hokusaimanga/${id}" width="480" height="360" alt=""></a></li>`);
                       })
                       $(".channelarea").remove();
                   })
