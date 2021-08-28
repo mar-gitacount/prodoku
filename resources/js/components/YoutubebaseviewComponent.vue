@@ -6,7 +6,7 @@
           <div class="card-header">Youtubebiew Component</div>
           <div class="card-body">
             <ul>
-              <li>youtube!</li>
+              <li>{{youtube}}</li>
             </ul>
           </div>
         </div>
@@ -20,15 +20,14 @@ export default{
         return {
             //コントローラから渡された値を格納する。
             items:[],
+            youtube:"youtuebeです"
         }
     },
     methods: {
-
         itemadd(){
-            //this.items = [{"message":"Foo"},{"message":"Bar"}];
+            this.items = [{"message":"Foo"},{"message":"Bar"}];
             console.log(this.items);
         },
-
         gettarekomis(){
             axios.get('api/tarekomiapi')
                 .then((res) => {
@@ -45,6 +44,7 @@ export default{
             // DOM作成後に呼び出される。
             //this.gettarekomis();
             this.itemadd();
+            this.gettarekomis();
         }
 }
 </script>

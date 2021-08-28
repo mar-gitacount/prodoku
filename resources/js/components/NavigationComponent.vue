@@ -13,7 +13,7 @@
     <li class="channel_section" data-id='why'>
       <div class="">北斎漫画日和について</div>
     </li>
-    <li class="channel_section" data-id='admin-youtube'>
+    <li class="channel_section" data-id='admin-youtube' @click="showitems()">
       <div class="">管理人youtube</div>
     </li>
   </ul>
@@ -21,25 +21,26 @@
     <div class="choice_items_observer">
     </div>
   <ul class="top_items">
-  <!-- 監視する要素↓↓ -->
+      <li v-if="youtube">youtube</li>
+      <!-- <li v-show="youtube"><Youtube></Youtube></li> -->
+      <!-- <li v-show="why"><Why></Why></li> -->
   </ul>
   <div class="choice_items_observer" v-if="bunki">
     <ul class="choice_items"  v-for="item in items" :key="item.id">
       <li>{{item.id}}</li>
     </ul>
   </div>
-  
   <ul class="test">
     <li>
       <router-link to="/example">example</router-link>
-      <!-- tarekomitest -->
     </li>
   </ul>
 </template>
 
 <script>
 import Changeanimation from '../class/index';
-
+import Youtube from './YoutubebaseviewComponent.vue';
+// import Why from './WhyComponent.vue';
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
 export default{
@@ -49,6 +50,7 @@ export default{
             // おすすめ書籍にアンダーラインを引くためにクラスの付与-first_contactclass-他のボタンを押下したらremove
             items:[],
             bunki : false,
+            youtube:false,
             tarekomis :[],
             qiitas :[],
             fullheight: window.innerHeight,
@@ -57,15 +59,23 @@ export default{
             image:null
         }
     },
-
+    components: {
+      Youtube,
+      // Why
+    },
     created() {
       window.addEventListener("scroll", this.handleScroll);
     },
     destroyed() {
       window.removeEventListener("scroll", this.handleScroll);
     },
-
     methods: {
+        showitems(){
+          // document.querySelector('.top_item').innerHTML = '';
+          // let top_items =  document.querySelector('.top_items');
+          // let top_item =  document.querySelector('.top_item');
+          this.youtube =　!this.youtube
+        },
         getitems(){
           // 実行するとitemsに一覧を入れる。vueではv-forで回す。
           this.bunki = true;
@@ -156,7 +166,7 @@ export default{
                 function page_choice(page_name_resurt){
                   // top-items要素を一旦空にする。
                   // parentemptychildappendメソッド
-                  $('.top_items').empty();
+                  // $('.top_items').empty();
                   $(".choice_items").empty();
                   // ローディング処理スタート。
                   $('#channels').append(`<div class="channelarea loading-filter"><div class="loading-circle"></div></div>`);
@@ -171,11 +181,13 @@ export default{
                   switch(page_name_resurt){
                     case "why":
                       console.log("why");
+                      // $(".top_items").empty();
                       $(".channelarea").remove();
+                      // axios出し分ける関数のセット引数にコントローラのメソッドをセットする。
+                      axiosGetAction("why");
                       return;
                     case "admin-youtube":
-
-                      console.log("youtuebe!");
+                      // $(".top_items").empty();
                       $(".channelarea").remove();
                       return;
                   }
@@ -186,6 +198,7 @@ export default{
                   })
                   .then((res) => {
                       // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
+                      $(".top_items").empty();
                       const items = [
                         {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
                         {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
@@ -208,6 +221,12 @@ export default{
                   .catch(function (error) {
                   console.log("エラー!!");
                   });
+                }
+                // axios出し分ける関数
+                function axiosGetAction(page){
+                  console.log(`api/tarekomiapi.pageselect/${page}`);
+                  axios.get(`api/tarekomiapi.pageselect/${page}`)
+                  // topitemsに値をappendする設計にする。
                 }
             });
     }

@@ -85,4 +85,9 @@ class TarekomiapiController extends Controller
     {
         //
     }
+    // 押下されたページの値を振り分ける。
+    public function pageselectp($id){
+        // pageselectphp.jsonを呼び出してそこから帰ってきた値をレスポンス
+        return;
+    }
 }

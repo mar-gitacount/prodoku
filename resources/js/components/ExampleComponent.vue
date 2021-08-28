@@ -10,7 +10,6 @@
               <li>
                 <router-link to="/">home</router-link>
                 <div class="">{{data}}</div>  
-                  
               </li>
             </ul>
           </div>
@@ -24,7 +23,7 @@
 export default {
   data: function(){
         return {
-            data :[]     
+            data :"天才"     
         }
   },
   methods:{
