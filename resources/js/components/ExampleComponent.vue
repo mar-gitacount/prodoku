@@ -9,7 +9,7 @@
               <li>youtube!</li>
               <li>
                 <router-link to="/">home</router-link>
-                <div class="">{{data}}</div>  
+                <div class="">{{youtube}}</div>  
               </li>
             </ul>
           </div>
@@ -20,10 +20,13 @@
 </template>
 
 <script>
+import youtube from '../../json/youtube.json'
 export default {
+
   data: function(){
         return {
-            data :"天才"     
+            data :"天才",
+            youtube:youtube  
         }
   },
   methods:{
