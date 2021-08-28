@@ -71,16 +71,20 @@ ul {
     .top_item{
         width: 100%;
         @include pc {
-            // height: 400px;        
+            img{
+                height: 400px;
+                width: 400px;
+            }
         }
         margin-bottom: 20px;
-
         a {
             display: block;
             border-bottom: 0.2rem solid #000000;
         }
         img {
             display: block;
+            height: 400px;
+            width: 400px;
         }
         
     }
@@ -89,7 +93,8 @@ ul {
         //height: 90px;
         .top_item{
             img{
-                height: 90px;
+                width:300px;
+                height: 300px;
             };
         };
     };

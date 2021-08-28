@@ -1,8 +1,8 @@
 <?php
 return array(
-    '1' => ['label' => 'html,css'],
-    '2' => ['label' => 'javascript'],
-    '3' => ['label' => 'php'],
+    '1' => ['label' => 'hokusaimanga'],
+    '2' => ['label' => 'news'],
+    '3' => ['label' => 'youtube'],
     '4' => ['label' => 'java'],
     '5' => ['label' => 'その他']
 );

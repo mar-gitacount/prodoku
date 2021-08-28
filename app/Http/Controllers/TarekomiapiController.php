@@ -20,7 +20,6 @@ class TarekomiapiController extends Controller
         return response()->json(['tarekomis' => $tarekomis]);
         //return $tarekomis;
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +29,6 @@ class TarekomiapiController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -41,7 +39,6 @@ class TarekomiapiController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *

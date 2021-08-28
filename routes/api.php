@@ -43,7 +43,6 @@ Route::group(['prefix' => 'inquiry', 'as' => 'inquiry', 'middleware' => 'forceSs
 
 Route::get('topdata/{page_name_resurt}',function(Request $request){
     $requestparams = $request -> recode;
-    // 呼び出すコントローラ内でyoutubeapiを投げて返す。
     // コントローラ内で返す値id←これを使ってサムネイルや、タイトルを取得する。
     return $requestparams;
 });

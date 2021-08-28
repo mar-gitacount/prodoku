@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card top_wrap">
-                <div class="card-header">{{ __('ライブカメラ好きのためのサイト') }}</div>
+                <div class="card-header">{{ __('毎日変わる北斎漫画サイト') }}</div>
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
-                    {{ __('Letsprograming!!') }}
+                    {{ __('今日も北斎を楽しもう') }}
                 </div>
                 <div id="app">
                     <router-view></router-view>

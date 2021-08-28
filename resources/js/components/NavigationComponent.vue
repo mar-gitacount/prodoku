@@ -1,23 +1,20 @@
 <template>
   <ul class="channels" id="channels">
   
-    <li class="channel_section channel_section_achtive pickup"  @click="getpageitems(pickup='pickup')" data-id='pickup'>
+    <li class="channel_section channel_section_achtive pickup" @click="getpageitems(pickup='pickup')" data-id='pickup'>
       <!-- デフォルトでアンダーライン -->
-      <div class="">ピックアップ</div>
+      <div class="">本日の北斎漫画</div>
       <!-- <img src=" {{ secure_asset('/storage/hokusaimannga08.gif') }}" alt=""> -->
       <!-- <img alt="ロゴ" src="{{ asset('/img/logo.png') }}"> -->
     </li>
-    <li class="channel_section" data-id='japan'>
-      <div>日本</div>
-    </li>
-    <li class="channel_section" data-id='abroad'>
-      <div>海外</div>
+    <!-- <li class="channel_section" data-id='news'>
+      <div>北斎ニュース</div>
+    </li> -->
+    <li class="channel_section" data-id='why'>
+      <div class="">北斎漫画日和について</div>
     </li>
     <li class="channel_section" data-id='admin-youtube'>
-      <div class=""> prodoku管理人youtube</div>
-    </li>
-    <li class="channel_section" data-id='another'>
-      <div class="">その他</div>
+      <div class="">管理人youtube</div>
     </li>
   </ul>
   <!-- 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 -->
@@ -25,7 +22,6 @@
     </div>
   <ul class="top_items">
   <!-- 監視する要素↓↓ -->
-
   </ul>
   <div class="choice_items_observer" v-if="bunki">
     <ul class="choice_items"  v-for="item in items" :key="item.id">
@@ -33,7 +29,6 @@
     </ul>
   </div>
   
-
   <ul class="test">
     <li>
       <router-link to="/example">example</router-link>
@@ -71,16 +66,6 @@ export default{
     },
 
     methods: {
-        getQiitaapi(){
-          axios.get("api/qiitaapi")
-                .then((res) => {
-                  console.log(res.data);
-                  this.qiitas = res.data;
-                })
-                .catch(function (error) {
-                console.log("エラー");
-            })
-        },
         getitems(){
           // 実行するとitemsに一覧を入れる。vueではv-forで回す。
           this.bunki = true;
@@ -116,6 +101,7 @@ export default{
                     }
           }).then((res) => {
               console.log(res);
+              console.log("yes");
             })
         },
         screenresize(){
@@ -130,7 +116,8 @@ export default{
                 .then((res) => {
                     // テーブルに格納されている値をtarekomisに入れる
                     this.tarekomis = res.data;
-                    //console.log(this.tarekomis);
+                    console.log("タレコミapiです")
+                    console.log(this.tarekomis);
                 })
             .catch(function (error) {
                 console.log("test");
@@ -138,7 +125,7 @@ export default{
         },
     },
     mounted:function(){
-        this.getitems();
+        // this.getitems();
         this.observer = new IntersectionObserver(entries =>{
             const entry = entries[0]
             if (entry && entry.isIntersecting) {
@@ -152,7 +139,7 @@ export default{
         window.addEventListener('screenresize', this.screenresize);
         this.screenresize;
             // DOM作成後に呼び出される。
-            //this.gettarekomis();
+            this.gettarekomis();
             jQuery(function($){
               // サーバーへの負荷を軽くするために一度訪問したページはストックしておく。
               // デフォルトではpickupが入る。
@@ -170,26 +157,35 @@ export default{
                   // top-items要素を一旦空にする。
                   // parentemptychildappendメソッド
                   $('.top_items').empty();
+                  $(".choice_items").empty();
                   // ローディング処理スタート。
                   $('#channels').append(`<div class="channelarea loading-filter"><div class="loading-circle"></div></div>`);
                   // ページ切り替えの値をこの関数に引数として渡してページ切り替えをする。
                   // レコード数をサーバー側に渡して
-                  axios.get(`api/topdata/${page_name_resurt}`, {
+                  // if(page_name_resurt === "why"){
+                  //   // 北斎漫画日和についての概要を差し込んでreturn
+                    
+                  //   $(".channelarea").remove();
+                  //   return;
+                  // }
+                  switch(page_name_resurt){
+                    case "why":
+                      console.log("why");
+                      $(".channelarea").remove();
+                      return;
+                    case "admin-youtube":
+
+                      console.log("youtuebe!");
+                      $(".channelarea").remove();
+                      return;
+                  }
+                  axios.get(`api/tarekomiapi.show/${page_name_resurt}`, {
                     params: {
                       page: page_name_resurt,
                     }
                   })
                   .then((res) => {
-                    // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
-                    // 帰ってきた値を配列に格納
-                      //console.log("値は"+res.data);
-                      // const items = [
-                      //   {id:'fv9Iz0CWpPk'},
-                      //   {id:'HpdO5Kq3o7Y'},
-                      //   {id:'QOjmvL3e7Lc'},
-                      //   {id:'j8JNpKgVkuc'},
-                      //   {id:'uhp-LKQIbno'},
-                      // ];
+                      // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
                       const items = [
                         {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
                         {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
@@ -203,9 +199,9 @@ export default{
                           const id = item.id;
                           const viewname = 'tarekomi';
                           // $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></a></li>`);
-                          $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://s3-ap-northeast-1.amazonaws.com/masarubucket/hokusaimanga/${id}" width="480" height="360" alt=""></a></li>`);
+                          $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://s3-ap-northeast-1.amazonaws.com/masarubucket/hokusaimanga/${id}" alt=""></a></li>`);
                       })
-                      $(".channelarea").remove();
+                      $(".channelarea").remove();                      
                   })
                   // 上記処理完了したらローディング処理終了の処理を書いてローディングを消す。
                   //.then($(".loading-filter").remove())

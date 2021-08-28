@@ -11311,16 +11311,25 @@ ul {
   width: 100%;
   margin-bottom: 20px;
 }
+@media (max-width: 1024px) {
+  .top_items .top_item img {
+    height: 400px;
+    width: 400px;
+  }
+}
 .top_items .top_item a {
   display: block;
   border-bottom: 0.2rem solid #000000;
 }
 .top_items .top_item img {
   display: block;
+  height: 400px;
+  width: 400px;
 }
 @media (max-width: 480px) {
   .top_items .top_item img {
-    height: 90px;
+    width: 300px;
+    height: 300px;
   }
 }
 
