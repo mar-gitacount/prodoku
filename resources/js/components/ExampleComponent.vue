@@ -6,7 +6,6 @@
           <div class="card-header">Example Component</div>
           <div class="card-body">
             <ul>
-              <li>youtube!</li>
               <li>
                 <router-link to="/">home</router-link>
                 <div class="">{{youtube}}</div>  

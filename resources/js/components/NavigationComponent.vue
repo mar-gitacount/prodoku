@@ -1,46 +1,11 @@
 <template>
-  <ul class="channels" id="channels">
-  
-    <li class="channel_section channel_section_achtive pickup" @click="getpageitems(pickup='pickup')" data-id='pickup'>
-      <!-- デフォルトでアンダーライン -->
-      <div class="">本日の北斎漫画</div>
-      <!-- <img src=" {{ secure_asset('/storage/hokusaimannga08.gif') }}" alt=""> -->
-      <!-- <img alt="ロゴ" src="{{ asset('/img/logo.png') }}"> -->
-    </li>
-    <!-- <li class="channel_section" data-id='news'>
-      <div>北斎ニュース</div>
-    </li> -->
-    <li class="channel_section" data-id='why'>
-      <div class="">北斎漫画日和について</div>
-    </li>
-    <li class="channel_section" data-id='admin-youtube' @click="showitems()">
-      <div class="">管理人youtube</div>
-    </li>
-  </ul>
-  <!-- 上記のデータを出し分ける。帰ってきた値をfor文かforeachで回す。 -->
-    <div class="choice_items_observer">
-    </div>
   <ul class="top_items">
-      <li v-if="youtube">youtube</li>
-      <!-- <li v-show="youtube"><Youtube></Youtube></li> -->
-      <!-- <li v-show="why"><Why></Why></li> -->
   </ul>
-  <div class="choice_items_observer" v-if="bunki">
-    <ul class="choice_items"  v-for="item in items" :key="item.id">
-      <li>{{item.id}}</li>
-    </ul>
+  <div class="choice_items_observer">
   </div>
-  <ul class="test">
-    <li>
-      <router-link to="/example">example</router-link>
-    </li>
-  </ul>
 </template>
 
 <script>
-import Changeanimation from '../class/index';
-import Youtube from './YoutubebaseviewComponent.vue';
-// import Why from './WhyComponent.vue';
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
 export default{
@@ -59,10 +24,6 @@ export default{
             image:null
         }
     },
-    components: {
-      Youtube,
-      // Why
-    },
     created() {
       window.addEventListener("scroll", this.handleScroll);
     },
@@ -70,30 +31,17 @@ export default{
       window.removeEventListener("scroll", this.handleScroll);
     },
     methods: {
-        showitems(){
-          // document.querySelector('.top_item').innerHTML = '';
-          // let top_items =  document.querySelector('.top_items');
-          // let top_item =  document.querySelector('.top_item');
-          this.youtube =　!this.youtube
-        },
         getitems(){
           // 実行するとitemsに一覧を入れる。vueではv-forで回す。
           this.bunki = true;
           this.page += 10;
           // ここでパラメータを渡してバックエンドと応答する。
           console.log(this.page);
-          // this.items = [
-          //               {id:'fv9Iz0CWpPk'},
-          //               {id:'HpdO5Kq3o7Y'},
-          //               {id:'QOjmvL3e7Lc'},
-          //               {id:'j8JNpKgVkuc'},
-          //               {id:'uhp-LKQIbno'},
-          // ];
-          // this.image = "https://s3-ap-northeast-1.amazonaws.com/masarubucket/hokusaimanga/1c441d4608219327e193f9bce72b8e38.jpg";
-          // document.getElementById("hokusaiimage").src = "https://s3-ap-northeast-1.amazonaws.com/masarubucket/hokusaimanga/1c441d4608219327e193f9bce72b8e38.jpg";
           if(20 < this.page){
             const value = { id: '999'};
-            this.items.push(value);
+            for(var i = 0; i<9; i++){
+              this.items.push(value);
+            }
           }
           axios.get("api/tarekomiget") 
               .then((res)=> {
@@ -136,24 +84,22 @@ export default{
     },
     mounted:function(){
         // this.getitems();
-        this.observer = new IntersectionObserver(entries =>{
-            const entry = entries[0]
-            if (entry && entry.isIntersecting) {
-              console.log('入りました');
-              this.getitems();
-            }
-        })
+        // this.observer = new IntersectionObserver(entries =>{
+        //     const entry = entries[0]
+        //     if (entry && entry.isIntersecting) {
+        //       console.log('入りました');
+        //       this.getitems();
+        //     }
+        // })
         // 監視対象オブジェクト
-        const choice_items_observer = document.querySelector('.choice_items_observer');
-        this.observer.observe(choice_items_observer);
+        // const choice_items_observer = document.querySelectorAll('.top_items');
+        // observerにインスタンスが入っている
+        // this.observer.observe(choice_items_observer);
         window.addEventListener('screenresize', this.screenresize);
         this.screenresize;
             // DOM作成後に呼び出される。
             this.gettarekomis();
             jQuery(function($){
-              // サーバーへの負荷を軽くするために一度訪問したページはストックしておく。
-              // デフォルトではpickupが入る。
-              let Changeanimation = require("../class/index");
               // ジャンルをクリックしたらその部分に黒い下線を追加する処理。
                 page_choice("pickup");
                 $(".channel_section").on('click',function(){
@@ -170,27 +116,6 @@ export default{
                   $(".choice_items").empty();
                   // ローディング処理スタート。
                   $('#channels').append(`<div class="channelarea loading-filter"><div class="loading-circle"></div></div>`);
-                  // ページ切り替えの値をこの関数に引数として渡してページ切り替えをする。
-                  // レコード数をサーバー側に渡して
-                  // if(page_name_resurt === "why"){
-                  //   // 北斎漫画日和についての概要を差し込んでreturn
-                    
-                  //   $(".channelarea").remove();
-                  //   return;
-                  // }
-                  switch(page_name_resurt){
-                    case "why":
-                      console.log("why");
-                      // $(".top_items").empty();
-                      $(".channelarea").remove();
-                      // axios出し分ける関数のセット引数にコントローラのメソッドをセットする。
-                      axiosGetAction("why");
-                      return;
-                    case "admin-youtube":
-                      // $(".top_items").empty();
-                      $(".channelarea").remove();
-                      return;
-                  }
                   axios.get(`api/tarekomiapi.show/${page_name_resurt}`, {
                     params: {
                       page: page_name_resurt,
@@ -222,12 +147,24 @@ export default{
                   console.log("エラー!!");
                   });
                 }
-                // axios出し分ける関数
-                function axiosGetAction(page){
-                  console.log(`api/tarekomiapi.pageselect/${page}`);
-                  axios.get(`api/tarekomiapi.pageselect/${page}`)
-                  // topitemsに値をappendする設計にする。
-                }
+                // コールバック関数呼び出されるとIntersectorobsoberの第一引数が呼び出される。
+                // 実行後jsonを呼びだしobsoverオブジェクトも追加する。
+                const callback = (entries) => {
+                  console.log({entries});
+                  // entries.foreach((entry) => {
+                  //   console.log({entry});
+                  // });
+                };
+                // 監視対象のマージンをとる。-100px圏内に入ったらコールバック関数であるcallback関数を実行する。
+                const option = {
+                  rootMargin: "100px"
+                };
+                // ターゲットが閾値に入るたびにコールバック関数が呼び出される。インスタンス
+                const io = new IntersectionObserver(callback, option);
+                // 監視対象複数、targetをtopitemsにする。
+                const targets = document.querySelector('.choice_items_observer');
+                console.log({targets});
+                io.observe(targets);
             });
     }
 }

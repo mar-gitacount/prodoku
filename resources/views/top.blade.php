@@ -21,8 +21,12 @@
                     </div>
                     @endif
                     {{ __('今日も北斎を楽しもう') }}
-                    <router-link to="/example">example</router-link>
                 </div>
+                <ul class="channels" id="channels">
+                    <li class="channel_section channel_section_achtive pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>
+                    <li class= "channel_section"><div class="">北斎漫画日和について</div></li>
+                    <li class="channel_section"><div class=""><router-link to="/example">管理人youutube</router-link></div></li>
+                </ul>
                 <div id="app">
                     <router-view></router-view>
                 </div>
