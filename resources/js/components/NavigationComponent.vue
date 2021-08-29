@@ -87,7 +87,12 @@ export default{
             $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
           });
           let page = 0;
-          console.log(hokusai);
+          // console.log(hokusai);
+          $.each(hokusai,function(index,item){
+            console.log(item.name);
+            console.log(item.img);
+            console.log(item.message);
+          })
           const callback = (entries) => {
               console.log({entries});
               page += 10;
