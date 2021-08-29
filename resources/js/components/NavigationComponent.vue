@@ -88,11 +88,21 @@ export default{
           });
           let page = 0;
           // console.log(hokusai);
-          $.each(hokusai,function(index,item){
-            console.log(item.name);
-            console.log(item.img);
-            console.log(item.message);
-          })
+          for(var i = page; i < page +10; i++){
+            const hokusaiobject = hokusai[i];
+            console.log(hokusai[i].img);
+            $('.top_items').append(`<li class="top_item">`+`<img id = "${i}" alt="">`+`</li>`);
+            document.getElementById(`${i}`).src=hokusai[i].img;
+            // $.each(hokusaiobject,function(index,item){
+            //   console.log(hokusaiobject);
+            // })
+            // console.log(hokusaiobject);
+          }
+          // $.each(hokusai,function(index,item){
+          //   console.log(item.name);
+          //   console.log(item.img);
+          //   console.log(item.message);
+          // })
           const callback = (entries) => {
               console.log({entries});
               page += 10;
