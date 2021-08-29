@@ -30,23 +30,12 @@
                 <div id="app">
                     <router-view></router-view>
                 </div>
-                <!-- <div id="navi">
-                    <navigationcomponent></navigationcomponent>
-                </div> -->
-                <!-- <div id="app">
-                    <example-component></example-component>
-                </div> -->
             </div>
         </div>
-        {{-- {{$tarekomis}} --}}
-        {{-- @foreach ($tarekomis as $item)
-            {{$item}}
-        @endforeach --}}
     </div>
 </div>
 @endsection
 <script>
-    
 </script>
 </body>
 </html>
