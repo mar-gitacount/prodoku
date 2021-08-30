@@ -15,7 +15,7 @@ $tab: 680px; // タブレット
 $sp: 480px;  // スマホ
 
 @mixin pc {
-    @media (max-width: ($pc)) {
+    @media (min-width: ($pc)) {
         @content;
     }
 }
@@ -48,6 +48,7 @@ ul {
 }
 
 .channels{
+    border-bottom: 0.1rem solid #C5C5C5;
     li {
         white-space: nowrap;
         cursor: pointer;
@@ -68,13 +69,15 @@ ul {
     position: relative;
     flex-wrap: wrap;
     //overflow: hidden;
+    // デバイス共通の処理
     .top_item{
+        border-bottom: 0.2rem solid #000000;
         width: 100%;
-        @include pc {
-            img{
-                height: 400px;
-                width: 400px;
-            }
+        .title_name{
+            text-align: center;
+        }
+        .message{
+            padding: 5px;
         }
         margin-bottom: 20px;
         a {
@@ -88,7 +91,17 @@ ul {
         }
         
     }
-    
+    // PCのレイアウト
+    @include pc{
+        .top_item {
+            display: flex;
+            img{
+                height: 400px;
+                width: 400px;
+            }
+        }
+    }
+    // スマホのレイアウト
     @include sp {
         //height: 90px;
         .top_item{

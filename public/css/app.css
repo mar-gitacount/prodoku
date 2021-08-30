@@ -11288,6 +11288,9 @@ ul {
   overflow: scroll;
 }
 
+.channels {
+  border-bottom: 0.1rem solid #C5C5C5;
+}
 .channels li {
   white-space: nowrap;
   cursor: pointer;
@@ -11308,14 +11311,15 @@ ul {
   flex-wrap: wrap;
 }
 .top_items .top_item {
+  border-bottom: 0.2rem solid #000000;
   width: 100%;
   margin-bottom: 20px;
 }
-@media (max-width: 1024px) {
-  .top_items .top_item img {
-    height: 400px;
-    width: 400px;
-  }
+.top_items .top_item .title_name {
+  text-align: center;
+}
+.top_items .top_item .message {
+  padding: 5px;
 }
 .top_items .top_item a {
   display: block;
@@ -11325,6 +11329,15 @@ ul {
   display: block;
   height: 400px;
   width: 400px;
+}
+@media (min-width: 1024px) {
+  .top_items .top_item {
+    display: flex;
+  }
+  .top_items .top_item img {
+    height: 400px;
+    width: 400px;
+  }
 }
 @media (max-width: 480px) {
   .top_items .top_item img {

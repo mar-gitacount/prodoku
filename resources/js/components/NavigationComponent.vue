@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// ジャンル毎にjsonファイルを書き換える。
 import hokusai from"../../json/mainviewread.json"
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
@@ -93,13 +94,13 @@ export default{
               console.log(hokusai[i]);
               // jsonファイルの中身があるかどうか判定する。
               if(hokusai[i] == undefined){
-                // クラスが存在しない場合終了ですよタグを追加する。
+                // 「終了です。」クラスが存在しない場合「終了です。」タグを追加する。
                 if(!$('li').hasClass('end_item')) {
                   $('.top_items').append(`<li class="end_item">`+"終了です。"+`</li>`);
                 }
                 return;
               }
-              $('.top_items').append(`<li class="top_item">`+`<img id = "${i}" alt="">`+`</li>`);
+              $('.top_items').append(`<li class="top_item">`+`<img id = "${i}" alt="">`+`<div>`+`<p class="title_name">` + hokusai[i].name + `</p>`+`<p class="message">` + hokusai[i].message + `</p>`+`</div>`+`</li>`);
               document.getElementById(`${i}`).src=hokusai[i].img;
               // $.each(hokusaiobject,function(index,item){
               //   console.log(hokusaiobject);
