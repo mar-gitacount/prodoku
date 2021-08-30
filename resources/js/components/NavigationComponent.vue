@@ -87,16 +87,25 @@ export default{
             $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
           });
           let page = 0;
-          // console.log(hokusai);
-          for(var i = page; i < page +10; i++){
-            const hokusaiobject = hokusai[i];
-            console.log(hokusai[i].img);
-            $('.top_items').append(`<li class="top_item">`+`<img id = "${i}" alt="">`+`</li>`);
-            document.getElementById(`${i}`).src=hokusai[i].img;
-            // $.each(hokusaiobject,function(index,item){
-            //   console.log(hokusaiobject);
-            // })
-            // console.log(hokusaiobject);
+          function pageappend(){
+            for(var i = page; i < page + 10; i++){
+              const hokusaiobject = hokusai[i];
+              console.log(hokusai[i]);
+              // jsonファイルの中身があるかどうか判定する。
+              if(hokusai[i] == undefined){
+                // クラスが存在しない場合終了ですよタグを追加する。
+                if(!$('li').hasClass('end_item')) {
+                  $('.top_items').append(`<li class="end_item">`+"終了です。"+`</li>`);
+                }
+                return;
+              }
+              $('.top_items').append(`<li class="top_item">`+`<img id = "${i}" alt="">`+`</li>`);
+              document.getElementById(`${i}`).src=hokusai[i].img;
+              // $.each(hokusaiobject,function(index,item){
+              //   console.log(hokusaiobject);
+              // })
+              // console.log(hokusaiobject);
+            }
           }
           // $.each(hokusai,function(index,item){
           //   console.log(item.name);
@@ -104,13 +113,14 @@ export default{
           //   console.log(item.message);
           // })
           const callback = (entries) => {
-              console.log({entries});
+              // console.log({entries});
+              pageappend();
               page += 10;
               console.log(page);
           };
           // 監視対象のマージンをとる。100px圏内に入ったらコールバック関数であるcallback関数を実行する。
           const option = {
-            rootMargin: "-100px"
+            rootMargin: "100px"
           };
           // ターゲットが閾値に入るたびにコールバック関数が呼び出される。インスタンス
           const io = new IntersectionObserver(callback, option);
