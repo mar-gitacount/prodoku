@@ -31,6 +31,13 @@
                     </ul>
                     <ul>
                         <li><a href="{{ route('admin.storepageadmin') }}" class = "btn btn-primary">youtube投稿作成</a></li>
+                        <li>
+                            <form action="{{route('admin.upload')}}" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
+                                <input type="file" name="file">
+                                <button type="submit">保存</button>
+                            </form>
+                        </li>
                     </ul>
                     @if (count($tarekomis)>0)
                             <ul>

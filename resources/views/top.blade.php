@@ -26,7 +26,7 @@
                 <div id="app">
                     <router-view></router-view>
                 </div>
-                <div class=""><router-link to="/pribacy">プライバシーアンドプライバシー</router-link></div>
+                <div class=""><router-link to="/privacy_policy">プライバシープライバシー</router-link></div>
             </div>
         </div>
     </div>

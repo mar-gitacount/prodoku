@@ -86,7 +86,7 @@ class HomeController extends Controller
         //dd($list);
         $path = Storage::disk('s3')->put('/', $file, 'public');
         //dd($path);
-        return redirect("/");
+        return redirect("/admin/checktarekomis");
     }
     // タレコミを編集する。
     public function edit(Request $request){
