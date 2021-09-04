@@ -6,8 +6,13 @@ use App\Models\Tarekomi;
 use GuzzleHttp\Client;
 use Tests\TestCase;
 use App\Cron\EditandDelete;
+use App\Cron\Roundomjsonchoice;
+
 require '../../vendor/autoload.php';
+Roundomjsonchoice::roundomserch();
+return;
 // Guzzleのインスタンスを作成
+
 $client = new Client;
 $method = 'POST';
 $token = "fdafdasfhewiafds";

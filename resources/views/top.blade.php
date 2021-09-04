@@ -16,7 +16,7 @@
                 </div>
                 <ul class="channels" id="channels">
                     <li class="channel_section channel_section_achtive pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>
-                    <li class= "channel_section"><div class="">神仏</div></li>
+                    <li class= "channel_section"><div class="">神仏,神話</div></li>
                     <li class= "channel_section"><div class="">江戸の人々</div></li>
                     <li class= "channel_section"><div class="">妖怪</div></li>
                     <li class= "channel_section"><div class="">でじたる北斎漫画びよりについて</div></li>
