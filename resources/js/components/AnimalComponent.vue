@@ -5,7 +5,7 @@
 
 <script>
 // ジャンル毎にjsonファイルを書き換える。
-import hokusai from "../../json/HokusaiDayOfWeekjsons/gunlejsonfiles/edopeople.json";
+import hokusai from "../../json/HokusaiDayOfWeekjsons/gunlejsonfiles/animal.json";
 var AWS = require("aws-sdk");
 var s3 = new AWS.S3();
 export default {
