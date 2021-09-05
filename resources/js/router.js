@@ -1,5 +1,6 @@
 import  NavigationComponent from './components/NavigationComponent';
 import  ExampleComponent from './components/ExampleComponent';
+import EdopeopleComponent from './components/EdopeopleComponent';
 import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
     // {
@@ -11,6 +12,11 @@ const routes = [
         path:"/",
         name:'home',
         component: NavigationComponent
+    },
+    {
+        path:'/edopeople',
+        name:'edopeople',
+        component: EdopeopleComponent
     },
     {
         path: '/example',
