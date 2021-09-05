@@ -2,6 +2,7 @@ import  NavigationComponent from './components/NavigationComponent';
 import  SinbutuComponent from './components/SinbutuComponent';
 import EdopeopleComponent from './components/EdopeopleComponent';
 import AnimalComponent from './components/AnimalComponent';
+import YoukaiComponent from './components/YoukaiComponent';
 import  ExampleComponent from './components/ExampleComponent';
 import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
@@ -29,6 +30,11 @@ const routes = [
         path:'/animal',
         name:'animal',
         component: AnimalComponent
+    },
+    {
+        path:'/youkai',
+        name:'youkai',
+        component: YoukaiComponent
     },
     {
         path: '/example',

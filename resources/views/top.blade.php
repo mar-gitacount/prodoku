@@ -19,7 +19,7 @@
                     <li class= "channel_section"><div class=""><router-link to="/sinbutu">神仏,神話</router-link></div></li>
                     <li class= "channel_section"><div class=""><router-link to="/edopeople">江戸の人々</router-link></div></li>
                     <li class= "channel_section"><div class=""><router-link to="/animal">動物</router-link></div></li>
-                    <li class= "channel_section"><div class="">妖怪</div></li>
+                    <li class= "channel_section"><div class=""><router-link to="/youkai">妖怪</router-link></div></li>
                     <li class= "channel_section"><div class="">でじたる北斎漫画びよりについて</div></li>
                     <li class= "channel_section"><div class="">北斎ニュース</div></li>
                     <li class="channel_section"><div class=""><router-link to="/example">管理人youutube</router-link></div></li>
