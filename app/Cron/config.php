@@ -6,5 +6,5 @@ return [
     // ランダムで読み込むjsonファイル群。
     'rondomjsonsdir' => "../../resources/json/HokusaiDayOfWeekjsons/gunlejsonfiles",
     // 出力先jsonファイル。今回の場合はmainviewread.jsonファイル。
-    'readviewjson' => "../../resources/json/testview.json"
+    'readviewjson' => "../../resources/json/mainviewread.json"
 ];
