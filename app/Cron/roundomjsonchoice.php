@@ -13,12 +13,10 @@ class Roundomjsonchoice {
         $rondomjsonsdir = $config['rondomjsonsdir'];
         $readviewjson = $config['readviewjson'];
         $readviewupdatejson = $config['readupdatetimejson']; 
-        // jsonファイルを確認して、yesなら実行noならリターン
-        $readviewupdatejsondecode = Roundomjsonchoice::jsondecode($readviewupdatejson);
-        print_r($readviewupdatejsondecode[0]);
         // 一旦jsondecodeしてmainview.jsonファイル内の配列にアクセスできるようにする。
         $readviewjson_decode = Roundomjsonchoice::jsondecode($readviewjson);
         Roundomjsonchoice::relesejson($rondomjsonsdir, $readviewjson);
+        Roundomjsonchoice::readview_jsontimeupdate($readviewupdatejson);
     }
     // ランダムで取得したjsonファイのデータを読み込むjsonファイルを呼び出すメソッド、今回はmainviewread.json
     public static function relesejson($rondomjsonsdir,$readviewjson){
@@ -55,13 +53,12 @@ class Roundomjsonchoice {
         file_put_contents($readviewjson,"[\n", LOCK_EX);
         file_put_contents($readviewjson,$readviewjsonArray,FILE_APPEND|LOCK_EX);
         file_put_contents($readviewjson,"\n]",FILE_APPEND|LOCK_EX);
-
     }
     // jsonファイル内の配列にアクセスする関数。
     public static function jsonfilearraydappend($jsonaccessfile,$appendobject) {
         $getfile=file_get_contents($jsonaccessfile);
         echo $getfile;
-        file_put_contents($getfile,$appendobject);
+        // file_put_contents($getfile,$appendobject);
     }
     // jsonファイルをデコードして返す関数。
     public static function jsondecode($decodefile){
@@ -72,5 +69,15 @@ class Roundomjsonchoice {
         // 配列に変換する。
         $arr = json_decode($json,true);
         return $arr;
+    }
+    public static function readview_jsontimeupdate($readupdatetime){
+        // jsonデコードする関数を呼び出して、その帰ってきた値を調整する。
+        $updatejsondecodearr = Roundomjsonchoice::jsondecode($readupdatetime);
+        // 時間を取得する。
+        $updatetime = date("Y/m/d H:i:s");
+        $updatejsondecodearr[0][array_keys($updatejsondecodearr[0])[0]]=$updatetime;
+        $update_timeresurt_encode = json_encode($updatejsondecodearr, JSON_UNESCAPED_UNICODE| JSON_PRETTY_PRINT);
+        file_put_contents($readupdatetime,$update_timeresurt_encode);
+        return;
     }
 }

@@ -89,7 +89,7 @@ export default{
             var page_name = $(this).data('id');
             $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
           });
-          $("#updatetimes").html(update_yyyymmdd[0].mainviewupdate_time);
+          $("#updatetimes").html(update_yyyymmdd[0].mainviewupdate_time+'更新');
           let page = 0;
           function pageappend(){
             for(var i = page; i < page + 10; i++){
