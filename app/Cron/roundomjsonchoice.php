@@ -74,6 +74,7 @@ class Roundomjsonchoice {
         // jsonデコードする関数を呼び出して、その帰ってきた値を調整する。
         $updatejsondecodearr = Roundomjsonchoice::jsondecode($readupdatetime);
         // 時間を取得する。
+        date_default_timezone_set('Asia/Tokyo');
         $updatetime = date("Y/m/d H:i:s");
         $updatejsondecodearr[0][array_keys($updatejsondecodearr[0])[0]]=$updatetime;
         $update_timeresurt_encode = json_encode($updatejsondecodearr, JSON_UNESCAPED_UNICODE| JSON_PRETTY_PRINT);
