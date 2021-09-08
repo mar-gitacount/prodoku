@@ -9,7 +9,9 @@ use App\Cron\EditandDelete;
 use App\Cron\Roundomjsonchoice;
 
 require '../../vendor/autoload.php';
+// 本日の北斎漫画のオブジェクトと更新日時を返すクラス
 Roundomjsonchoice::roundomserch();
+
 return;
 // Guzzleのインスタンスを作成
 

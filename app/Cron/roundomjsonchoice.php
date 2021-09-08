@@ -4,7 +4,7 @@ use GuzzleHttp\Client;
 use App\Models\Tarekomi;
 use Illuminate\Support\Facades\Config;
 use PHPUnit\Util\Json;
-
+require '../../vendor/autoload.php';
 // ランダムで読み込むjsonファイルと吐き出すjsonファイルが読み込まれる。
 class Roundomjsonchoice {
     // 指定のファイルをランダムで取得するメソッド
@@ -12,7 +12,11 @@ class Roundomjsonchoice {
         $config = include "../Cron/config.php";
         $rondomjsonsdir = $config['rondomjsonsdir'];
         $readviewjson = $config['readviewjson'];
-        // 一旦jsondecodeしてmainview.jsonファイル内の配列ににアクセスできるようにする。
+        $readviewupdatejson = $config['readupdatetimejson']; 
+        // jsonファイルを確認して、yesなら実行noならリターン
+        $readviewupdatejsondecode = Roundomjsonchoice::jsondecode($readviewupdatejson);
+        print_r($readviewupdatejsondecode[0]);
+        // 一旦jsondecodeしてmainview.jsonファイル内の配列にアクセスできるようにする。
         $readviewjson_decode = Roundomjsonchoice::jsondecode($readviewjson);
         Roundomjsonchoice::relesejson($rondomjsonsdir, $readviewjson);
     }
@@ -51,6 +55,7 @@ class Roundomjsonchoice {
         file_put_contents($readviewjson,"[\n", LOCK_EX);
         file_put_contents($readviewjson,$readviewjsonArray,FILE_APPEND|LOCK_EX);
         file_put_contents($readviewjson,"\n]",FILE_APPEND|LOCK_EX);
+
     }
     // jsonファイル内の配列にアクセスする関数。
     public static function jsonfilearraydappend($jsonaccessfile,$appendobject) {

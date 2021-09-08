@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card top_wrap">
-                <div class="card-header">{{ __('でじたる北斎漫画びより') }}</div>
+                <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}</div>
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
-                    {{ __('デジタルタッチで描いた北斎漫画を楽しもう') }}
+                    {{ __('日替わりで北斎漫画を楽しもう') }}
                 </div>
                 <ul class="channels" id="channels">
                     <li class="channel_section channel_section_achtive pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>
@@ -20,9 +20,9 @@
                     <li class= "channel_section"><div class=""><router-link to="/edopeople">江戸の人々</router-link></div></li>
                     <li class= "channel_section"><div class=""><router-link to="/animal">動物</router-link></div></li>
                     <li class= "channel_section"><div class=""><router-link to="/youkai">妖怪</router-link></div></li>
-                    <li class= "channel_section"><div class="">でじたる北斎漫画びよりについて</div></li>
-                    <li class= "channel_section"><div class="">北斎ニュース</div></li>
+                    <li class= "channel_section"><div class="">浮世絵ニュース</div></li>
                     <li class="channel_section"><div class=""><router-link to="/example">管理人youutube</router-link></div></li>
+                    <li class= "channel_section"><div class="">でじたる北斎漫画びよりについて</div></li>
                 </ul>
                 <div id="app">
                     <router-view></router-view>

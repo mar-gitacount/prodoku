@@ -90,5 +90,25 @@
         "name":"食事を楽しむ人やお酒を飲んで寝てしまう人", 
         "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/edopeaple/IMG_4892.JPG",
         "message":"なんとも美味しそうなそばを食べようとして楽しそうな人に、お酒をのんで気持ちよく寝てしまう人もいます。相撲の取り合いをしている姿も見受けられます。"
+    },
+    {
+        "name":"芸達者な人たちや生活", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/edopeaple/IMG_4929.jpg",
+        "message":"江戸の女性が胸をあらわにするのは相変わらずのようですね。この一枚には曲芸師や仮面をかぶって三味線を引く人、落語で人を怖がらせる噺の達人など、様々な人たちが見受けられます。"
+    },
+    {
+        "name":"様々な生活", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/edopeaple/IMG_4930.jpg",
+        "message":"なぜかは分かりませんが、水をかぶる殿方がおりますが水の表現などが見事です。子供達の楽しそうな姿も見受けられます。"
+    },
+    {
+        "name":"趣味を謳歌する人々", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/edopeaple/IMG_4931.jpg",
+        "message":"煙管を吸ってリラックスする人、猿の芸を鑑賞する人北斎先生は人々の表情を的確に表現しており、楽しさがこちらにも伝わってきます。"
+    },
+    {
+        "name":"談笑を楽しんでみたり、踊ってみたり", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/edopeaple/IMG_4932.jpg",
+        "message":"談笑を楽しむ男女、女性の手にはお酒？がありますね、いつの時代もお酒を飲んで楽しむのは嗜みのようですね。"
     }
 ]

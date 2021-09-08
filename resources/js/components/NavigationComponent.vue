@@ -1,4 +1,5 @@
 <template>
+  <div id="updatetimes"></div>
   <ul class="top_items">
   </ul>
   <div class="choice_items_observer">
@@ -7,7 +8,8 @@
 
 <script>
 // ジャンル毎にjsonファイルを書き換える。
-import hokusai from"../../json/mainviewread.json"
+import hokusai from"../../json/mainviewread.json";
+import update_yyyymmdd from "../../json/HokusaiDayOfWeekjsons/update_yyyymmdd.json";
 var AWS = require('aws-sdk');
 var s3 = new AWS.S3();
 export default{
@@ -87,6 +89,7 @@ export default{
             var page_name = $(this).data('id');
             $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
           });
+          $("#updatetimes").html(update_yyyymmdd[0].mainviewupdate_time);
           let page = 0;
           function pageappend(){
             for(var i = page; i < page + 10; i++){
