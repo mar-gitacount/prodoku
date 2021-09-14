@@ -11309,6 +11309,7 @@ ul {
   justify-content: space-between;
   position: relative;
   flex-wrap: wrap;
+  padding-left: 0rem;
 }
 .top_items .top_item {
   border-bottom: 0.2rem solid #000000;
@@ -11333,6 +11334,7 @@ ul {
   display: block;
   height: 400px;
   width: 400px;
+  margin: auto;
 }
 .top_items .top_item .kakutyo {
   background: red;

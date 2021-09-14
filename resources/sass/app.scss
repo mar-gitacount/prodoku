@@ -68,6 +68,7 @@ ul {
     justify-content: space-between;
     position: relative;
     flex-wrap: wrap;
+    padding-left: 0rem;
     //overflow: hidden;
     // デバイス共通の処理
     .top_item{
@@ -93,6 +94,7 @@ ul {
             display: block;
             height: 400px;
             width: 400px;
+            margin:auto;
         }
         .kakutyo{
             background: red;
