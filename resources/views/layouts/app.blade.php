@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', '確バイアス防止ツール') }}</title>
+    <meta name="google-site-verification" content="yBJnoe-4vMoYIKvlBGc7xfOhwqIc5aZ9vw5mTpLBCj8" />
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
