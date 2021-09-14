@@ -11318,17 +11318,24 @@ ul {
 .top_items .top_item .title_name {
   text-align: center;
 }
-.top_items .top_item .message {
+.top_items .top_item .common_message {
   padding: 5px;
+  line-height: 24px;
+}
+.top_items .top_item .readmore-btn {
+  display: none;
 }
 .top_items .top_item a {
   display: block;
-  border-bottom: 0.2rem solid #000000;
+  text-align: center;
 }
 .top_items .top_item img {
   display: block;
   height: 400px;
   width: 400px;
+}
+.top_items .top_item .kakutyo {
+  background: red;
 }
 @media (min-width: 1024px) {
   .top_items .top_item {

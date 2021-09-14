@@ -14,6 +14,7 @@
         "jquery": "^3.6.0",
         "package.json": "^2.0.1",
         "popper.js": "^1.16.1",
+        "readmore-js": "^2.2.1",
         "vue-router": "^4.0.11"
     },
     "devDependencies": {

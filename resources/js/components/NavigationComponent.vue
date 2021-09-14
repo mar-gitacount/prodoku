@@ -45,11 +45,11 @@ export default{
           }
           axios.get("api/tarekomiget") 
               .then((res)=> {
-                console.log(res.data);
+                // console.log(res.data);
                 //this.data = res.data;
           })
               .catch(function (error) {
-                console.log("エラー");
+                // console.log("エラー");
               })
         },
         getpageitems(page){
@@ -58,13 +58,13 @@ export default{
                       page: page,
                     }
           }).then((res) => {
-              console.log(res);
-              console.log("yes");
+              // console.log(res);
+              // console.log("yes");
             })
         },
         screenresize(){
           this.fullheight = window.innerHeight+'px';
-          console.log(this.fullheight);
+          // console.log(this.fullheight);
         },
         destroyed() {
           window.removeEventListener("scroll", this.handleScroll);
@@ -74,11 +74,11 @@ export default{
                 .then((res) => {
                     // テーブルに格納されている値をtarekomisに入れる
                     this.tarekomis = res.data;
-                    console.log("タレコミapiです")
-                    console.log(this.tarekomis);
+                    // console.log("タレコミapiです")
+                    // console.log(this.tarekomis);
                 })
             .catch(function (error) {
-                console.log("test");
+                // console.log("test");
             })
         },
     },
@@ -91,10 +91,14 @@ export default{
           });
           $("#updatetimes").html(update_yyyymmdd[0].mainviewupdate_time+'更新');
           let page = 0;
+
+          // 各種<li>messageアイテムの高さ配列に格納してみる
+          let top_item_heights = [];
           function pageappend(){
+            // console.log(page);
             for(var i = page; i < page + 10; i++){
-              const hokusaiobject = hokusai[i];
-              console.log(hokusai[i]);
+              // const hokusaiobject = hokusai[i];
+              // console.log(hokusai[i]);
               // jsonファイルの中身があるかどうか判定する。
               if(hokusai[i] == undefined){
                 // 「終了です。」クラスが存在しない場合「終了です。」タグを追加する。
@@ -103,24 +107,62 @@ export default{
                 }
                 return;
               }
-              $('.top_items').append(`<li class="top_item">`+`<img id = "${i}" alt="">`+`<div>`+`<p class="title_name">` + hokusai[i].name + `</p>`+`<p class="message">` + hokusai[i].message + `</p>`+`</div>`+`</li>`);
-              document.getElementById(`${i}`).src=hokusai[i].img;
-              // $.each(hokusaiobject,function(index,item){
-              //   console.log(hokusaiobject);
-              // })
-              // console.log(hokusaiobject);
+              $('.top_items').append(`<li id = "${i}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img${i}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + hokusai[i].name + `</p>`+`<p class="common_message message${i}">` + hokusai[i].message + `</p>`+`<p class="readmore-btn${i} click-btn">`+"続きを読む"+`</p>` + `</div>`+`</li>`);
+              document.getElementById(`img${i}`).src=hokusai[i].img;
+              $(`.message${i}`).innerText = hokusai[i].message;
+              var messageHeight =  $(`.message${i}`).height();
+              top_item_heights.push(messageHeight);
+              var lineHeight = parseFloat($(`.common_message`).css('line-height'));
+              var lineNum = 4;
+              var messageNewHeight = lineHeight * lineNum;
+              // 各messageの高さ-隠す文messageに引いた分の値を足し合わせる。
+              // console.log(messageHeight+'は元々のメッセージの高さ'+messageNewHeight+'は比べる値の高さ');
+              if (messageHeight < messageNewHeight){
+                $(`.readmore-btn${i}`).css({
+                  'display':'none',
+                    'text-align': 'center'
+                  });
+              }else{
+                $(`.message${i}`).css({
+                  // messageオブジェクトは96pxに変更されて、それを超えている文章をhiddenを使って隠している。
+                  'height':messageNewHeight,
+                  'overflow':'hidden'
+                });
+                $(`.readmore-btn${i}`).css({
+                  'text-align': 'center'
+                  });
+                $(`.readmore-btn${i}`).click(function(eo){
+                  let message = $(this).prev();
+                  let current_parent_top_item = message.closest(".top_item");
+                  // 補完してた引いた分のheightを取り出す。
+                  let current_parent_top_item_arraynum = top_item_heights[Number(current_parent_top_item[0].id)];
+                  // 現段階のmessageのheightを取り出して上記の値を足す
+                  let messageheight = message.height();
+                  // console.log(top_item_heights[current_parent_top_item_arraynum]);
+                  let text = $(this)[0].innerText;
+                  let html = $(this)[0].innerHTML;
+                  if(text == "続きを読む"){
+                    $(this)[0].innerText = "閉める";
+                    let final_message_height =  current_parent_top_item_arraynum;
+                    // console.log(final_message_height);
+                    message.css(
+                      'height',final_message_height
+                    );
+                  }else{
+                    $(this)[0].innerText = "続きを読む";
+                    let final_message_height = messageheight;
+                    message.css(
+                      'height','96px',
+                      'overflow','hidden'
+                    );
+                  }
+                });
+              }
             }
           }
-          // $.each(hokusai,function(index,item){
-          //   console.log(item.name);
-          //   console.log(item.img);
-          //   console.log(item.message);
-          // })
           const callback = (entries) => {
-              // console.log({entries});
               pageappend();
               page += 10;
-              console.log(page);
           };
           // 監視対象のマージンをとる。100px圏内に入ったらコールバック関数であるcallback関数を実行する。
           const option = {
@@ -131,44 +173,6 @@ export default{
           const targets = document.querySelector('.choice_items_observer');
           // console.log({targets});
           io.observe(targets);
-                //axiosで出しわけする。
-                // function page_choice(page_name_resurt){
-                //   // top-items要素を一旦空にする。
-                //   // parentemptychildappendメソッド
-                //   // $('.top_items').empty();
-                //   $(".choice_items").empty();
-                //   // ローディング処理スタート。
-                //   $('#channels').append(`<div class="channelarea loading-filter"><div class="loading-circle"></div></div>`);
-                //   axios.get(`api/tarekomiapi.show/${page_name_resurt}`, {
-                //     params: {
-                //       page: page_name_resurt,
-                //     }
-                //   })
-                //   .then((res) => {
-                //       // ここにサーバー側で帰ってきた処理を書くデータがあるはずなのでview側を整形する処理もここに書く。
-                //       $(".top_items").empty();
-                //       const items = [
-                //         {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
-                //         {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
-                //         {id:"1c441d4608219327e193f9bce72b8e38.jpg"},
-                //       ]
-                //       //item_stock.push(page_name_resurt);
-                //       //this.gettest();
-                //       console.log(res);
-                //       $.each(items,function(index,item){
-                //           // itemは各連想配列item.idで中身を出力する。
-                //           const id = item.id;
-                //           const viewname = 'tarekomi';
-                //           // $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt=""></a></li>`);
-                //           $('.top_items').append(`<li class="top_item"><a href="{{ route(${viewname}) }}" ><img src="https://s3-ap-northeast-1.amazonaws.com/masarubucket/hokusaimanga/${id}" alt=""></a></li>`);
-                //       })
-                //       $(".channelarea").remove();                      
-                //   })
-                //   // 上記処理完了したらローディング処理終了の処理を書いてローディングを消す。
-                //   //.then($(".loading-filter").remove())
-                //   .catch(function (error) {
-                //   console.log("エラー!!");
-                //   });
         });
     }
 }

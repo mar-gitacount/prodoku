@@ -76,18 +76,26 @@ ul {
         .title_name{
             text-align: center;
         }
-        .message{
+        .common_message{
             padding: 5px;
+            line-height: 24px;
+        }
+        .readmore-btn{
+            display: none;
         }
         margin-bottom: 20px;
         a {
             display: block;
-            border-bottom: 0.2rem solid #000000;
+            text-align: center;
+            // border-bottom: 0.2rem solid #000000;
         }
         img {
             display: block;
             height: 400px;
             width: 400px;
+        }
+        .kakutyo{
+            background: red;
         }
         
     }
