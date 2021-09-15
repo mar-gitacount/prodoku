@@ -110,5 +110,35 @@
         "name":"談笑を楽しんでみたり、踊ってみたり", 
         "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/edopeaple/IMG_4932.jpg",
         "message":"談笑を楽しむ男女、女性の手にはお酒？がありますね、いつの時代もお酒を飲んで楽しむのは嗜みのようですね。"
+    },
+    {
+        "name":"江戸の人々", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/edopeaple/IMG_4947.jpg",
+        "message":"北斎先生が描く人物画は写実的なのは勿論のこと、その場の空気やその人の表情なども伝わってきます。提灯を持って街を徘徊する女性、赤ん坊を背中におぶるお母さん、銭湯で体を洗う女性に着替える女性と様々な生活が伺えます。右上の方は泥棒でしょうか?当たり前ですが、今では見られない光景が描かれているのも北斎漫画の見どころの一つでございます。"
+    },
+    {
+        "name":"楽しく暮らす人々、幸せな人々", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/edopeaple/IMG_4948.jpg",
+        "message":"談笑する人々や女性に怒られる人?など様々な人々が見受けられます。左上には妊婦さんとそれを触る旦那さん?の姿が描かれています。いつの時代も命の誕生は素晴らしいものですね。"
+    },
+    {
+        "name":"寒くて嫌だ", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/edopeaple/IMG_4949.jpg",
+        "message":"上の人々は雪の中を歩いているのでしょうか?とても寒そうです。下の人たちは傘をさして集まっている様子、、"
+    },
+    {
+        "name":"お坊さんたち", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/edopeaple/IMG_4950.jpg",
+        "message":"卒塔婆をに戒名?書くお坊さんやお経を唱える複数のお坊さんがいますね、心なしか合掌しているようにも見えます。なんとも可愛らしいお坊さんたちの一枚です。"
+    },
+    {
+        "name":"赤穂浪士?", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/edopeaple/IMG_4951.jpg",
+        "message":"何やら色々なジャンルの絵が描かれているようですね。一番上は恐らく赤穂浪士ではないでしょうか?その他には詳しい詳細は分かりませんが、魚を網で焼く女性や石をわる男性などが見受けられます。※詳細がわかり次第更新します。"
+    },
+    {
+        "name":"獅子舞とか凧とか", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/edopeaple/IMG_4952.jpg",
+        "message":"獅子舞の面をかぶって太鼓を叩く人や、大きな凧の周りではしゃぐ子供たち、神主などの行事なども描かれています。"
     }
 ]

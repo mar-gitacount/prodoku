@@ -150,6 +150,7 @@ export default{
                     );
                   }else{
                     $(this)[0].innerText = "続きを読む";
+                    // クリックした際、画像のところに戻るようにする。
                     let final_message_height = messageheight;
                     message.css(
                       'height','96px',
