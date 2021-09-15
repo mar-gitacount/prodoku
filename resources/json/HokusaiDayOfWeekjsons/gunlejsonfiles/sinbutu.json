@@ -20,8 +20,38 @@
         "message":"神様の他に浦島太郎が描かれていますね、真ん中に描かれています王母というのは女神であり、元々は「西王母」と呼ばれており、「西王母の山」または「玉山」と呼ばれる山に住んでいる神様です。※他の神様は随時更新します。"
     },
     {
-        "name":"さまざまな神様", 
-        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4924.JPG",
-        "message":"神様の他に浦島太郎が描かれていますね、真ん中に描かれています王母というのは女神であり、元々は「西王母」と呼ばれており、「西王母の山」または「玉山」と呼ばれる山に住んでいる神様です。※他の神様は随時更新します。"
+        "name":"三玉の亀", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4942.jpg",
+        "message":"鶴は千年、亀は万年というのは今でも有名な逸話です。ここで描かれている亀は背中に大きな岩を携えて、その上には三つの玉を乗せており、三玉の亀(さんぎょくのかめ)と称されております。万歳楽を歌う千年の鶴に対して、三玉の亀は「天下泰平国土安穏」を願うとてもありがたい亀なのです。"
+    },
+    {
+        "name":"龍", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4943.jpg",
+        "message":"誰もが知る、様々な創作物に登場する龍、いつの時代も神々しい想像上の生き物です。体は「蛇」、角は「鹿」、耳は「牛」、目は「ウサギ」、鱗は「鯉」、爪は「鷹」、手のひらは「虎」、頭はなんと「ラクダ」のようです。龍は皆さんご存知だと思いますが、これだけの種類の動物が合体した生き物だということを知る人は少ないでしょう。"
+    },
+    {
+        "name":"鳳凰", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4944.jpg",
+        "message":"鳳凰とは中国の伝説に登場する伝説の鳥で36種の羽を持つ鳥です。頭は「鶏」、あごは「燕」、首は「蛇」、背中は「亀」、尾は「魚」です。大きさは六尺(約180cm)程の大きさと言われており、西洋で言うフェニックス「不死鳥」に近い生物です。平和な世の中がやってくると出現すると言われています。一度でいいから目にしたいありがたい鳥です。"
+    },
+    {
+        "name":"中国の優秀な役人たち", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4959.jpg",
+        "message":"陳平や水滸伝に出てくる登場人物などが描かれています。※詳細については確認次第、更新します。"
+    },
+    {
+        "name":"桃太郎の鬼退治", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4960.jpg",
+        "message":"桃太郎の鬼退治は誰もが知っていて、色々な絵師が描いていますが、北斎先生が描いている桃太郎は特に構図がかっこいいのではないでしょうか。"
+    },
+    {
+        "name":"演技がいい", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4961.jpg",
+        "message":"宝珠や打ち出の小槌など、演技がいいものが沢山描かれています。"
+    },
+    {
+        "name":"不明", 
+        "img":"https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4962.jpg",
+        "message":"絵柄について確認後、詳細分かり次第、記載いたします。"
     }
 ]
