@@ -107,7 +107,7 @@ export default{
                 }
                 return;
               }
-              $('.top_items').append(`<li id = "${i}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img${i}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + hokusai[i].name + `</p>`+`<p class="common_message message${i}">` + hokusai[i].message + `</p>`+`<p class="readmore-btn${i} click-btn">`+"続きを読む"+`</p>` + `</div>`+`</li>`);
+              $('.top_items').append(`<li id = "${i}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img${i}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + hokusai[i].name + `</p>`+`<p class="common_message message${i}">` + hokusai[i].message + `</p>`+`<p class="readmore-btn${i} click-btn click-btn-status">`+"続きを読む"+`</p>` + `</div>`+`</li>`);
               document.getElementById(`img${i}`).src=hokusai[i].img;
               $(`.message${i}`).innerText = hokusai[i].message;
               var messageHeight =  $(`.message${i}`).height();
@@ -144,12 +144,14 @@ export default{
                   if(text == "続きを読む"){
                     $(this)[0].innerText = "閉める";
                     let final_message_height =  current_parent_top_item_arraynum;
+                    $(this).toggleClass("click-btn");
                     // console.log(final_message_height);
                     message.css(
                       'height',final_message_height
                     );
                   }else{
                     $(this)[0].innerText = "続きを読む";
+                    $(this).toggleClass("click-btn");
                     // クリックした際、画像のところに戻るようにする。※スマホのみ
                     message.css(
                       'height','96px',
