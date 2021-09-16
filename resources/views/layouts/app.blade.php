@@ -4,6 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@mar78780798"/>
+    <meta property="og:url" content="https://hokusaimanga.herokuapp.com" /> 
+    <meta property="og:title" content="HokusaiManga!!" />
+    <meta property="og:description" content="毎日変わる北斎漫画の絵や浮世絵、アートに関するニュースをチェックしよう!!" />
     <meta name="twitter:image" content="https://masarubucket.s3.ap-northeast-1.amazonaws.com/youkai/IMG_4919.JPG" /> 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
