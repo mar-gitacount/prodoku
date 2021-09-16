@@ -10,6 +10,7 @@
     <meta property="og:title" content="HokusaiManga!!" />
     <meta property="og:description" content="毎日変わる北斎漫画の絵や浮世絵、アートに関するニュースをチェックしよう!!" />
     <meta name="twitter:image" content="https://masarubucket.s3.ap-northeast-1.amazonaws.com/youkai/IMG_4919.JPG" /> 
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', '確バイアス防止ツール') }}</title>
@@ -19,6 +20,7 @@
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon1.ico">
     <link rel="icon" href="/favicon1.ico" />
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
