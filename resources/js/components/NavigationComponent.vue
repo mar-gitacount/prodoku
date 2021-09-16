@@ -89,9 +89,10 @@ export default{
             var page_name = $(this).data('id');
             $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
           });
+          var url = location.href
+          console.log(url);
           $("#updatetimes").html(update_yyyymmdd[0].mainviewupdate_time+'更新');
           let page = 0;
-
           // 各種<li>messageアイテムの高さ配列に格納してみる
           let top_item_heights = [];
           function pageappend(){

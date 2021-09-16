@@ -84,8 +84,12 @@ export default{
             var page_name = $(this).data('id');
             $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
           });
+          var url = location.href
+          var path = location.pathname
+          if(path == "/animal"){
+            $("#animal").addClass("channel_section_achtive");
+          }
           let page = 0;
-
           // 各種<li>messageアイテムの高さ配列に格納してみる
           let top_item_heights = [];
           function pageappend(){
