@@ -19,6 +19,15 @@
         },
         mounted:function(){
             jQuery(function($){
+                $(".channel_section").on('click',function(){
+                $(".channel_section").attr("class","channel_section channel_section_passive");
+                var page_name = $(this).data('id');
+                $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
+                });
+                var path = location.pathname
+                if(path == "/news"){
+                $("#news").addClass("channel_section_achtive");
+                }
                 let page = 0;
                 function pageappend(){
                     for(var i = page; i < page + 10; i++){

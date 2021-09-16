@@ -85,6 +85,10 @@ export default{
             var page_name = $(this).data('id');
             $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
           });
+          var path = location.pathname
+          if(path == "/sinbutu"){
+            $("#sinbutu").addClass("channel_section_achtive");
+          }
           let page = 0;
 
           // 各種<li>messageアイテムの高さ配列に格納してみる

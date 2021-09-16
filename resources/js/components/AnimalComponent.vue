@@ -84,7 +84,6 @@ export default{
             var page_name = $(this).data('id');
             $(this).attr("class",`channel_section channel_section_achtive ${page_name}`);
           });
-          var url = location.href
           var path = location.pathname
           if(path == "/animal"){
             $("#animal").addClass("channel_section_achtive");

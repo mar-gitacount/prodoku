@@ -15,12 +15,12 @@
                     {{ __('日替わりで北斎漫画を楽しもう') }}
                 </div>
                 <ul class="channels" id="channels">
-                    <li class="channel_section channel_section_achtive pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>
+                    <li id="top" class="channel_section pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>
                     <li id = "sinbutu" class= "channel_section"><div class=""><router-link to="/sinbutu">神仏,神話</router-link></div></li>
-                    <li class= "channel_section"><div class=""><router-link to="/edopeople">江戸の人々</router-link></div></li>
+                    <li id = "edopeople" class= "channel_section"><div class=""><router-link to="/edopeople">江戸の人々</router-link></div></li>
                     <li id = "animal" class= "channel_section"><div class=""><router-link to="/animal">動物</router-link></div></li>
-                    <li class= "channel_section"><div class=""><router-link to="/youkai">妖怪</router-link></div></li>
-                    <li class= "channel_section"><div class=""><router-link to="/news">浮世絵ニュース</router-link></div></li>
+                    <li id="youkai" class= "channel_section"><div class=""><router-link to="/youkai">妖怪</router-link></div></li>
+                    <li id = "news" class= "channel_section"><div class=""><router-link to="/news">浮世絵ニュース</router-link></div></li>
                     <li class="channel_section"><div class=""><router-link to="/example">管理人youutube</router-link></div></li>
                     <li class= "channel_section"><div class="">でじたる北斎漫画びよりについて</div></li>
                 </ul>
