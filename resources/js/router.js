@@ -4,6 +4,7 @@ import EdopeopleComponent from './components/EdopeopleComponent';
 import AnimalComponent from './components/AnimalComponent';
 import YoukaiComponent from './components/YoukaiComponent';
 import  ExampleComponent from './components/ExampleComponent';
+import  NewsComponent from './components/NewsComponent';
 import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
     // {
@@ -40,6 +41,11 @@ const routes = [
         path: '/example',
         name: 'example',
         component: ExampleComponent
+    },
+    {
+        path: '/news',
+        name: 'news',
+        component: NewsComponent
     }
     
 ];

@@ -20,7 +20,7 @@
                     <li class= "channel_section"><div class=""><router-link to="/edopeople">江戸の人々</router-link></div></li>
                     <li class= "channel_section"><div class=""><router-link to="/animal">動物</router-link></div></li>
                     <li class= "channel_section"><div class=""><router-link to="/youkai">妖怪</router-link></div></li>
-                    <li class= "channel_section"><div class="">浮世絵ニュース</div></li>
+                    <li class= "channel_section"><div class=""><router-link to="/news">浮世絵ニュース</router-link></div></li>
                     <li class="channel_section"><div class=""><router-link to="/example">管理人youutube</router-link></div></li>
                     <li class= "channel_section"><div class="">でじたる北斎漫画びよりについて</div></li>
                 </ul>
