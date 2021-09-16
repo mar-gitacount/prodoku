@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card top_wrap">
-                <!-- <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}</div> -->
-                <div class="card-header"><h1>北斎漫画や浮世絵ニュースを毎日更新</h1></div>
+                <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}</div>
+                <!-- <div class="card-header"><h1>北斎漫画や浮世絵ニュースを毎日更新</h1></div> -->
                 <div class="card-body">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
