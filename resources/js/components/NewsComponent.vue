@@ -37,7 +37,7 @@
                             }
                             return;
                         }
-                        $('.top_items').append(`<li id = "${i}" class="top_item">`+`<div class=img_wrap>`+`<a id = "link-${i}img" class = "link-${i}" target="_blank">`+`<img id = "img${i}" alt="">`+`</a>`+`</div>`+`<div>`+`<p class="title_name">` +`<a  id= "link-${i}name" target="_blank"> `+ news[i].name +`</a>`+ `</p>`+`<p class="common_message message${i}">` + news[i].message + `</p>`+`</div>`+`</li>`);
+                        $('.top_items').append(`<li id = "${i}" class="top_item">`+`<div class=img_wrap>`+`<a id = "link-${i}img" class = "link-${i}" target="_blank">`+`<img id = "img${i}" alt="">`+`</a>`+`</div>`+`<div>`+`<p class="title_name">` +`<a  id= "link-${i}name" class="link-name" target="_blank"> `+ news[i].name +`</a>`+ `</p>`+`<p class="common_message message${i}">` + news[i].message + `</p>`+`</div>`+`</li>`);
                         document.getElementById(`img${i}`).src=news[i].img;
                         document.getElementById(`link-${i}img`).href=news[i].url;
                         document.getElementById(`link-${i}name`).href=news[i].url;

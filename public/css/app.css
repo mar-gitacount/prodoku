@@ -11319,6 +11319,9 @@ ul {
 .top_items .top_item .title_name {
   text-align: center;
 }
+.top_items .top_item .title_name .link-name {
+  font-weight: bold;
+}
 .top_items .top_item .common_message {
   padding: 5px;
   line-height: 24px;
