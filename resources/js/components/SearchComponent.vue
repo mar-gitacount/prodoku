@@ -1,5 +1,9 @@
 <template>
-    <ul class="top_items"><li></li></ul>
+    <!-- 検索窓と検索ボタン -->
+    <!-- csvファイル内のmessageカラムだけ調べる -->
+    <ul class="top_items">
+        <li></li>
+    </ul>
 </template>
 <script>
 export default{

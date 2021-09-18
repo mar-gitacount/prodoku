@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Tarekomi;
 use App\Http\Controllers\TarekomiController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,10 @@ use Illuminate\Support\Facades\Auth;
 */
 //topのページのルーティング
 Route::get('/{any}', function() {
-    return view('top');
+    if (App::environment(['production'])) {
+        return view('top');
+    }
+    return view('top',["update"=>'更新ボタン']);
 })->where('any', '.*');
 
 
@@ -45,6 +49,9 @@ Route::get('/tarekomi/thanks', [App\Http\Controllers\TarekomiController::class, 
 Route::get('/test', [App\Http\Controllers\TarekomiController::class, 'test'])->name('test');
 Route::get('/test/{tarekomi}', [App\Http\Controllers\TarekomiController::class, 'testarticle'])->name('testarticle');
 Route::post('/test', [App\Http\Controllers\TarekomiController::class, 'upload'])->name('upload');
+
+Route::get('/format',[App\Http\Controllers\FormatController::class, 'index']);
+
 //Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/youtubebase',function(){

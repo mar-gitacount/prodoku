@@ -38,6 +38,8 @@
                 <div id="search_wrap" class="">
                     <router-link to="/search"><img id="search_megane" src="https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/search/magnifying-glass.png" alt=""></router-link>
                 </div>
+                <!-- 更新ボタンを出現させる。ローカルのみ出現する -->
+                
                 <!-- スマホ版のみ検索機能や北斎漫画の概要が開かれる仕組みにする。 -->
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
