@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\App;
 //topのページのルーティング
 Route::get('/{any}', function() {
     if (App::environment(['production'])) {
-        return view('top');
+        return view('top',["update"=>'なし']);
     }
     return view('top',["update"=>'更新ボタン']);
 })->where('any', '.*');
