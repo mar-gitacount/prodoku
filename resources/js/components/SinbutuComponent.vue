@@ -80,6 +80,7 @@ export default{
     },
     mounted:function(){
         jQuery(function($){
+          $(".under_line").attr("class","delete_line");
           $(".channel_section").on('click',function(){
             $(".channel_section").attr("class","channel_section channel_section_passive");
             var page_name = $(this).data('id');

@@ -11288,13 +11288,10 @@ ul {
   overflow: scroll;
 }
 
-.search_wrap #search_megane {
+#search_wrap #search_megane {
   height: 20px;
   width: 20px;
   cursor: pointer;
-}
-.search_wrap .search_achtive::after {
-  content: "検索";
 }
 
 .channels {
@@ -11378,6 +11375,10 @@ ul {
 
 .under_line {
   border-bottom: 0.2rem solid #000000;
+}
+
+.delete_line {
+  border-bottom: 0.2rem solid none;
 }
 
 .channelarea {
