@@ -11376,6 +11376,10 @@ ul {
   }
 }
 
+.under_line {
+  border-bottom: 0.2rem solid #000000;
+}
+
 .channelarea {
   position: absolute;
 }

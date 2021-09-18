@@ -5,6 +5,7 @@ import AnimalComponent from './components/AnimalComponent';
 import YoukaiComponent from './components/YoukaiComponent';
 import  ExampleComponent from './components/ExampleComponent';
 import  NewsComponent from './components/NewsComponent';
+import  SearchComponent from './components/SearchComponent';
 import { createRouter, createWebHistory } from 'vue-router';
 const routes = [
     // {
@@ -46,6 +47,11 @@ const routes = [
         path: '/news',
         name: 'news',
         component: NewsComponent
+    },
+    {
+        path: '/search',
+        name: 'search',
+        component: SearchComponent
     }
     
 ];

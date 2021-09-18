@@ -19,11 +19,6 @@
                 <div id="app">
                     <router-view></router-view>
                 </div>
-                <?php
-                    if($_SERVER['REQUEST_URI'] == '/search'){
-                        echo "作成中";
-                    }
-                ?>
                 <div class=""><router-link to="/privacy_policy">プライバシープライバシー</router-link></div>
             </div>
         </div>
