@@ -10,7 +10,6 @@
     <meta property="og:title" content="HokusaiManga!!" />
     <meta property="og:description" content="毎日変わる北斎漫画の絵や浮世絵、アートに関するニュースをチェックしよう!!" />
     <meta name="twitter:image" content="https://masarubucket.s3.ap-northeast-1.amazonaws.com/youkai/IMG_4919.JPG" /> 
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', '北斎漫画') }}</title>
@@ -36,7 +35,9 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', '北斎漫画') }}
                 </a>
-                
+                <div class="search_wrap">
+                    <a href="/search">検索</a>
+                </div>
                 <!-- スマホ版のみ検索機能や北斎漫画の概要が開かれる仕組みにする。 -->
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

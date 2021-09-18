@@ -8,15 +8,6 @@
                 <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}
                 <!-- <div class="search_wrap"><img id="search_megane" src="https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/search/magnifying-glass.png" alt=""></div> -->
                 </div>
-                <!-- <div class="card-header"><h1>北斎漫画や浮世絵ニュースを毎日更新</h1></div> -->
-                <!-- <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-                    {{ __('日替わりで北斎漫画を楽しもう') }}
-                </div> -->
                 <ul class="channels" id="channels">
                     <li id="top" class="channel_section pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>
                     <li id = "sinbutu" class= "channel_section"><div class=""><router-link to="/sinbutu">神仏,神話</router-link></div></li>
@@ -28,6 +19,11 @@
                 <div id="app">
                     <router-view></router-view>
                 </div>
+                <?php
+                    if($_SERVER['REQUEST_URI'] == '/search'){
+                        echo "作成中";
+                    }
+                ?>
                 <div class=""><router-link to="/privacy_policy">プライバシープライバシー</router-link></div>
             </div>
         </div>
