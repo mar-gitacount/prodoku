@@ -23,6 +23,7 @@
         </li>
     </ul>
 </template>
+
 <script>
 export default{
     data: function(){
@@ -36,6 +37,8 @@ export default{
                 {btnName:'data1',csvPath:'/csv/article.csv'}
             ]
         }
+    },
+    methods: {
     },
     mounted:function(){
         jQuery(function($){
@@ -51,17 +54,36 @@ export default{
                 // userが入力した文字を取得する。
                 const inputvalue = $('.input').val();
                 const selectvalue = $('[name=select_items]').val();
-                console.log(inputvalue);
-                console.log(selectvalue);
+                search_add_object(selectvalue,inputvalue);
             });
-            function search_add_object(){
+            function search_add_object(userselect,userinput){
+                // ファイル指定
                 const csvPathList = [
-                    {btnName:'浮世絵ニュース検索',csvPath:'/csv/news.csv'},
-                    {btnName:'hokusaimanga',csvPath:'/csv/article.csv'}
+                    {btnName:'news',csvPath:'/csv/news.csv'},
+                    {btnName:'hokusaimanga',csvPath:'/csv/hokusaimanga.csv'}
                 ];
                 $.each(csvPathList, function(index, value){
-                    console.log(value.btnName);
-                })
+                    if(userselect == value.btnName){
+                        const path = value.csvPath;
+                        // console.log(value.csvPath);
+                        csv_file_open(path,userinput);
+                    }
+                });
+            }
+            function csv_file_open(csvpath,userinput){
+                var url = location.href;
+                const request = new XMLHttpRequest();
+                request.addEventListener('load', (event) => {
+                    const response = event.target.responseText;
+                    console.log(response);
+                });
+                var csv_fullpath = csvpath;
+                request.open('GET',csv_fullpath,true);
+                request.send();
+                // new Promise((resoleve,reject) =>{
+                //     var httpReq = new XMLHttpRequest();
+                //     httpdReq.open("get",csvpath,true);
+                // });
             }
         });
     }
