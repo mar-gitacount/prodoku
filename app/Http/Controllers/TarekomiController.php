@@ -1,7 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use App\Http\Requests\Tarekomipost;
 use App\Models\Tarekomi;

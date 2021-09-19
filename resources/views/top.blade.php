@@ -6,12 +6,17 @@
         <div class="col-md-10">
             <div class="card top_wrap">
                 <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}
-                <!-- <div class="search_wrap"><img id="search_megane" src="https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/search/magnifying-glass.png" alt=""></div> -->
-                <?php
-                    if(config('app.env')=='local'){
-                        echo "local";
-                    }
-                ?>
+                @if(config('app.env')=='local')
+                    <form method="get" action="{{ route('update.index')}}">
+                        @csrf
+                        <input type="submit" class="btn btn-primary" value="本日の北斎を更新する。">
+                    </form>
+                    <form method="get" action="../../app/Cron/update.php">
+                        @csrf
+                        <input type="submit" class="btn btn-primary" value="本日の北斎を更新する。" name="add" >
+                    </form>
+                    
+                @endif
                 </div>
                 <ul class="channels" id="channels">
                     <li id="top" class="channel_section pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tarekomi;
 use App\Http\Controllers\TarekomiController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\FormatController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
 
@@ -38,20 +41,22 @@ Route::get('/', function () {
 // });
 
 //タレコミページのルーティング
-Route::get('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'index'])->name('tarekomi');
-Route::post('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'post'])->name('post');
-Route::get('/tarekomi/confirm', [App\Http\Controllers\TarekomiController::class, 'confirm'])->name('confirm');
-Route::post('/tarekomi/confirm', [App\Http\Controllers\TarekomiController::class, 'store'])->name('store');
-Route::get('/tarekomi/thanks', [App\Http\Controllers\TarekomiController::class, 'thanks'])->name('thanks');
-Route::get('/test', [App\Http\Controllers\TarekomiController::class, 'test'])->name('test');
-Route::get('/test/{tarekomi}', [App\Http\Controllers\TarekomiController::class, 'testarticle'])->name('testarticle');
-Route::post('/test', [App\Http\Controllers\TarekomiController::class, 'upload'])->name('upload');
+// Route::get('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'index'])->name('tarekomi');
+// Route::post('/tarekomi', [App\Http\Controllers\TarekomiController::class, 'post'])->name('post');
+// Route::get('/tarekomi/confirm', [App\Http\Controllers\TarekomiController::class, 'confirm'])->name('confirm');
+// Route::post('/tarekomi/confirm', [App\Http\Controllers\TarekomiController::class, 'store'])->name('store');
+// Route::get('/tarekomi/thanks', [App\Http\Controllers\TarekomiController::class, 'thanks'])->name('thanks');
+// Route::get('/test', [App\Http\Controllers\TarekomiController::class, 'test'])->name('test');
+// Route::get('/test/{tarekomi}', [App\Http\Controllers\TarekomiController::class, 'testarticle'])->name('testarticle');
+// Route::post('/test', [App\Http\Controllers\TarekomiController::class, 'upload'])->name('upload');
 
-Route::get('/format',[App\Http\Controllers\FormatController::class, 'index']);
+// Route::get('/format',[FormatController::class, 'index'])->name('update');
 
 //Auth::routes();
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::resource('update', UpdateController::class);
 Route::get('/youtubebase',function(){
     return view('youtubeviews.japan.HpdO5Kq3o',["items" => "testyoutube"]);
 });
-Route::get('/biasfaq', [App\Http\Controllers\HomeController::class, 'index'])->name('biasfaq');
+// Route::get('/biasfaq', [App\Http\Controllers\HomeController::class, 'index'])->name('biasfaq');

@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Models\Tarekomi;
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\TarekomiController;
 use App\Http\Controllers\TarekomiapiController;
 use App\Http\Controllers\QitaapiController;
 use SebastianBergmann\Environment\Console;
-use App\Models\Tarekomi;
 use App\Cron\EditandDelete;
 
 /*
@@ -31,8 +32,7 @@ Route::resource('qiitaapi', QitaapiController::class);
 //Route::get('topdata', TopController::class)->name('topdata');
 
 
-Route::get('tarekomiget',[App\Http\Controllers\TarekomiController::class, 'tarekomigetapi']);
-
+// Route::get('tarekomiget',[App\Http\Controllers\TarekomiController::class, 'tarekomigetapi']);
 Route::group(['prefix' => 'inquiry', 'as' => 'inquiry', 'middleware' => 'forceSsl'], function(){ // https
     
 });
