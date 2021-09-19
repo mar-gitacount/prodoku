@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import Papa from "papaparse";
 export default{
     data: function(){
         return {
@@ -71,19 +72,24 @@ export default{
                 });
             }
             function csv_file_open(csvpath,userinput){
-                var url = location.href;
                 const request = new XMLHttpRequest();
                 request.addEventListener('load', (event) => {
                     const response = event.target.responseText;
-                    console.log(response);
+                    // console.log(response);
+                    csv_search(response,userinput);
                 });
                 var csv_fullpath = csvpath;
                 request.open('GET',csv_fullpath,true);
                 request.send();
-                // new Promise((resoleve,reject) =>{
-                //     var httpReq = new XMLHttpRequest();
-                //     httpdReq.open("get",csvpath,true);
-                // });
+            }
+            function csv_search(csv,userinput){
+                var results = Papa.parse(csv);
+                console.log(results);
+                // let papa = pap.parse(csv,config);
+                // let pp = require(papaparse);
+                // Pap.parse(csv)
+                // var results = pp.parse(csv, config);
+                // console.log(results);
             }
         });
     }

@@ -4,7 +4,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('./bootstrap');
-
 window.Vue = require('vue').default;
 
 import { createApp } from 'vue'
@@ -25,7 +24,7 @@ import NavigationComponet from './components/NavigationComponent.vue'
 import TarekomiapiComponent from './components/TarekomiapiComponent.vue'
 import YoutubebaseviewComponent from './components/YoutubebaseviewComponent'
 import router from "./router";
-
+import papaparce from "papaparse";
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
