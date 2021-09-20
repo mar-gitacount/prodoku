@@ -26,6 +26,7 @@
 
 <script>
 import Papa from "papaparse";
+import csv from "jquery-csv";
 export default{
     data: function(){
         return {
@@ -81,15 +82,62 @@ export default{
                 var csv_fullpath = csvpath;
                 request.open('GET',csv_fullpath,true);
                 request.send();
+                // function readCsv(data){
+                //     var csv = $.csv.toArrays(data);
+                //     console.log(csv);
+                // }
+                // $(function(){
+                //     $.get(csvpath, readCsv, 'text');
+                // });
             }
             function csv_search(csv,userinput){
                 var results = Papa.parse(csv);
-                console.log(results);
-                // let papa = pap.parse(csv,config);
-                // let pp = require(papaparse);
-                // Pap.parse(csv)
-                // var results = pp.parse(csv, config);
-                // console.log(results);
+                // 列一覧取得
+                var results_columns = results.data[0];
+                // 列取得(name)
+                var column = results_columns[0];
+                // console.log(results.data);
+                // array
+                var itemsArray = results.data.slice(1);
+                // csvの配列が入っているので以下のnameを探索し、trueなら、全てのオブジェクトを取得する。itemsArray[i]にする。
+                // 検索結果の件数を入れる変数
+                let search_Number = 0;
+                $.each(itemsArray,function(index,value){
+                    // ここで判定する[0]は判定対象のカラムなのでとりあえずは不動となる。
+                    // console.log(value);
+                    // console.log(value[0]);
+                    let csv_Value = value[0];
+                    // console.log(csv_Value);
+                    userinput_string_searchCheck(csv_Value,userinput);
+                    // ここでcsvファイルの値と、ユーザーの入力値を入れ込む
+                    // user_input_strung_serchCheckがtrueならvalueを取得し描画する。
+                });
+                // console.log(itemsArray);
+                // console.log(column);
+                // console.log(userinput);
+            }
+            function userinput_string_searchCheck(csv_Value,userinput){
+                // var re = new RegExp(csv_Value,"ig");
+                // console.log(re.test(userinput));
+                // search.phpと通信する。
+                let params = new URLSearchParams();
+                params.append('input_val',csv_Value);
+                console.log(params); 
+                axios.post('../php/search.php',params).then(response => {
+                    console.log(response.data);
+                }).catch(error => {
+                // エラーを受け取る
+                console.log(error);
+                });
+                // console.log(re.test(str));
+                // console.log(userinput.indexOf(csv_Value,0));
+                // if(userinput.indexOf(csv_Value)){
+                //     console.log("存在します。");
+                //     return;
+                // }else{
+                //     console.log("存在しません");
+                //     return;
+                // }
             }
         });
     }
