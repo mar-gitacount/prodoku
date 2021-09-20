@@ -122,12 +122,12 @@ export default{
                 // console.log(re.test(userinput));
                 let params = new URLSearchParams();
                 params.append('csv_value',csv_Value);
-                params.append('userinput',userinput);
+                params.append('user_input',userinput);
                 // search.phpと通信する。
                 axios.post('../php/search.php',params).then(response => {
                     // trueが帰ってきたら描画する。
                     console.log("成功");
-                    console.log(response.data.empty);
+                    console.log(response.data.text);
                 }).catch(error => {
                 // エラーを受け取る
                 console.log(error);

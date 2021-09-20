@@ -1,11 +1,9 @@
 <?php
 
-use SebastianBergmann\Environment\Console;
-
 require '../../vendor/autoload.php';
 // フロント側のデータ
 $csv = $_POST['csv_value'];
-$user = $_POST['userinput'];
+$user = $_POST['user_input'];
 // $csv = "/".$csv."/";
 // if($csv == ""){
 //     $result = [
@@ -13,13 +11,17 @@ $user = $_POST['userinput'];
 //     ];
 //     return $result;
 // }
-echo __FILE__;
-echo $user;
-$result = [
-    'empty' => "空文字"
-];
-return $result;
+// echo json_encode(__FILE__);
+// echo $user;
+// echo $csv;
+function create_response($val, $isIn){
+    $result = [
+        'text' => $val
+    ];
+    return $result;
+}
 
+echo json_encode(create_response($user,true));
 if(preg_match($csv,$user)){
     return true;
 }else{
