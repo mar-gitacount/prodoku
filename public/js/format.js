@@ -41027,18 +41027,23 @@ var __webpack_exports__ = {};
 /*!********************************!*\
   !*** ./resources/js/format.js ***!
   \********************************/
+var _require = __webpack_require__(/*! axios */ "./node_modules/axios/index.js"),
+    axios = _require["default"];
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 jQuery(function ($) {
   $(".btn").on('click', function () {
-    $.ajax({
-      url: "../../app/Cron/update.php",
-      success: function success(result) {
-        $("div").text(result);
-      }
+    var update = "formatから";
+    var params = new URLSearchParams();
+    params.append('update', update);
+    axios.post('../php/update.php', params).then(function (response) {
+      console.log(response.data);
+    })["catch"](function (error) {
+      // エラーを受け取る
+      console.log(error);
     });
   });
-  console.log("hello");
 });
 })();
 

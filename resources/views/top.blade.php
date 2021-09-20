@@ -7,10 +7,9 @@
             <div class="card top_wrap">
                 <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}
                 @if(config('app.env')=='local')
-                    <form method="get" action="{{ route('update.index')}}">
-                        @csrf
+                    <div class="update_btn_wrap">
                         <input type="submit" class="btn btn-primary" value="本日の北斎を更新する。">
-                    </form>
+                    </div>
                     <form method="get" action="../../app/Cron/update.php">
                         @csrf
                         <input type="submit" class="btn btn-primary" value="本日の北斎を更新する。" name="add" >

@@ -1,10 +1,16 @@
+const { default: axios } = require('axios');
 
 require('./bootstrap');
 jQuery(function($){
     $(".btn").on('click',function(){
-        $.ajax({url:"../../app/Cron/update.php", success:function(result){
-            $("div").text(result);}
-        })
+        let update = "formatから";
+        let params = new URLSearchParams();
+        params.append('update',update);
+        axios.post('../php/update.php',params).then(response => {
+            console.log(response.data);
+        }).catch(error => {
+        // エラーを受け取る
+        console.log(error);
+        });
     });
-    console.log("hello");
 });

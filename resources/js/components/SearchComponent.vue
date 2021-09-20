@@ -22,6 +22,8 @@
             <!-- 検索結果をここに入れる -->
         </li>
     </ul>
+    <div class="choice_items_observer">
+    </div>
 </template>
 
 <script>

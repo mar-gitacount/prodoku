@@ -18,6 +18,7 @@
     <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
     <script src="{{ secure_asset('js/app.js') }}" defer></script>
     <script src="{{ secure_asset('js/main.js') }}" defer></script>
+    <script src="{{ secure_asset('js/format.js') }}" defer></script>
     <!-- Fonts -->
     <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon1.ico">

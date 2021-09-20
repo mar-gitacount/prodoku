@@ -9,6 +9,7 @@ require '../../vendor/autoload.php';
 class Roundomjsonchoice {
     // 指定のファイルをランダムで取得するメソッド
     public static function roundomserch(){
+        echo __DIR__;
         $config = include "../Cron/config.php";
         $rondomjsonsdir = $config['rondomjsonsdir'];
         $readviewjson = $config['readviewjson'];

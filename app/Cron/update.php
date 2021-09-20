@@ -10,6 +10,7 @@ use App\Cron\Roundomjsonchoice;
 
 require '../../vendor/autoload.php';
 // 本日の北斎漫画のオブジェクトと更新日時を返すクラス
+$update = $_POST['update'];
 $npxmix = 'npx mix';
 $app = "/Applications/MAMP/htdocs/prodoku/";
 Roundomjsonchoice::roundomserch();
@@ -18,8 +19,8 @@ if(chdir($app)){
 }else{
     echo "失敗";
 }
+echo json_encode($update);
 return;
-
 // Guzzleのインスタンスを作成
 
 $client = new Client;
