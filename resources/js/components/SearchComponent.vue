@@ -112,7 +112,6 @@ export default{
                     // console.log(csv_Value);
                     userinput_string_searchCheck(csv_Value,userinput);
                     // ここでcsvファイルの値と、ユーザーの入力値を入れ込む
-                    // user_input_strung_serchCheckがtrueならvalueを取得し描画する。
                 });
                 // console.log(itemsArray);
                 // console.log(column);
@@ -121,12 +120,14 @@ export default{
             function userinput_string_searchCheck(csv_Value,userinput){
                 // var re = new RegExp(csv_Value,"ig");
                 // console.log(re.test(userinput));
-                // search.phpと通信する。
                 let params = new URLSearchParams();
-                params.append('input_val',csv_Value);
-                console.log(params); 
+                params.append('csv_value',csv_Value);
+                params.append('userinput',userinput);
+                // search.phpと通信する。
                 axios.post('../php/search.php',params).then(response => {
-                    console.log(response.data);
+                    // trueが帰ってきたら描画する。
+                    console.log("成功");
+                    console.log(response.data.empty);
                 }).catch(error => {
                 // エラーを受け取る
                 console.log(error);
