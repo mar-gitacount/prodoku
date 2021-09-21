@@ -12,20 +12,26 @@ $user = $_POST['user_input'];
 //     return $result;
 // }
 // echo json_encode(__FILE__);
-// echo $user;
+// echo json_encode($user);
 // echo $csv;
-function create_response($val, $isIn){
+// dd($csv);
+
+function create_response($user,$csv,$isIn){
     $result = [
-        'text' => $val
+        'user' => $user,
+        'csv' => $csv,
+        'isIn' => $isIn
     ];
     return $result;
 }
-
-echo json_encode(create_response($user,true));
-if(preg_match($csv,$user)){
-    return true;
+if(preg_match("/".$csv."/",$user)){
+    echo json_encode(create_response($user,$csv,true));
+    exit();
 }else{
-    return false;
+    if($csv==""){
+        echo json_encode(create_response($user,$csv,false));
+        exit();
+    }
+    echo json_encode(create_response($user,$csv,false));
+    exit();
 }
-// echo $user;
-// echo $csv;

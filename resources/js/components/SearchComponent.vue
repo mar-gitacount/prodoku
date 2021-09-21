@@ -11,7 +11,7 @@
             </span>
         </p>
         <p class="control is-expanded">
-            <input placeholder="検索したい概要を左から選んでください。" class="input" type="text">
+            <input placeholder="検索したい概要を左から選んでください。" class="input" type="text" value="犬">
         </p>
         <p class="control">
             <a class="button is-info colSearch">検索</a>
@@ -126,8 +126,9 @@ export default{
                 // search.phpと通信する。
                 axios.post('../php/search.php',params).then(response => {
                     // trueが帰ってきたら描画する。
-                    console.log("成功");
-                    console.log(response.data.text);
+                    // console.log("成功");
+                    // console.log(response.data.isIn);
+                    console.log(response.data);
                 }).catch(error => {
                 // エラーを受け取る
                 console.log(error);
