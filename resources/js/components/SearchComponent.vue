@@ -61,6 +61,7 @@ export default{
                 search_add_object(selectvalue,inputvalue);
             });
             function search_add_object(userselect,userinput){
+                if(!userinput){return;}
                 // ファイル指定
                 const csvPathList = [
                     {btnName:'news',csvPath:'/csv/news.csv'},
@@ -106,35 +107,47 @@ export default{
                 let search_Number = 0;
                 $.each(itemsArray,function(index,value){
                     // ここで判定する[0]は判定対象のカラムなのでとりあえずは不動となる。
-                    // console.log(value);
-                    // console.log(value[0]);
                     let csv_Value = value[0];
                     // console.log(csv_Value);
-                    userinput_string_searchCheck(csv_Value,userinput);
-                    // ここでcsvファイルの値と、ユーザーの入力値を入れ込む
+                    if(userinput_string_searchCheck(csv_Value,userinput)){
+                        console.log(value);
+                        search_Number ++;
+                        console.log(search_Number);
+                        // $('.top_items').append(`<li id = "search_${index}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img_${index}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + value[0] + `</p>`+`<p class="common_message message_${index}">` + value[1] + `</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>` + `</div>`+`</li>`);
+                        //document.getElementById(`img_${index}`).src=hokusai[i].img;
+                    };
+                    // ここで検索結果の数を表示する。
                 });
-                // console.log(itemsArray);
-                // console.log(column);
-                // console.log(userinput);
             }
             function userinput_string_searchCheck(csv_Value,userinput){
                 // var re = new RegExp(csv_Value,"ig");
                 // console.log(re.test(userinput));
-                let params = new URLSearchParams();
-                params.append('csv_value',csv_Value);
-                params.append('user_input',userinput);
-                // search.phpと通信する。
-                axios.post('../php/search.php',params).then(response => {
-                    // trueが帰ってきたら描画する。
-                    // console.log("成功");
-                    // console.log(response.data.isIn);
-                    console.log(response.data);
-                }).catch(error => {
-                // エラーを受け取る
-                console.log(error);
-                });
+                // let params = new URLSearchParams();
+                // params.append('csv_value',csv_Value);
+                // params.append('user_input',userinput);
+                // // search.phpと通信する。
+                // axios.post('../php/search.php',params).then(response => {
+                //     // trueが帰ってきたら描画する。
+                //     // console.log("成功");
+                //     // console.log(response.data.isIn);
+                //     console.log(response.data);
+                // }).catch(error => {
+                // // エラーを受け取る
+                // console.log(error);
+                // });
                 // console.log(re.test(str));
                 // console.log(userinput.indexOf(csv_Value,0));
+                // 空文字が入ったらreturn
+                if(!csv_Value){return false;}
+                // console.log(userinput);
+                // console.log(csv_Value);
+                for(var i=0; i < csv_Value.length; i++){
+                    if(userinput == csv_Value[i]){
+                        return true;
+                    }
+                }
+                // const index_check = userinput.indexOf(csv_Value);
+                // console.log(index_check);
                 // if(userinput.indexOf(csv_Value)){
                 //     console.log("存在します。");
                 //     return;

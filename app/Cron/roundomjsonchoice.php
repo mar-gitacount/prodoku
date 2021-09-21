@@ -4,13 +4,18 @@ use GuzzleHttp\Client;
 use App\Models\Tarekomi;
 use Illuminate\Support\Facades\Config;
 use PHPUnit\Util\Json;
+use APP\Cron;
 require '../../vendor/autoload.php';
 // ランダムで読み込むjsonファイルと吐き出すjsonファイルが読み込まれる。
 class Roundomjsonchoice {
     // 指定のファイルをランダムで取得するメソッド
     public static function roundomserch(){
-        echo __DIR__;
-        $config = include "../Cron/config.php";
+        // echo __DIR__;
+        // $cronconfig = CronConfig::$config;
+        // echo $cronconfig;
+        // $config = include "../Cron/config.php";
+        // staticメソッド=「ファイルのパスが設定されている」を利用する。
+        $config = CronConfig::$config;
         $rondomjsonsdir = $config['rondomjsonsdir'];
         $readviewjson = $config['readviewjson'];
         $readviewupdatejson = $config['readupdatetimejson']; 
