@@ -12,16 +12,18 @@ use App\Cron;
 use php\class_set;
 
 require '../../vendor/autoload.php';
-// 本日の北斎漫画のオブジェクトと更新日時を返すクラス
-// $nowjsoncsv = new NowJsonCsvPath();
-// print($nowjsoncsv);
-// return;
+$config = CronConfig::$config;
+// インスタンス作成する。
+$nowjsoncsv = new NowJsonCsvPath();
+// csvファイルを空にする
+// 第一引数=json第二引数=csv第三引数=csvのカラム
+$nowjsoncsv -> fileResetStart($config['rondomjsonsdir'],$config['hokusaimanga_csv'],$config['hokusaimanga_csv_columns']);
+return;
+Roundomjsonchoice::roundomserch();
 $update = $_POST['update'];
 $npxmix = 'npx mix';
 $app = "/Applications/MAMP/htdocs/prodoku/";
-Roundomjsonchoice::roundomserch();
 // jsonファイルcsvに変換するコードを書く。
-
 if(chdir($app)){
     var_dump(exec($npxmix,$output,$status));
 }else{

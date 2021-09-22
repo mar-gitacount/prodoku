@@ -79,7 +79,6 @@ export default{
                 const request = new XMLHttpRequest();
                 request.addEventListener('load', (event) => {
                     const response = event.target.responseText;
-                    // console.log(response);
                     csv_search(response,userinput);
                 });
                 var csv_fullpath = csvpath;
@@ -100,7 +99,6 @@ export default{
                 // 列取得(name)
                 var column = results_columns[0];
                 // console.log(results.data);
-                // array
                 var itemsArray = results.data.slice(1);
                 // csvの配列が入っているので以下のnameを探索し、trueなら、全てのオブジェクトを取得する。itemsArray[i]にする。
                 // 検索結果の件数を入れる変数
@@ -108,11 +106,9 @@ export default{
                 $.each(itemsArray,function(index,value){
                     // ここで判定する[0]は判定対象のカラムなのでとりあえずは不動となる。
                     let csv_Value = value[0];
-                    // console.log(csv_Value);
                     if(userinput_string_searchCheck(csv_Value,userinput)){
-                        console.log(value);
+                        console.log(userinput);
                         search_Number ++;
-                        console.log(search_Number);
                         // $('.top_items').append(`<li id = "search_${index}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img_${index}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + value[0] + `</p>`+`<p class="common_message message_${index}">` + value[1] + `</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>` + `</div>`+`</li>`);
                         //document.getElementById(`img_${index}`).src=hokusai[i].img;
                     };
@@ -139,11 +135,20 @@ export default{
                 // console.log(userinput.indexOf(csv_Value,0));
                 // 空文字が入ったらreturn
                 if(!csv_Value){return false;}
-                // console.log(userinput);
-                // console.log(csv_Value);
+                // csvとユーザーの入力値を分割する。
+
                 for(var i=0; i < csv_Value.length; i++){
-                    if(userinput == csv_Value[i]){
-                        return true;
+                    for(var j=0; j < userinput.length; j++){
+                        if(userinput[j].match(/^[ぁ-んー　]*$/)||csv_Value[i].match(/^[ぁ-んー　]*$/)){
+                            continue;
+                        }
+                        console.log(userinput[j]);
+                        console.log(csv_Value[i]);
+                        console.log("------");
+                        if(userinput[j] == csv_Value[i]){
+                            console.log("検索ひっかっかった!!");
+                            return true;
+                        }
                     }
                 }
                 // const index_check = userinput.indexOf(csv_Value);
