@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Middleware;
+use App\Http\Middleware;
 use Illuminate\Support\Facades\App;
 use App\Admin\Controllers\HomeController;
 use App\Models\Tarekomi;
@@ -7,13 +8,20 @@ use GuzzleHttp\Client;
 use Tests\TestCase;
 use App\Cron\EditandDelete;
 use App\Cron\Roundomjsonchoice;
+use App\Cron;
+use php\class_set;
 
 require '../../vendor/autoload.php';
 // 本日の北斎漫画のオブジェクトと更新日時を返すクラス
+// $nowjsoncsv = new NowJsonCsvPath();
+// print($nowjsoncsv);
+// return;
 $update = $_POST['update'];
 $npxmix = 'npx mix';
 $app = "/Applications/MAMP/htdocs/prodoku/";
 Roundomjsonchoice::roundomserch();
+// jsonファイルcsvに変換するコードを書く。
+
 if(chdir($app)){
     var_dump(exec($npxmix,$output,$status));
 }else{
