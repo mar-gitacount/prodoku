@@ -18,7 +18,6 @@ $nowjsoncsv = new NowJsonCsvPath();
 // csvファイルを空にする
 // 第一引数=json第二引数=csv第三引数=csvのカラム
 $nowjsoncsv -> fileResetStart($config['rondomjsonsdir'],$config['hokusaimanga_csv'],$config['hokusaimanga_csv_columns']);
-return;
 Roundomjsonchoice::roundomserch();
 $update = $_POST['update'];
 $npxmix = 'npx mix';
