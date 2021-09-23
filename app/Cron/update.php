@@ -20,6 +20,7 @@ $nowjsoncsv = new NowJsonCsvPath();
 $nowjsoncsv -> fileResetStart($config['rondomjsonsdir'],$config['hokusaimanga_csv'],$config['hokusaimanga_csv_columns']);
 Roundomjsonchoice::roundomserch();
 $update = $_POST['update'];
+// フロントエンドの処理をコンパイルする。
 $npxmix = 'npx mix';
 $app = "/Applications/MAMP/htdocs/prodoku/";
 // jsonファイルcsvに変換するコードを書く。

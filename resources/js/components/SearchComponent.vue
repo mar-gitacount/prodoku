@@ -18,9 +18,7 @@
         </p>
     </div>
     <ul class="top_items">
-        <li>
             <!-- 検索結果をここに入れる -->
-        </li>
     </ul>
     <div class="choice_items_observer">
     </div>
@@ -55,6 +53,8 @@ export default{
                 $("#search_wrap").addClass("under_line");
             }
             $(".colSearch").on('click',function(){
+                // liの中を空にする。
+                $(".top_items").empty();
                 // userが入力した文字を取得する。
                 const inputvalue = $('.input').val();
                 const selectvalue = $('[name=select_items]').val();
@@ -109,8 +109,9 @@ export default{
                     if(userinput_string_searchCheck(csv_Value,userinput)){
                         console.log(userinput);
                         search_Number ++;
-                        // $('.top_items').append(`<li id = "search_${index}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img_${index}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + value[0] + `</p>`+`<p class="common_message message_${index}">` + value[1] + `</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>` + `</div>`+`</li>`);
-                        //document.getElementById(`img_${index}`).src=hokusai[i].img;
+                        console.log(index);
+                        $('.top_items').append(`<li id = "search_${index}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img_${index}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + value[0] + `</p>`+`<p class="common_message message_${index}">` + value[2] + `</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>` + `</div>`+`</li>`);
+                        document.getElementById(`img_${index}`).src=value[1];
                     };
                     // ここで検索結果の数を表示する。
                 });
