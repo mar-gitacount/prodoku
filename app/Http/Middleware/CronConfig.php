@@ -15,8 +15,9 @@ Class CronConfig {
         //検索csvファイル群
         'hokusaimanga_csv' => "../../public/csv/hokusaimanga.csv",
         'hokusaimanga_csv_columns' => ["name","img","messsage"],
+        'news_json' => "../../resources/json/news.json",
         'news_csv' => "../../public/csv/news.csv",
-        'news_csv_columns' => ["name","img","url"]
+        'news_csv_columns' => ["name","img","message","url"]
 
     ];
 

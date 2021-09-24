@@ -1,6 +1,8 @@
 <template>
     <!-- 検索窓と検索ボタン -->
     <!-- csvファイル内のmessageカラムだけ調べる -->
+    <div class="search_quantity">
+    </div>
     <div class="field s-grouped">
         <p class="control">
             <span class="select">
@@ -55,6 +57,7 @@ export default{
             $(".colSearch").on('click',function(){
                 // liの中を空にする。
                 $(".top_items").empty();
+                $(".search_quantity").empty();
                 // userが入力した文字を取得する。
                 const inputvalue = $('.input').val();
                 const selectvalue = $('[name=select_items]').val();
@@ -107,14 +110,21 @@ export default{
                     // ここで判定する[0]は判定対象のカラムなのでとりあえずは不動となる。
                     let csv_Value = value[0];
                     if(userinput_string_searchCheck(csv_Value,userinput)){
-                        console.log(userinput);
                         search_Number ++;
-                        console.log(index);
-                        $('.top_items').append(`<li id = "search_${index}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img_${index}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + value[0] + `</p>`+`<p class="common_message message_${index}">` + value[2] + `</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>` + `</div>`+`</li>`);
+                        $('.top_items').append(`<li id = "search_${index}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img_${index}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + value[0] + `</p>` + `</div>`+`</li>`);
                         document.getElementById(`img_${index}`).src=value[1];
+                        // urlがある場合は、pタグをaタグで囲む。
+                        if(value[3]){
+                            $(`#search_${index}`).append(`<a id = "link_${index}" `+"href =" +`${value[3]}`+ `>` +`<p class="common_message message_${index}">`+ value[2] +`</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>`+`</a>`);
+                            $(`#link_${index}`).href=value[3];
+                            console.log(value[3]);
+                        }else{
+                            $(`#search_${index}`).append(`<p class="common_message message_${index}">` + value[2] + `</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>`);
+                        }
                     };
                     // ここで検索結果の数を表示する。
                 });
+                $('.search_quantity').append(search_Number<1?"0件です。":search_Number+"件ヒットしました!!");
             }
             function userinput_string_searchCheck(csv_Value,userinput){
                 // var re = new RegExp(csv_Value,"ig");
@@ -137,17 +147,13 @@ export default{
                 // 空文字が入ったらreturn
                 if(!csv_Value){return false;}
                 // csvとユーザーの入力値を分割する。
-
                 for(var i=0; i < csv_Value.length; i++){
                     for(var j=0; j < userinput.length; j++){
+                        // 比較する文字がひらがなの場合処理を抜ける。
                         if(userinput[j].match(/^[ぁ-んー　]*$/)||csv_Value[i].match(/^[ぁ-んー　]*$/)){
                             continue;
                         }
-                        console.log(userinput[j]);
-                        console.log(csv_Value[i]);
-                        console.log("------");
                         if(userinput[j] == csv_Value[i]){
-                            console.log("検索ひっかっかった!!");
                             return true;
                         }
                     }
