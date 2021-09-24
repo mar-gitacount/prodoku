@@ -111,11 +111,11 @@ export default{
                     let csv_Value = value[0];
                     if(userinput_string_searchCheck(csv_Value,userinput)){
                         search_Number ++;
-                        $('.top_items').append(`<li id = "search_${index}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img_${index}" alt="">`+`</div>`+`<div>`+`<p class="title_name">` + value[0] + `</p>` + `</div>`+`</li>`);
+                        $('.top_items').append(`<li id = "search_${index}" class="top_item">`+`<div class=img_wrap>`+`<img id = "img_${index}" alt="">`+`</div>`+`<div id = "content_wrap${index}">`+`<p class="title_name">` + value[0] + `</p>` + `</div>`+`</li>`);
                         document.getElementById(`img_${index}`).src=value[1];
                         // urlがある場合は、pタグをaタグで囲む。
                         if(value[3]){
-                            $(`#search_${index}`).append(`<a id = "link_${index}" `+"href =" +`${value[3]}`+ `>` +`<p class="common_message message_${index}">`+ value[2] +`</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>`+`</a>`);
+                            $(`#content_wrap${index}`).append(`<a id = "link_${index}" `+"href =" +`${value[3]}`+ `>` +`<p class="common_message message_${index}">`+ value[2] +`</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>`+`</a>`);
                             $(`#link_${index}`).href=value[3];
                             console.log(value[3]);
                         }else{
