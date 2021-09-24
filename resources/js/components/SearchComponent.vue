@@ -119,7 +119,7 @@ export default{
                             $(`#link_${index}`).href=value[3];
                             console.log(value[3]);
                         }else{
-                            $(`#search_${index}`).append(`<p class="common_message message_${index}">` + value[2] + `</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>`);
+                            $(`#content_wrap${index}`).append(`<p class="common_message message_${index}">` + value[2] + `</p>`+`<p class="readmore-btn${index} click-btn click-btn-status">`+"続きを読む"+`</p>`);
                         }
                     };
                     // ここで検索結果の数を表示する。
