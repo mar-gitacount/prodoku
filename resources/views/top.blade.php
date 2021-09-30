@@ -1,22 +1,21 @@
 
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container main-content">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card top_wrap">
-                <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}
+                <!-- <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}
                 @if(config('app.env')=='local')
                     <div class="update_btn_wrap">
                         <input type="submit" class="btn btn-primary" value="本日の北斎を更新する。">
                     </div>
-                    <form method="get" action="../../app/Cron/update.php">
-                        @csrf
+                    <form method="get" action="{{route('update')}}">
                         <input type="submit" class="btn btn-primary" value="本日の北斎を更新する。" name="add" >
                     </form>
                     
                 @endif
-                </div>
+                </div> -->
                 <ul class="channels" id="channels">
                     <li id="top" class="channel_section pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>
                     <li id = "sinbutu" class= "channel_section"><div class=""><router-link to="/sinbutu">神仏,神話</router-link></div></li>

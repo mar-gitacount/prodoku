@@ -25,7 +25,6 @@
     <div class="choice_items_observer">
     </div>
 </template>
-
 <script>
 import Papa from "papaparse";
 import csv from "jquery-csv";

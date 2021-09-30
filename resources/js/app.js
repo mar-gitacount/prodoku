@@ -47,6 +47,7 @@ createApp({
     },
 }).mount('#tarekomiapi')
 
+
 // createApp({
 //     components: {
 //         'youtubebaseviewcomponent':YoutubebaseviewComponent,

@@ -21,10 +21,13 @@ use Illuminate\Support\Facades\App;
 |
 */
 //topのページのルーティング
-Route::get('/{any}', function() {
+// Route::get('/{any}', function() {
+//     return view('top');
+// })->where('any', '.*');
+Route::fallback(function ($route) {
+    
     return view('top');
-})->where('any', '.*');
-
+});
 
 Route::get('/', function () {
     // $tarekomi = Tarekomi::findOrFail(1);
@@ -55,7 +58,8 @@ Route::get('/', function () {
 //Auth::routes();
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class,'index'])->name('home');
-Route::resource('update', UpdateController::class);
+Route::get('update', [UpdateController::class,'index'])->name('update');
+
 Route::get('/youtubebase',function(){
     return view('youtubeviews.japan.HpdO5Kq3o',["items" => "testyoutube"]);
 });

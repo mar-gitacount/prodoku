@@ -5,6 +5,7 @@ use App\Models\Tarekomi;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\TarekomiController;
 use App\Http\Controllers\TarekomiapiController;
+use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\QitaapiController;
 use SebastianBergmann\Environment\Console;
 use App\Cron\EditandDelete;
@@ -28,6 +29,7 @@ Route::resource('tarekomiapi', TarekomiapiController::class);
 
 // Qiitaのapi取得のためのルーティング
 Route::resource('qiitaapi', QitaapiController::class);
+// Route::resource('update', UpdateController::class);
 // 引数にpageを渡す。
 //Route::get('topdata', TopController::class)->name('topdata');
 
@@ -41,7 +43,6 @@ Route::get('example',function(){
     $test = "test!";
     return $test;
 });
-
 Route::get('topdata/{page_name_resurt}',function(Request $request){
     $requestparams = $request -> recode;
     // コントローラ内で返す値id←これを使ってサムネイルや、タイトルを取得する。
