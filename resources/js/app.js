@@ -25,6 +25,8 @@ import TarekomiapiComponent from './components/TarekomiapiComponent.vue'
 import YoutubebaseviewComponent from './components/YoutubebaseviewComponent'
 import router from "./router";
 import papaparce from "papaparse";
+// import { Hooper, Slide } from 'hooper';
+// import 'hooper/dist/hooper.css';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,7 +39,8 @@ import papaparce from "papaparse";
 
 createApp({
     // components: {
-    //     'navigationcomponent': NavigationComponet,
+    //     Hooper,
+    //     Slide
     // },
 }).use(router).mount('#app')
 

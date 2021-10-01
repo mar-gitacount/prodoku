@@ -1,4 +1,6 @@
+import Vue from "vue";
 import  NavigationComponent from './components/NavigationComponent';
+import  TopComponent from './components/TopComponent';
 import  SinbutuComponent from './components/SinbutuComponent';
 import EdopeopleComponent from './components/EdopeopleComponent';
 import AnimalComponent from './components/AnimalComponent';
@@ -13,10 +15,15 @@ const routes = [
     //     component: NavigationComponent,
     //     name:'home',
     // },
+    // {
+    //     path:"/",
+    //     name:'home',
+    //     component: NavigationComponent
+    // },
     {
         path:"/",
         name:'home',
-        component: NavigationComponent
+        component: TopComponent
     },
     {
         path:'/sinbutu',

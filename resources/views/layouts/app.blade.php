@@ -49,9 +49,11 @@
                     </a>
                 </div>
                     <div class="gunle-wrap">
-                        <ul>
-                            <li>Japan-Culture</li>
-                            <li>Japan-Culture</li>
+                        <ul class=pc-menu-items>
+                            <li id="top" class="channel_section pickup pc-menu-item"><div class="item-box home"><router-link to="/"><span>Home</span></router-link></div></li>  
+                            <li id="top" class="channel_section pickup pc-menu-item"><div class="item-box japan-culture"><router-link to="/"><span>Japan Culture</span></router-link></div></li>  
+                            <li id="top" class="channel_section pickup pc-menu-item"><div class="item-box topics"><router-link to="/"><span>Topics</span></router-link></div></li>  
+                            <li id="top" class="channel_section pickup pc-menu-item"><div class="item-box nextcharenge"><router-link to="/"><span>Next Charange</span></router-link></div></li>  
                         </ul>
                     </div>
                 <!-- <div id="search_wrap" class="">
@@ -63,16 +65,16 @@
                 <button class="navbar-toggler navbar-toggler-original" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon top-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+                    <!-- <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <!-- <ul class="navbar-nav ml-auto"> -->
                         <!-- Authentication Links -->
-                        @guest
+                        <!-- @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -83,8 +85,8 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
-                        @else
-                        <li class="nav-item dropdown">
+                        @else -->
+                        <!-- <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
@@ -97,10 +99,10 @@
                                     @csrf
                                 </form>
                             </div>
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
+                        </li> -->
+                        <!-- @endguest -->
+                    <!-- </ul>
+                </div> -->
 
             </div>
         </nav>

@@ -21,7 +21,7 @@ jQuery(function ($) {
       // $(".open").slideToggle();
       $(".ovarlay").toggleClass("open");
       $(".open").empty();
-      $(".open").append('<ul class="mobile-menu"><li class="mobile-menu-item">Japan_Culture</li><li class="mobile-menu-item">Next Charenge</li></ul>');
+      $(".open").append('<ul class="mobile-menu"><li class="mobile-menu-item"><a class="router-link-active router-link-exact-active" href="/" aria-current="page">Home</a></li><li class="mobile-menu-item">Japan_Culture</li><li class = "mobile-menu-item">Topics</li><li class="mobile-menu-item">Next Charenge</li></ul>');
     }
   });
 });

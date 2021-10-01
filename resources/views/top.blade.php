@@ -4,7 +4,7 @@
 <div class="container main-content">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card top_wrap">
+            <!-- <div class="card top_wrap"> -->
                 <!-- <div class="card-header">{{ __('北斎漫画や浮世絵のニュースを毎日更新!!') }}
                 @if(config('app.env')=='local')
                     <div class="update_btn_wrap">
@@ -16,19 +16,19 @@
                     
                 @endif
                 </div> -->
-                <ul class="channels" id="channels">
+                <!-- <ul class="channels" id="channels">
                     <li id="top" class="channel_section pickup"><div class=""><router-link to="/">本日の北斎漫画</router-link></div></li>
                     <li id = "sinbutu" class= "channel_section"><div class=""><router-link to="/sinbutu">神仏,神話</router-link></div></li>
                     <li id = "edopeople" class= "channel_section"><div class=""><router-link to="/edopeople">江戸の人々</router-link></div></li>
                     <li id = "animal" class= "channel_section"><div class=""><router-link to="/animal">動物</router-link></div></li>
                     <li id = "youkai" class= "channel_section"><div class=""><router-link to="/youkai">妖怪</router-link></div></li>
                     <li id = "news" class= "channel_section"><div class=""><router-link to="/news">浮世絵ニュース</router-link></div></li>
-                </ul>
+                </ul> -->
                 <div id="app">
                     <router-view></router-view>
                 </div>
-                <div class=""><router-link to="/privacy_policy">プライバシープライバシー</router-link></div>
-            </div>
+                <!-- <div class=""><router-link to="/privacy_policy">プライバシープライバシー</router-link></div> -->
+            <!-- </div> -->
         </div>
     </div>
 </div>

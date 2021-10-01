@@ -11,12 +11,14 @@
         "axios": "^0.21.1",
         "bootstrap": "^5.0.2",
         "fs": "^0.0.1-security",
+        "hooper": "^0.3.4",
         "jquery": "^3.6.0",
         "jquery-csv": "^1.0.21",
         "package.json": "^2.0.1",
         "papaparse": "^5.3.1",
         "popper.js": "^1.16.1",
         "readmore-js": "^2.2.1",
+        "slick-carousel": "^1.8.1",
         "vue-router": "^4.0.11"
     },
     "devDependencies": {

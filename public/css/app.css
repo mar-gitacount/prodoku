@@ -11273,14 +11273,20 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+#NextCharange {
+  display: none;
+}
+
 .mobile-menu {
   display: flex;
   flex-wrap: wrap;
+  padding-right: 32px;
 }
 
 .mobile-menu-item {
   width: 100%;
-  font-size: 100px;
+  font-size: 30px;
+  border-bottom: solid 1px #000;
 }
 
 .ovarlay {
@@ -11351,6 +11357,25 @@ textarea.form-control-lg {
 @media (min-width: 1024px) {
   .navbar .navi-bar-container {
     flex-wrap: wrap;
+  }
+
+  .navbar-current a span {
+    color: #dd9966 !important;
+    border-bottom: solid 3px #dd9966;
+  }
+
+  .gunle-wrap {
+    font-size: 30px;
+    width: 100%;
+  }
+  .gunle-wrap .pc-menu-items {
+    display: flex;
+    padding: 0%;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .gunle-wrap .pc-menu-items .pc-menu-item .item-box a span {
+    color: white;
   }
 
   .navibar-title-logo {
