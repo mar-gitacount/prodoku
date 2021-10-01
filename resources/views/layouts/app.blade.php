@@ -31,6 +31,14 @@
 
 <body>
     <div id="app">
+        <div class="ovarlay">
+            <!-- <ul class="mobile-menu">
+                <li id="top" class="channel_section pickup mobile-menu-item"><div class=""><router-link to="/"><span>本日の北斎漫画</span></router-link></div></li>            
+                <li id="top" class="channel_section pickup mobile-menu-item"><div class=""><router-link to="/"><span>本日の北斎漫画</span></router-link></div></li>            
+                <li id="top" class="channel_section pickup mobile-menu-item"><div class=""><router-link to="/"><span>本日の北斎漫画</span></router-link></div></li>            
+                <li id="top" class="channel_section pickup mobile-menu-item"><div class=""><router-link to="/"><span>本日の北斎漫画</span></router-link></div></li>            
+            </ul> -->
+        </div>
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
         @yield('nav_head')
             <div class="navi-bar-container">
@@ -38,7 +46,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="https://masarubucket.s3.ap-northeast-1.amazonaws.com/%E3%82%BF%E3%82%A4%E3%83%88%E3%83%AB%E5%80%99%E8%A3%9C2.png" alt="">
                     <!-- {{ config('app.name', '北斎漫画') }} -->
-                   </a>
+                    </a>
                 </div>
                     <div class="gunle-wrap">
                         <ul>

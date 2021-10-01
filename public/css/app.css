@@ -11273,6 +11273,55 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.mobile-menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mobile-menu-item {
+  width: 100%;
+  font-size: 100px;
+}
+
+.ovarlay {
+  position: fixed;
+  top: 0;
+  right: -100px;
+}
+
+.ovarlay.open {
+  background: white;
+  height: 100%;
+  z-index: 9000;
+  top: 0;
+  right: 0;
+  -webkit-animation-name: ovarlay-open-animation;
+          animation-name: ovarlay-open-animation;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes ovarlay-open-animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80%;
+  }
+}
+
+@keyframes ovarlay-open-animation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80%;
+  }
+}
 .navbar {
   position: fixed;
   width: 100%;
