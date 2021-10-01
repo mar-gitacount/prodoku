@@ -1,7 +1,15 @@
 
 @extends('layouts.app')
 @section('content')
+<div class="top-imgs">
+    <ul class="slick">
+        <!-- <li><img art = "画像1" src="https://masarubucket.s3.ap-northeast-1.amazonaws.com/youkai/IMG_4918.JPG" style="width:300px; height:300px;"></li>
+        <li><img art = "画像1" src="https://masarubucket.s3.ap-northeast-1.amazonaws.com/hokusaimanga/sinbutu/IMG_4910.JPG" style="width:300px; height:300px;"></li> -->
+        <!-- <li><img art = "画像1" src="https://masarubucket.s3.ap-northeast-1.amazonaws.com/youkai/IMG_4922.JPG" style="width:300px; height:300px;"></li> -->
+    </ul>
+</div>
 <div class="container main-content">
+
     <div class="row justify-content-center">
         <div class="col-md-10">
             <!-- <div class="card top_wrap"> -->

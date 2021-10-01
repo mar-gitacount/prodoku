@@ -110,7 +110,9 @@ $sp: 480px;  // スマホ
     margin-right: auto;
     display: flex;
 }
-
+.slick{
+    padding:0;
+}
 @include pc {
     .navbar{
         .navi-bar-container{
@@ -177,6 +179,8 @@ $sp: 480px;  // スマホ
         }
     }
 }
+
+
 
 
 .navbar-light .navbar-toggler-icon {
